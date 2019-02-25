@@ -409,6 +409,7 @@ function(e, t, s) {
             }]
         };
         localStorage.setItem(n, (0, o["default"])(l))
+        
     }
     t["default"] = {
         fetch: function() {
