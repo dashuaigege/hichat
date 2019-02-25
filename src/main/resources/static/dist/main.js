@@ -346,7 +346,8 @@ function(e, t) {
         },
         methods: {
             inputing: function(e) {
-                e.ctrlKey && 13 === e.keyCode && this.text.length && (this.session.messages.push({
+                ((e.type=="keyup"&&e.ctrlKey && 13 === e.keyCode)||e.type=="click")
+                && this.text.length && (this.session.messages.push({
                     text: this.text,
                     date: new Date,
                     self: !0
@@ -378,12 +379,17 @@ function(e, t, s) {
             },
             userList: [{
                 id: 2,
-                name: "示例介绍",
+                name: "test",
                 img: "dist/images/2.png"
             },
             {
                 id: 3,
                 name: "webpack",
+                img: "dist/images/3.jpg"
+            },
+            {
+                id: 4,
+                name: "laowang",
                 img: "dist/images/3.jpg"
             }],
             sessionList: [{
@@ -494,7 +500,7 @@ function(e, t) {
     e.exports = '<div class=m-message v-scroll-bottom=session.messages><ul><li v-for="item in session.messages"><p class=time><span>{{item.date | time}}</span></p><div class=main :class="{ self: item.self }"><img class=avatar width=30 height=30 :src="item | avatar"><div class=text>{{item.text}}</div></div></li></ul></div>'
 },
 function(e, t) {
-    e.exports = '<div class=m-text><textarea placeholder="按 Ctrl + Enter 发送" v-model=text @keyup=inputing></textarea><button class=sendBtn>发送(s)</button></div>'
+    e.exports = '<div class=m-text><textarea placeholder="按 Ctrl + Enter 发送" v-model=text @keyup=inputing></textarea><button class=sendBtn @click=inputing>发送(s)</button></div>'
 },
 function(e, t, s) {
     s(23),

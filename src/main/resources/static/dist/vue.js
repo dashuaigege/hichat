@@ -37,11 +37,13 @@
   }
 
   /**
-   * Delete a property and trigger change if necessary.
-   *
-   * @param {Object} obj
-   * @param {String} key
-   */
+	 * Delete a property and trigger change if necessary.
+	 * 
+	 * @param {Object}
+	 *            obj
+	 * @param {String}
+	 *            key
+	 */
 
   function del(obj, key) {
     if (!hasOwn(obj, key)) {
@@ -65,23 +67,26 @@
 
   var hasOwnProperty = Object.prototype.hasOwnProperty;
   /**
-   * Check whether the object has the property.
-   *
-   * @param {Object} obj
-   * @param {String} key
-   * @return {Boolean}
-   */
+	 * Check whether the object has the property.
+	 * 
+	 * @param {Object}
+	 *            obj
+	 * @param {String}
+	 *            key
+	 * @return {Boolean}
+	 */
 
   function hasOwn(obj, key) {
     return hasOwnProperty.call(obj, key);
   }
 
   /**
-   * Check if an expression is a literal value.
-   *
-   * @param {String} exp
-   * @return {Boolean}
-   */
+	 * Check if an expression is a literal value.
+	 * 
+	 * @param {String}
+	 *            exp
+	 * @return {Boolean}
+	 */
 
   var literalValueRE = /^\s?(true|false|[\d\.]+|'[^']*'|"[^"]*")\s?$/;
 
@@ -90,11 +95,12 @@
   }
 
   /**
-   * Check if a string starts with $ or _
-   *
-   * @param {String} str
-   * @return {Boolean}
-   */
+	 * Check if a string starts with $ or _
+	 * 
+	 * @param {String}
+	 *            str
+	 * @return {Boolean}
+	 */
 
   function isReserved(str) {
     var c = (str + '').charCodeAt(0);
@@ -102,24 +108,25 @@
   }
 
   /**
-   * Guard text output, make sure undefined outputs
-   * empty string
-   *
-   * @param {*} value
-   * @return {String}
-   */
+	 * Guard text output, make sure undefined outputs empty string
+	 * 
+	 * @param {*}
+	 *            value
+	 * @return {String}
+	 */
 
   function _toString(value) {
     return value == null ? '' : value.toString();
   }
 
   /**
-   * Check and convert possible numeric strings to numbers
-   * before setting back to data
-   *
-   * @param {*} value
-   * @return {*|Number}
-   */
+	 * Check and convert possible numeric strings to numbers before setting back
+	 * to data
+	 * 
+	 * @param {*}
+	 *            value
+	 * @return {*|Number}
+	 */
 
   function toNumber(value) {
     if (typeof value !== 'string') {
@@ -131,22 +138,24 @@
   }
 
   /**
-   * Convert string boolean literals into real booleans.
-   *
-   * @param {*} value
-   * @return {*|Boolean}
-   */
+	 * Convert string boolean literals into real booleans.
+	 * 
+	 * @param {*}
+	 *            value
+	 * @return {*|Boolean}
+	 */
 
   function toBoolean(value) {
     return value === 'true' ? true : value === 'false' ? false : value;
   }
 
   /**
-   * Strip quotes from a string
-   *
-   * @param {String} str
-   * @return {String | false}
-   */
+	 * Strip quotes from a string
+	 * 
+	 * @param {String}
+	 *            str
+	 * @return {String | false}
+	 */
 
   function stripQuotes(str) {
     var a = str.charCodeAt(0);
@@ -155,11 +164,12 @@
   }
 
   /**
-   * Camelize a hyphen-delmited string.
-   *
-   * @param {String} str
-   * @return {String}
-   */
+	 * Camelize a hyphen-delmited string.
+	 * 
+	 * @param {String}
+	 *            str
+	 * @return {String}
+	 */
 
   var camelizeRE = /-(\w)/g;
 
@@ -172,11 +182,12 @@
   }
 
   /**
-   * Hyphenate a camelCase string.
-   *
-   * @param {String} str
-   * @return {String}
-   */
+	 * Hyphenate a camelCase string.
+	 * 
+	 * @param {String}
+	 *            str
+	 * @return {String}
+	 */
 
   var hyphenateRE = /([a-z\d])([A-Z])/g;
 
@@ -185,16 +196,16 @@
   }
 
   /**
-   * Converts hyphen/underscore/slash delimitered names into
-   * camelized classNames.
-   *
-   * e.g. my-component => MyComponent
-   *      some_else    => SomeElse
-   *      some/comp    => SomeComp
-   *
-   * @param {String} str
-   * @return {String}
-   */
+	 * Converts hyphen/underscore/slash delimitered names into camelized
+	 * classNames.
+	 * 
+	 * e.g. my-component => MyComponent some_else => SomeElse some/comp =>
+	 * SomeComp
+	 * 
+	 * @param {String}
+	 *            str
+	 * @return {String}
+	 */
 
   var classifyRE = /(?:^|[-_\/])(\w)/g;
 
@@ -203,12 +214,14 @@
   }
 
   /**
-   * Simple bind, faster than native
-   *
-   * @param {Function} fn
-   * @param {Object} ctx
-   * @return {Function}
-   */
+	 * Simple bind, faster than native
+	 * 
+	 * @param {Function}
+	 *            fn
+	 * @param {Object}
+	 *            ctx
+	 * @return {Function}
+	 */
 
   function bind$1(fn, ctx) {
     return function (a) {
@@ -218,12 +231,14 @@
   }
 
   /**
-   * Convert an Array-like object to a real Array.
-   *
-   * @param {Array-like} list
-   * @param {Number} [start] - start index
-   * @return {Array}
-   */
+	 * Convert an Array-like object to a real Array.
+	 * 
+	 * @param {Array-like}
+	 *            list
+	 * @param {Number}
+	 *            [start] - start index
+	 * @return {Array}
+	 */
 
   function toArray(list, start) {
     start = start || 0;
@@ -236,11 +251,13 @@
   }
 
   /**
-   * Mix properties into target object.
-   *
-   * @param {Object} to
-   * @param {Object} from
-   */
+	 * Mix properties into target object.
+	 * 
+	 * @param {Object}
+	 *            to
+	 * @param {Object}
+	 *            from
+	 */
 
   function extend(to, from) {
     var keys = Object.keys(from);
@@ -252,25 +269,25 @@
   }
 
   /**
-   * Quick object check - this is primarily used to tell
-   * Objects from primitive values when we know the value
-   * is a JSON-compliant type.
-   *
-   * @param {*} obj
-   * @return {Boolean}
-   */
+	 * Quick object check - this is primarily used to tell Objects from
+	 * primitive values when we know the value is a JSON-compliant type.
+	 * 
+	 * @param {*}
+	 *            obj
+	 * @return {Boolean}
+	 */
 
   function isObject(obj) {
     return obj !== null && typeof obj === 'object';
   }
 
   /**
-   * Strict object type check. Only returns true
-   * for plain JavaScript objects.
-   *
-   * @param {*} obj
-   * @return {Boolean}
-   */
+	 * Strict object type check. Only returns true for plain JavaScript objects.
+	 * 
+	 * @param {*}
+	 *            obj
+	 * @return {Boolean}
+	 */
 
   var toString = Object.prototype.toString;
   var OBJECT_STRING = '[object Object]';
@@ -280,22 +297,27 @@
   }
 
   /**
-   * Array type check.
-   *
-   * @param {*} obj
-   * @return {Boolean}
-   */
+	 * Array type check.
+	 * 
+	 * @param {*}
+	 *            obj
+	 * @return {Boolean}
+	 */
 
   var isArray = Array.isArray;
 
   /**
-   * Define a non-enumerable property
-   *
-   * @param {Object} obj
-   * @param {String} key
-   * @param {*} val
-   * @param {Boolean} [enumerable]
-   */
+	 * Define a non-enumerable property
+	 * 
+	 * @param {Object}
+	 *            obj
+	 * @param {String}
+	 *            key
+	 * @param {*}
+	 *            val
+	 * @param {Boolean}
+	 *            [enumerable]
+	 */
 
   function def(obj, key, val, enumerable) {
     Object.defineProperty(obj, key, {
@@ -307,13 +329,15 @@
   }
 
   /**
-   * Debounce a function so it only gets called after the
-   * input stops arriving after the given wait period.
-   *
-   * @param {Function} func
-   * @param {Number} wait
-   * @return {Function} - the debounced function
-   */
+	 * Debounce a function so it only gets called after the input stops arriving
+	 * after the given wait period.
+	 * 
+	 * @param {Function}
+	 *            func
+	 * @param {Number}
+	 *            wait
+	 * @return {Function} - the debounced function
+	 */
 
   function _debounce(func, wait) {
     var timeout, args, context, timestamp, result;
@@ -339,12 +363,13 @@
   }
 
   /**
-   * Manual indexOf because it's slightly faster than
-   * native.
-   *
-   * @param {Array} arr
-   * @param {*} obj
-   */
+	 * Manual indexOf because it's slightly faster than native.
+	 * 
+	 * @param {Array}
+	 *            arr
+	 * @param {*}
+	 *            obj
+	 */
 
   function indexOf(arr, obj) {
     var i = arr.length;
@@ -355,11 +380,12 @@
   }
 
   /**
-   * Make a cancellable version of an async callback.
-   *
-   * @param {Function} fn
-   * @return {Function}
-   */
+	 * Make a cancellable version of an async callback.
+	 * 
+	 * @param {Function}
+	 *            fn
+	 * @return {Function}
+	 */
 
   function cancellable(fn) {
     var cb = function cb() {
@@ -374,13 +400,15 @@
   }
 
   /**
-   * Check if two values are loosely equal - that is,
-   * if they are plain objects, do they have the same shape?
-   *
-   * @param {*} a
-   * @param {*} b
-   * @return {Boolean}
-   */
+	 * Check if two values are loosely equal - that is, if they are plain
+	 * objects, do they have the same shape?
+	 * 
+	 * @param {*}
+	 *            a
+	 * @param {*}
+	 *            b
+	 * @return {Boolean}
+	 */
 
   function looseEqual(a, b) {
     /* eslint-disable eqeqeq */
@@ -413,14 +441,15 @@
   }
 
   /**
-   * Defer a task to execute it asynchronously. Ideally this
-   * should be executed as a microtask, so we leverage
-   * MutationObserver if it's available, and fallback to
-   * setTimeout(0).
-   *
-   * @param {Function} cb
-   * @param {Object} ctx
-   */
+	 * Defer a task to execute it asynchronously. Ideally this should be
+	 * executed as a microtask, so we leverage MutationObserver if it's
+	 * available, and fallback to setTimeout(0).
+	 * 
+	 * @param {Function}
+	 *            cb
+	 * @param {Object}
+	 *            ctx
+	 */
 
   var nextTick = (function () {
     var callbacks = [];
@@ -470,15 +499,16 @@
   var p = Cache.prototype;
 
   /**
-   * Put <value> into the cache associated with <key>.
-   * Returns the entry which was removed to make room for
-   * the new entry. Otherwise undefined is returned.
-   * (i.e. if there was enough room already).
-   *
-   * @param {String} key
-   * @param {*} value
-   * @return {Entry|undefined}
-   */
+	 * Put <value> into the cache associated with <key>. Returns the entry which
+	 * was removed to make room for the new entry. Otherwise undefined is
+	 * returned. (i.e. if there was enough room already).
+	 * 
+	 * @param {String}
+	 *            key
+	 * @param {*}
+	 *            value
+	 * @return {Entry|undefined}
+	 */
 
   p.put = function (key, value) {
     var entry = {
@@ -501,10 +531,9 @@
   };
 
   /**
-   * Purge the least recently used (oldest) entry from the
-   * cache. Returns the removed entry or undefined if the
-   * cache was empty.
-   */
+	 * Purge the least recently used (oldest) entry from the cache. Returns the
+	 * removed entry or undefined if the cache was empty.
+	 */
 
   p.shift = function () {
     var entry = this.head;
@@ -518,13 +547,15 @@
   };
 
   /**
-   * Get and register recent use of <key>. Returns the value
-   * associated with <key> or undefined if not in cache.
-   *
-   * @param {String} key
-   * @param {Boolean} returnEntry
-   * @return {Entry|*}
-   */
+	 * Get and register recent use of <key>. Returns the value associated with
+	 * <key> or undefined if not in cache.
+	 * 
+	 * @param {String}
+	 *            key
+	 * @param {Boolean}
+	 *            returnEntry
+	 * @return {Entry|*}
+	 */
 
   p.get = function (key, returnEntry) {
     var entry = this._keymap[key];
@@ -533,9 +564,9 @@
       return returnEntry ? entry : entry.value;
     }
     // HEAD--------------TAIL
-    //   <.older   .newer>
-    //  <--- add direction --
-    //   A  B  C  <D>  E
+    // <.older .newer>
+    // <--- add direction --
+    // A B C <D> E
     if (entry.newer) {
       if (entry === this.head) {
         this.head = entry.newer;
@@ -559,8 +590,8 @@
   var reservedArgRE = /^in$|^-?\d+/;
 
   /**
-   * Parser state
-   */
+	 * Parser state
+	 */
 
   var str;
   var dir;
@@ -575,8 +606,8 @@
   var square;
   var paren;
   /**
-   * Push a filter to the current directive object
-   */
+	 * Push a filter to the current directive object
+	 */
 
   function pushFilter() {
     var exp = str.slice(lastFilterIndex, i).trim();
@@ -596,11 +627,12 @@
   }
 
   /**
-   * Check if an argument is dynamic and strip quotes.
-   *
-   * @param {String} arg
-   * @return {Object}
-   */
+	 * Check if an argument is dynamic and strip quotes.
+	 * 
+	 * @param {String}
+	 *            arg
+	 * @return {Object}
+	 */
 
   function processFilterArg(arg) {
     if (reservedArgRE.test(arg)) {
@@ -619,22 +651,18 @@
   }
 
   /**
-   * Parse a directive value and extract the expression
-   * and its filters into a descriptor.
-   *
-   * Example:
-   *
-   * "a + 1 | uppercase" will yield:
-   * {
-   *   expression: 'a + 1',
-   *   filters: [
-   *     { name: 'uppercase', args: null }
-   *   ]
-   * }
-   *
-   * @param {String} str
-   * @return {Object}
-   */
+	 * Parse a directive value and extract the expression and its filters into a
+	 * descriptor.
+	 * 
+	 * Example:
+	 * 
+	 * "a + 1 | uppercase" will yield: { expression: 'a + 1', filters: [ { name:
+	 * 'uppercase', args: null } ] }
+	 * 
+	 * @param {String}
+	 *            str
+	 * @return {Object}
+	 */
 
   function parseDirective(s) {
 
@@ -710,11 +738,11 @@
   var tagRE = undefined;
   var htmlRE = undefined;
   /**
-   * Escape a string so it can be used in a RegExp
-   * constructor.
-   *
-   * @param {String} str
-   */
+	 * Escape a string so it can be used in a RegExp constructor.
+	 * 
+	 * @param {String}
+	 *            str
+	 */
 
   function escapeRegex(str) {
     return str.replace(regexEscapeRE, '\\$&');
@@ -732,15 +760,13 @@
   }
 
   /**
-   * Parse a template text string into an array of tokens.
-   *
-   * @param {String} text
-   * @return {Array<Object> | null}
-   *               - {String} type
-   *               - {String} value
-   *               - {Boolean} [html]
-   *               - {Boolean} [oneTime]
-   */
+	 * Parse a template text string into an array of tokens.
+	 * 
+	 * @param {String}
+	 *            text
+	 * @return {Array<Object> | null} - {String} type - {String} value -
+	 *         {Boolean} [html] - {Boolean} [oneTime]
+	 */
 
   function parseText(text) {
     if (!cache) {
@@ -791,13 +817,14 @@
   }
 
   /**
-   * Format a list of tokens into an expression.
-   * e.g. tokens parsed from 'a {{b}} c' can be serialized
-   * into one single expression as '"a " + b + " c"'.
-   *
-   * @param {Array} tokens
-   * @return {String}
-   */
+	 * Format a list of tokens into an expression. e.g. tokens parsed from 'a
+	 * {{b}} c' can be serialized into one single expression as '"a " + b + "
+	 * c"'.
+	 * 
+	 * @param {Array}
+	 *            tokens
+	 * @return {String}
+	 */
 
   function tokensToExp(tokens) {
     if (tokens.length > 1) {
@@ -810,29 +837,32 @@
   }
 
   /**
-   * Format a single token.
-   *
-   * @param {Object} token
-   * @param {Boolean} single
-   * @return {String}
-   */
+	 * Format a single token.
+	 * 
+	 * @param {Object}
+	 *            token
+	 * @param {Boolean}
+	 *            single
+	 * @return {String}
+	 */
 
   function formatToken(token, single) {
     return token.tag ? inlineFilters(token.value, single) : '"' + token.value + '"';
   }
 
   /**
-   * For an attribute with multiple interpolation tags,
-   * e.g. attr="some-{{thing | filter}}", in order to combine
-   * the whole thing into a single watchable expression, we
-   * have to inline those filters. This function does exactly
-   * that. This is a bit hacky but it avoids heavy changes
-   * to directive parser and watcher mechanism.
-   *
-   * @param {String} exp
-   * @param {Boolean} single
-   * @return {String}
-   */
+	 * For an attribute with multiple interpolation tags, e.g.
+	 * attr="some-{{thing | filter}}", in order to combine the whole thing into
+	 * a single watchable expression, we have to inline those filters. This
+	 * function does exactly that. This is a bit hacky but it avoids heavy
+	 * changes to directive parser and watcher mechanism.
+	 * 
+	 * @param {String}
+	 *            exp
+	 * @param {Boolean}
+	 *            single
+	 * @return {String}
+	 */
 
   var filterRE$1 = /[^|]\|[^|]/;
   function inlineFilters(exp, single) {
@@ -852,11 +882,12 @@
   }
 
   /**
-   * Replace all interpolation tags in a piece of text.
-   *
-   * @param {String} text
-   * @return {String}
-   */
+	 * Replace all interpolation tags in a piece of text.
+	 * 
+	 * @param {String}
+	 *            text
+	 * @return {String}
+	 */
 
   function removeTags(text) {
     return text.replace(tagRE, '');
@@ -875,63 +906,59 @@
   var config = Object.defineProperties({
 
     /**
-     * Whether to print debug messages.
-     * Also enables stack trace for warnings.
-     *
-     * @type {Boolean}
-     */
+	 * Whether to print debug messages. Also enables stack trace for warnings.
+	 * 
+	 * @type {Boolean}
+	 */
 
     debug: false,
 
     /**
-     * Whether to suppress warnings.
-     *
-     * @type {Boolean}
-     */
+	 * Whether to suppress warnings.
+	 * 
+	 * @type {Boolean}
+	 */
 
     silent: false,
 
     /**
-     * Whether to use async rendering.
-     */
+	 * Whether to use async rendering.
+	 */
 
     async: true,
 
     /**
-     * Whether to warn against errors caught when evaluating
-     * expressions.
-     */
+	 * Whether to warn against errors caught when evaluating expressions.
+	 */
 
     warnExpressionErrors: true,
 
     /**
-     * Whether or not to handle fully object properties which
-     * are already backed by getters and seters. Depending on
-     * use case and environment, this might introduce non-neglible
-     * performance penalties.
-     */
+	 * Whether or not to handle fully object properties which are already backed
+	 * by getters and seters. Depending on use case and environment, this might
+	 * introduce non-neglible performance penalties.
+	 */
     convertAllProperties: false,
 
     /**
-     * Internal flag to indicate the delimiters have been
-     * changed.
-     *
-     * @type {Boolean}
-     */
+	 * Internal flag to indicate the delimiters have been changed.
+	 * 
+	 * @type {Boolean}
+	 */
 
     _delimitersChanged: true,
 
     /**
-     * List of asset types that a component can own.
-     *
-     * @type {Array}
-     */
+	 * List of asset types that a component can own.
+	 * 
+	 * @type {Array}
+	 */
 
     _assetTypes: ['component', 'directive', 'elementDirective', 'filter', 'transition', 'partial'],
 
     /**
-     * prop binding modes
-     */
+	 * prop binding modes
+	 */
 
     _propBindingModes: {
       ONE_WAY: 0,
@@ -940,18 +967,18 @@
     },
 
     /**
-     * Max circular updates allowed in a batcher flush cycle.
-     */
+	 * Max circular updates allowed in a batcher flush cycle.
+	 */
 
     _maxUpdateCount: 100
 
   }, {
     delimiters: { /**
-                   * Interpolation delimiters. Changing these would trigger
-                   * the text parser to re-compile the regular expressions.
-                   *
-                   * @type {Array<String>}
-                   */
+					 * Interpolation delimiters. Changing these would trigger
+					 * the text parser to re-compile the regular expressions.
+					 * 
+					 * @type {Array<String>}
+					 */
 
       get: function get() {
         return delimiters;
@@ -998,13 +1025,17 @@
   }
 
   /**
-   * Append with transition.
-   *
-   * @param {Element} el
-   * @param {Element} target
-   * @param {Vue} vm
-   * @param {Function} [cb]
-   */
+	 * Append with transition.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Element}
+	 *            target
+	 * @param {Vue}
+	 *            vm
+	 * @param {Function}
+	 *            [cb]
+	 */
 
   function appendWithTransition(el, target, vm, cb) {
     applyTransition(el, 1, function () {
@@ -1013,13 +1044,17 @@
   }
 
   /**
-   * InsertBefore with transition.
-   *
-   * @param {Element} el
-   * @param {Element} target
-   * @param {Vue} vm
-   * @param {Function} [cb]
-   */
+	 * InsertBefore with transition.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Element}
+	 *            target
+	 * @param {Vue}
+	 *            vm
+	 * @param {Function}
+	 *            [cb]
+	 */
 
   function beforeWithTransition(el, target, vm, cb) {
     applyTransition(el, 1, function () {
@@ -1028,12 +1063,15 @@
   }
 
   /**
-   * Remove with transition.
-   *
-   * @param {Element} el
-   * @param {Vue} vm
-   * @param {Function} [cb]
-   */
+	 * Remove with transition.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Vue}
+	 *            vm
+	 * @param {Function}
+	 *            [cb]
+	 */
 
   function removeWithTransition(el, vm, cb) {
     applyTransition(el, -1, function () {
@@ -1042,16 +1080,19 @@
   }
 
   /**
-   * Apply transitions with an operation callback.
-   *
-   * @param {Element} el
-   * @param {Number} direction
-   *                  1: enter
-   *                 -1: leave
-   * @param {Function} op - the actual DOM operation
-   * @param {Vue} vm
-   * @param {Function} [cb]
-   */
+	 * Apply transitions with an operation callback.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Number}
+	 *            direction 1: enter -1: leave
+	 * @param {Function}
+	 *            op - the actual DOM operation
+	 * @param {Vue}
+	 *            vm
+	 * @param {Function}
+	 *            [cb]
+	 */
 
   function applyTransition(el, direction, op, vm, cb) {
     var transition = el.__v_trans;
@@ -1074,11 +1115,12 @@
   }
 
   /**
-   * Query an element selector if it's not an element already.
-   *
-   * @param {String|Element} el
-   * @return {Element}
-   */
+	 * Query an element selector if it's not an element already.
+	 * 
+	 * @param {String|Element}
+	 *            el
+	 * @return {Element}
+	 */
 
   function query(el) {
     if (typeof el === 'string') {
@@ -1092,16 +1134,16 @@
   }
 
   /**
-   * Check if a node is in the document.
-   * Note: document.documentElement.contains should work here
-   * but always returns false for comment nodes in phantomjs,
-   * making unit tests difficult. This is fixed by doing the
-   * contains() check on the node's parentNode instead of
-   * the node itself.
-   *
-   * @param {Node} node
-   * @return {Boolean}
-   */
+	 * Check if a node is in the document. Note:
+	 * document.documentElement.contains should work here but always returns
+	 * false for comment nodes in phantomjs, making unit tests difficult. This
+	 * is fixed by doing the contains() check on the node's parentNode instead
+	 * of the node itself.
+	 * 
+	 * @param {Node}
+	 *            node
+	 * @return {Boolean}
+	 */
 
   function inDoc(node) {
     var doc = document.documentElement;
@@ -1110,11 +1152,13 @@
   }
 
   /**
-   * Get and remove an attribute from a node.
-   *
-   * @param {Node} node
-   * @param {String} _attr
-   */
+	 * Get and remove an attribute from a node.
+	 * 
+	 * @param {Node}
+	 *            node
+	 * @param {String}
+	 *            _attr
+	 */
 
   function getAttr(node, _attr) {
     var val = node.getAttribute(_attr);
@@ -1125,12 +1169,14 @@
   }
 
   /**
-   * Get an attribute with colon or v-bind: prefix.
-   *
-   * @param {Node} node
-   * @param {String} name
-   * @return {String|null}
-   */
+	 * Get an attribute with colon or v-bind: prefix.
+	 * 
+	 * @param {Node}
+	 *            node
+	 * @param {String}
+	 *            name
+	 * @return {String|null}
+	 */
 
   function getBindAttr(node, name) {
     var val = getAttr(node, ':' + name);
@@ -1141,34 +1187,40 @@
   }
 
   /**
-   * Check the presence of a bind attribute.
-   *
-   * @param {Node} node
-   * @param {String} name
-   * @return {Boolean}
-   */
+	 * Check the presence of a bind attribute.
+	 * 
+	 * @param {Node}
+	 *            node
+	 * @param {String}
+	 *            name
+	 * @return {Boolean}
+	 */
 
   function hasBindAttr(node, name) {
     return node.hasAttribute(name) || node.hasAttribute(':' + name) || node.hasAttribute('v-bind:' + name);
   }
 
   /**
-   * Insert el before target
-   *
-   * @param {Element} el
-   * @param {Element} target
-   */
+	 * Insert el before target
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Element}
+	 *            target
+	 */
 
   function before(el, target) {
     target.parentNode.insertBefore(el, target);
   }
 
   /**
-   * Insert el after target
-   *
-   * @param {Element} el
-   * @param {Element} target
-   */
+	 * Insert el after target
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Element}
+	 *            target
+	 */
 
   function after(el, target) {
     if (target.nextSibling) {
@@ -1179,21 +1231,24 @@
   }
 
   /**
-   * Remove el from DOM
-   *
-   * @param {Element} el
-   */
+	 * Remove el from DOM
+	 * 
+	 * @param {Element}
+	 *            el
+	 */
 
   function remove(el) {
     el.parentNode.removeChild(el);
   }
 
   /**
-   * Prepend el to target
-   *
-   * @param {Element} el
-   * @param {Element} target
-   */
+	 * Prepend el to target
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Element}
+	 *            target
+	 */
 
   function prepend(el, target) {
     if (target.firstChild) {
@@ -1204,11 +1259,13 @@
   }
 
   /**
-   * Replace target with el
-   *
-   * @param {Element} target
-   * @param {Element} el
-   */
+	 * Replace target with el
+	 * 
+	 * @param {Element}
+	 *            target
+	 * @param {Element}
+	 *            el
+	 */
 
   function replace(target, el) {
     var parent = target.parentNode;
@@ -1218,38 +1275,46 @@
   }
 
   /**
-   * Add event listener shorthand.
-   *
-   * @param {Element} el
-   * @param {String} event
-   * @param {Function} cb
-   */
+	 * Add event listener shorthand.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {String}
+	 *            event
+	 * @param {Function}
+	 *            cb
+	 */
 
   function on$1(el, event, cb) {
     el.addEventListener(event, cb);
   }
 
   /**
-   * Remove event listener shorthand.
-   *
-   * @param {Element} el
-   * @param {String} event
-   * @param {Function} cb
-   */
+	 * Remove event listener shorthand.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {String}
+	 *            event
+	 * @param {Function}
+	 *            cb
+	 */
 
   function off(el, event, cb) {
     el.removeEventListener(event, cb);
   }
 
   /**
-   * In IE9, setAttribute('class') will result in empty class
-   * if the element also has the :class attribute; However in
-   * PhantomJS, setting `className` does not work on SVG elements...
-   * So we have to do a conditional check here.
-   *
-   * @param {Element} el
-   * @param {String} cls
-   */
+	 * In IE9, setAttribute('class') will result in empty class if the element
+	 * also has the :class attribute; However in PhantomJS, setting `className`
+	 * does not work on SVG elements... So we have to do a conditional check
+	 * here.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {String}
+	 *            cls
+	 */
 
   function setClass(el, cls) {
     /* istanbul ignore if */
@@ -1261,11 +1326,13 @@
   }
 
   /**
-   * Add class with compatibility for IE & SVG
-   *
-   * @param {Element} el
-   * @param {String} cls
-   */
+	 * Add class with compatibility for IE & SVG
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {String}
+	 *            cls
+	 */
 
   function addClass(el, cls) {
     if (el.classList) {
@@ -1279,11 +1346,13 @@
   }
 
   /**
-   * Remove class with compatibility for IE & SVG
-   *
-   * @param {Element} el
-   * @param {String} cls
-   */
+	 * Remove class with compatibility for IE & SVG
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {String}
+	 *            cls
+	 */
 
   function removeClass(el, cls) {
     if (el.classList) {
@@ -1302,13 +1371,14 @@
   }
 
   /**
-   * Extract raw content inside an element into a temporary
-   * container div
-   *
-   * @param {Element} el
-   * @param {Boolean} asFragment
-   * @return {Element}
-   */
+	 * Extract raw content inside an element into a temporary container div
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Boolean}
+	 *            asFragment
+	 * @return {Element}
+	 */
 
   function extractContent(el, asFragment) {
     var child;
@@ -1330,10 +1400,11 @@
   }
 
   /**
-   * Trim possible empty head/tail textNodes inside a parent.
-   *
-   * @param {Node} node
-   */
+	 * Trim possible empty head/tail textNodes inside a parent.
+	 * 
+	 * @param {Node}
+	 *            node
+	 */
 
   function trimNode(node) {
     trim(node, node.firstChild);
@@ -1347,34 +1418,30 @@
   }
 
   /**
-   * Check if an element is a template tag.
-   * Note if the template appears inside an SVG its tagName
-   * will be in lowercase.
-   *
-   * @param {Element} el
-   */
+	 * Check if an element is a template tag. Note if the template appears
+	 * inside an SVG its tagName will be in lowercase.
+	 * 
+	 * @param {Element}
+	 *            el
+	 */
 
   function isTemplate(el) {
     return el.tagName && el.tagName.toLowerCase() === 'template';
   }
 
   /**
-   * Create an "anchor" for performing dom insertion/removals.
-   * This is used in a number of scenarios:
-   * - fragment instance
-   * - v-html
-   * - v-if
-   * - v-for
-   * - component
-   *
-   * @param {String} content
-   * @param {Boolean} persist - IE trashes empty textNodes on
-   *                            cloneNode(true), so in certain
-   *                            cases the anchor needs to be
-   *                            non-empty to be persisted in
-   *                            templates.
-   * @return {Comment|Text}
-   */
+	 * Create an "anchor" for performing dom insertion/removals. This is used in
+	 * a number of scenarios: - fragment instance - v-html - v-if - v-for -
+	 * component
+	 * 
+	 * @param {String}
+	 *            content
+	 * @param {Boolean}
+	 *            persist - IE trashes empty textNodes on cloneNode(true), so in
+	 *            certain cases the anchor needs to be non-empty to be persisted
+	 *            in templates.
+	 * @return {Comment|Text}
+	 */
 
   function createAnchor(content, persist) {
     var anchor = config.debug ? document.createComment(content) : document.createTextNode(persist ? ' ' : '');
@@ -1383,11 +1450,12 @@
   }
 
   /**
-   * Find a component ref attribute that starts with $.
-   *
-   * @param {Element} node
-   * @return {String|undefined}
-   */
+	 * Find a component ref attribute that starts with $.
+	 * 
+	 * @param {Element}
+	 *            node
+	 * @return {String|undefined}
+	 */
 
   var refRE = /^v-ref:/;
 
@@ -1404,12 +1472,15 @@
   }
 
   /**
-   * Map a function to a range of nodes .
-   *
-   * @param {Node} node
-   * @param {Node} end
-   * @param {Function} op
-   */
+	 * Map a function to a range of nodes .
+	 * 
+	 * @param {Node}
+	 *            node
+	 * @param {Node}
+	 *            end
+	 * @param {Function}
+	 *            op
+	 */
 
   function mapNodeRange(node, end, op) {
     var next;
@@ -1422,16 +1493,20 @@
   }
 
   /**
-   * Remove a range of nodes with transition, store
-   * the nodes in a fragment with correct ordering,
-   * and call callback when done.
-   *
-   * @param {Node} start
-   * @param {Node} end
-   * @param {Vue} vm
-   * @param {DocumentFragment} frag
-   * @param {Function} cb
-   */
+	 * Remove a range of nodes with transition, store the nodes in a fragment
+	 * with correct ordering, and call callback when done.
+	 * 
+	 * @param {Node}
+	 *            start
+	 * @param {Node}
+	 *            end
+	 * @param {Vue}
+	 *            vm
+	 * @param {DocumentFragment}
+	 *            frag
+	 * @param {Function}
+	 *            cb
+	 */
 
   function removeNodeRange(start, end, vm, frag, cb) {
     var done = false;
@@ -1457,13 +1532,14 @@
   var reservedTagRE = /^(slot|partial|component)$/;
 
   /**
-   * Check if an element is a component, if yes return its
-   * component id.
-   *
-   * @param {Element} el
-   * @param {Object} options
-   * @return {Object|undefined}
-   */
+	 * Check if an element is a component, if yes return its component id.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 * @return {Object|undefined}
+	 */
 
   function checkComponentAttr(el, options) {
     var tag = el.tagName.toLowerCase();
@@ -1490,11 +1566,12 @@
   }
 
   /**
-   * Get "is" binding from an element.
-   *
-   * @param {Element} el
-   * @return {Object|undefined}
-   */
+	 * Get "is" binding from an element.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @return {Object|undefined}
+	 */
 
   function getIsBinding(el) {
     // dynamic syntax
@@ -1510,12 +1587,15 @@
   }
 
   /**
-   * Set a prop's initial value on a vm and its data object.
-   *
-   * @param {Vue} vm
-   * @param {Object} prop
-   * @param {*} value
-   */
+	 * Set a prop's initial value on a vm and its data object.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Object}
+	 *            prop
+	 * @param {*}
+	 *            value
+	 */
 
   function initProp(vm, prop, value) {
     var key = prop.path;
@@ -1524,11 +1604,13 @@
   }
 
   /**
-   * Assert whether a prop is valid.
-   *
-   * @param {Object} prop
-   * @param {*} value
-   */
+	 * Assert whether a prop is valid.
+	 * 
+	 * @param {Object}
+	 *            prop
+	 * @param {*}
+	 *            value
+	 */
 
   function assertProp(prop, value) {
     // if a prop is not provided and is not required,
@@ -1578,12 +1660,14 @@
   }
 
   /**
-   * Force parsing value with coerce option.
-   *
-   * @param {*} value
-   * @param {Object} options
-   * @return {*}
-   */
+	 * Force parsing value with coerce option.
+	 * 
+	 * @param {*}
+	 *            value
+	 * @param {Object}
+	 *            options
+	 * @return {*}
+	 */
 
   function coerceProp(prop, value) {
     var coerce = prop.options.coerce;
@@ -1603,22 +1687,24 @@
   }
 
   /**
-   * Option overwriting strategies are functions that handle
-   * how to merge a parent option value and a child option
-   * value into the final value.
-   *
-   * All strategy functions follow the same signature:
-   *
-   * @param {*} parentVal
-   * @param {*} childVal
-   * @param {Vue} [vm]
-   */
+	 * Option overwriting strategies are functions that handle how to merge a
+	 * parent option value and a child option value into the final value.
+	 * 
+	 * All strategy functions follow the same signature:
+	 * 
+	 * @param {*}
+	 *            parentVal
+	 * @param {*}
+	 *            childVal
+	 * @param {Vue}
+	 *            [vm]
+	 */
 
   var strats = config.optionMergeStrategies = Object.create(null);
 
   /**
-   * Helper that recursively merges two data objects together.
-   */
+	 * Helper that recursively merges two data objects together.
+	 */
 
   function mergeData(to, from) {
     var key, toVal, fromVal;
@@ -1635,8 +1721,8 @@
   }
 
   /**
-   * Data
-   */
+	 * Data
+	 */
 
   strats.data = function (parentVal, childVal, vm) {
     if (!vm) {
@@ -1674,8 +1760,8 @@
   };
 
   /**
-   * El
-   */
+	 * El
+	 */
 
   strats.el = function (parentVal, childVal, vm) {
     if (!vm && childVal && typeof childVal !== 'function') {
@@ -1688,16 +1774,16 @@
   };
 
   /**
-   * Hooks and param attributes are merged as arrays.
-   */
+	 * Hooks and param attributes are merged as arrays.
+	 */
 
   strats.init = strats.created = strats.ready = strats.attached = strats.detached = strats.beforeCompile = strats.compiled = strats.beforeDestroy = strats.destroyed = function (parentVal, childVal) {
     return childVal ? parentVal ? parentVal.concat(childVal) : isArray(childVal) ? childVal : [childVal] : parentVal;
   };
 
   /**
-   * 0.11 deprecation warning
-   */
+	 * 0.11 deprecation warning
+	 */
 
   strats.paramAttributes = function () {
     /* istanbul ignore next */
@@ -1705,12 +1791,11 @@
   };
 
   /**
-   * Assets
-   *
-   * When a vm is present (instance creation), we need to do
-   * a three-way merge between constructor options, instance
-   * options and parent options.
-   */
+	 * Assets
+	 * 
+	 * When a vm is present (instance creation), we need to do a three-way merge
+	 * between constructor options, instance options and parent options.
+	 */
 
   function mergeAssets(parentVal, childVal) {
     var res = Object.create(parentVal);
@@ -1722,11 +1807,11 @@
   });
 
   /**
-   * Events & Watchers.
-   *
-   * Events & watchers hashes should not overwrite one
-   * another, so we merge them as arrays.
-   */
+	 * Events & Watchers.
+	 * 
+	 * Events & watchers hashes should not overwrite one another, so we merge
+	 * them as arrays.
+	 */
 
   strats.watch = strats.events = function (parentVal, childVal) {
     if (!childVal) return parentVal;
@@ -1745,8 +1830,8 @@
   };
 
   /**
-   * Other object hashes.
-   */
+	 * Other object hashes.
+	 */
 
   strats.props = strats.methods = strats.computed = function (parentVal, childVal) {
     if (!childVal) return parentVal;
@@ -1758,19 +1843,19 @@
   };
 
   /**
-   * Default strategy.
-   */
+	 * Default strategy.
+	 */
 
   var defaultStrat = function defaultStrat(parentVal, childVal) {
     return childVal === undefined ? parentVal : childVal;
   };
 
   /**
-   * Make sure component options get converted to actual
-   * constructors.
-   *
-   * @param {Object} options
-   */
+	 * Make sure component options get converted to actual constructors.
+	 * 
+	 * @param {Object}
+	 *            options
+	 */
 
   function guardComponents(options) {
     if (options.components) {
@@ -1792,11 +1877,12 @@
   }
 
   /**
-   * Ensure all props option syntax are normalized into the
-   * Object-based format.
-   *
-   * @param {Object} options
-   */
+	 * Ensure all props option syntax are normalized into the Object-based
+	 * format.
+	 * 
+	 * @param {Object}
+	 *            options
+	 */
 
   function guardProps(options) {
     var props = options.props;
@@ -1825,12 +1911,13 @@
   }
 
   /**
-   * Guard an Array-format assets option and converted it
-   * into the key-value Object format.
-   *
-   * @param {Object|Array} assets
-   * @return {Object}
-   */
+	 * Guard an Array-format assets option and converted it into the key-value
+	 * Object format.
+	 * 
+	 * @param {Object|Array}
+	 *            assets
+	 * @return {Object}
+	 */
 
   function guardArrayAssets(assets) {
     if (isArray(assets)) {
@@ -1852,14 +1939,17 @@
   }
 
   /**
-   * Merge two option objects into a new one.
-   * Core utility used in both instantiation and inheritance.
-   *
-   * @param {Object} parent
-   * @param {Object} child
-   * @param {Vue} [vm] - if vm is present, indicates this is
-   *                     an instantiation merge.
-   */
+	 * Merge two option objects into a new one. Core utility used in both
+	 * instantiation and inheritance.
+	 * 
+	 * @param {Object}
+	 *            parent
+	 * @param {Object}
+	 *            child
+	 * @param {Vue}
+	 *            [vm] - if vm is present, indicates this is an instantiation
+	 *            merge.
+	 */
 
   function mergeOptions(parent, child, vm) {
     guardComponents(child);
@@ -1887,15 +1977,17 @@
   }
 
   /**
-   * Resolve an asset.
-   * This function is used because child instances need access
-   * to assets defined in its ancestor chain.
-   *
-   * @param {Object} options
-   * @param {String} type
-   * @param {String} id
-   * @return {Object|Function}
-   */
+	 * Resolve an asset. This function is used because child instances need
+	 * access to assets defined in its ancestor chain.
+	 * 
+	 * @param {Object}
+	 *            options
+	 * @param {String}
+	 *            type
+	 * @param {String}
+	 *            id
+	 * @return {Object|Function}
+	 */
 
   function resolveAsset(options, type, id) {
     var assets = options[type];
@@ -1908,8 +2000,8 @@
   }
 
   /**
-   * Assert asset exists
-   */
+	 * Assert asset exists
+	 */
 
   function assertAsset(val, type, id) {
     if (!val) {
@@ -1921,8 +2013,8 @@
   var arrayMethods = Object.create(arrayProto)
 
   /**
-   * Intercept mutating methods and emit events
-   */
+	 * Intercept mutating methods and emit events
+	 */
 
   ;['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(function (method) {
     // cache original method
@@ -1957,13 +2049,15 @@
   });
 
   /**
-   * Swap the element at the given index with a new value
-   * and emits corresponding event.
-   *
-   * @param {Number} index
-   * @param {*} val
-   * @return {*} - replaced element
-   */
+	 * Swap the element at the given index with a new value and emits
+	 * corresponding event.
+	 * 
+	 * @param {Number}
+	 *            index
+	 * @param {*}
+	 *            val
+	 * @return {*} - replaced element
+	 */
 
   def(arrayProto, '$set', function $set(index, val) {
     if (index >= this.length) {
@@ -1973,11 +2067,13 @@
   });
 
   /**
-   * Convenience method to remove the element at given index.
-   *
-   * @param {Number} index
-   * @param {*} val
-   */
+	 * Convenience method to remove the element at given index.
+	 * 
+	 * @param {Number}
+	 *            index
+	 * @param {*}
+	 *            val
+	 */
 
   def(arrayProto, '$remove', function $remove(item) {
     /* istanbul ignore if */
@@ -1991,11 +2087,11 @@
   var uid$3 = 0;
 
   /**
-   * A dep is an observable that can have multiple
-   * directives subscribing to it.
-   *
-   * @constructor
-   */
+	 * A dep is an observable that can have multiple directives subscribing to
+	 * it.
+	 * 
+	 * @constructor
+	 */
   function Dep() {
     this.id = uid$3++;
     this.subs = [];
@@ -2007,36 +2103,38 @@
   Dep.target = null;
 
   /**
-   * Add a directive subscriber.
-   *
-   * @param {Directive} sub
-   */
+	 * Add a directive subscriber.
+	 * 
+	 * @param {Directive}
+	 *            sub
+	 */
 
   Dep.prototype.addSub = function (sub) {
     this.subs.push(sub);
   };
 
   /**
-   * Remove a directive subscriber.
-   *
-   * @param {Directive} sub
-   */
+	 * Remove a directive subscriber.
+	 * 
+	 * @param {Directive}
+	 *            sub
+	 */
 
   Dep.prototype.removeSub = function (sub) {
     this.subs.$remove(sub);
   };
 
   /**
-   * Add self as a dependency to the target watcher.
-   */
+	 * Add self as a dependency to the target watcher.
+	 */
 
   Dep.prototype.depend = function () {
     Dep.target.addDep(this);
   };
 
   /**
-   * Notify all subscribers of a new value.
-   */
+	 * Notify all subscribers of a new value.
+	 */
 
   Dep.prototype.notify = function () {
     // stablize the subscriber list first
@@ -2049,14 +2147,14 @@
   var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
 
   /**
-   * Observer class that are attached to each observed
-   * object. Once attached, the observer converts target
-   * object's property keys into getter/setters that
-   * collect dependencies and dispatches updates.
-   *
-   * @param {Array|Object} value
-   * @constructor
-   */
+	 * Observer class that are attached to each observed object. Once attached,
+	 * the observer converts target object's property keys into getter/setters
+	 * that collect dependencies and dispatches updates.
+	 * 
+	 * @param {Array|Object}
+	 *            value
+	 * @constructor
+	 */
 
   function Observer(value) {
     this.value = value;
@@ -2074,12 +2172,12 @@
   // Instance methods
 
   /**
-   * Walk through each property and convert them into
-   * getter/setters. This method should only be called when
-   * value type is Object.
-   *
-   * @param {Object} obj
-   */
+	 * Walk through each property and convert them into getter/setters. This
+	 * method should only be called when value type is Object.
+	 * 
+	 * @param {Object}
+	 *            obj
+	 */
 
   Observer.prototype.walk = function (obj) {
     var keys = Object.keys(obj);
@@ -2090,10 +2188,11 @@
   };
 
   /**
-   * Observe a list of Array items.
-   *
-   * @param {Array} items
-   */
+	 * Observe a list of Array items.
+	 * 
+	 * @param {Array}
+	 *            items
+	 */
 
   Observer.prototype.observeArray = function (items) {
     var i = items.length;
@@ -2103,36 +2202,39 @@
   };
 
   /**
-   * Convert a property into getter/setter so we can emit
-   * the events when the property is accessed/changed.
-   *
-   * @param {String} key
-   * @param {*} val
-   */
+	 * Convert a property into getter/setter so we can emit the events when the
+	 * property is accessed/changed.
+	 * 
+	 * @param {String}
+	 *            key
+	 * @param {*}
+	 *            val
+	 */
 
   Observer.prototype.convert = function (key, val) {
     defineReactive(this.value, key, val);
   };
 
   /**
-   * Add an owner vm, so that when $set/$delete mutations
-   * happen we can notify owner vms to proxy the keys and
-   * digest the watchers. This is only called when the object
-   * is observed as an instance's root $data.
-   *
-   * @param {Vue} vm
-   */
+	 * Add an owner vm, so that when $set/$delete mutations happen we can notify
+	 * owner vms to proxy the keys and digest the watchers. This is only called
+	 * when the object is observed as an instance's root $data.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 */
 
   Observer.prototype.addVm = function (vm) {
     (this.vms || (this.vms = [])).push(vm);
   };
 
   /**
-   * Remove an owner vm. This is called when the object is
-   * swapped out as an instance's $data object.
-   *
-   * @param {Vue} vm
-   */
+	 * Remove an owner vm. This is called when the object is swapped out as an
+	 * instance's $data object.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 */
 
   Observer.prototype.removeVm = function (vm) {
     this.vms.$remove(vm);
@@ -2141,24 +2243,27 @@
   // helpers
 
   /**
-   * Augment an target Object or Array by intercepting
-   * the prototype chain using __proto__
-   *
-   * @param {Object|Array} target
-   * @param {Object} proto
-   */
+	 * Augment an target Object or Array by intercepting the prototype chain
+	 * using __proto__
+	 * 
+	 * @param {Object|Array}
+	 *            target
+	 * @param {Object}
+	 *            proto
+	 */
 
   function protoAugment(target, src) {
     target.__proto__ = src;
   }
 
   /**
-   * Augment an target Object or Array by defining
-   * hidden properties.
-   *
-   * @param {Object|Array} target
-   * @param {Object} proto
-   */
+	 * Augment an target Object or Array by defining hidden properties.
+	 * 
+	 * @param {Object|Array}
+	 *            target
+	 * @param {Object}
+	 *            proto
+	 */
 
   function copyAugment(target, src, keys) {
     var i = keys.length;
@@ -2170,15 +2275,17 @@
   }
 
   /**
-   * Attempt to create an observer instance for a value,
-   * returns the new observer if successfully observed,
-   * or the existing observer if the value already has one.
-   *
-   * @param {*} value
-   * @param {Vue} [vm]
-   * @return {Observer|undefined}
-   * @static
-   */
+	 * Attempt to create an observer instance for a value, returns the new
+	 * observer if successfully observed, or the existing observer if the value
+	 * already has one.
+	 * 
+	 * @param {*}
+	 *            value
+	 * @param {Vue}
+	 *            [vm]
+	 * @return {Observer|undefined}
+	 * @static
+	 */
 
   function observe(value, vm) {
     if (!value || typeof value !== 'object') {
@@ -2197,12 +2304,15 @@
   }
 
   /**
-   * Define a reactive property on an Object.
-   *
-   * @param {Object} obj
-   * @param {String} key
-   * @param {*} val
-   */
+	 * Define a reactive property on an Object.
+	 * 
+	 * @param {Object}
+	 *            obj
+	 * @param {String}
+	 *            key
+	 * @param {*}
+	 *            val
+	 */
 
   function defineReactive(obj, key, val) {
     var dep = new Dep();
@@ -2327,15 +2437,13 @@
   function initMixin (Vue) {
 
     /**
-     * The main init sequence. This is called for every
-     * instance, including ones that are created from extended
-     * constructors.
-     *
-     * @param {Object} options - this options object should be
-     *                           the result of merging class
-     *                           options and the options passed
-     *                           in to the constructor.
-     */
+	 * The main init sequence. This is called for every instance, including ones
+	 * that are created from extended constructors.
+	 * 
+	 * @param {Object}
+	 *            options - this options object should be the result of merging
+	 *            class options and the options passed in to the constructor.
+	 */
 
     Vue.prototype._init = function (options) {
 
@@ -2498,11 +2606,12 @@
   };
 
   /**
-   * Determine the type of a character in a keypath.
-   *
-   * @param {Char} ch
-   * @return {String} type
-   */
+	 * Determine the type of a character in a keypath.
+	 * 
+	 * @param {Char}
+	 *            ch
+	 * @return {String} type
+	 */
 
   function getPathCharType(ch) {
     if (ch === undefined) {
@@ -2552,13 +2661,13 @@
   }
 
   /**
-   * Format a subPath, return its plain form if it is
-   * a literal string or number. Otherwise prepend the
-   * dynamic indicator (*).
-   *
-   * @param {String} path
-   * @return {String}
-   */
+	 * Format a subPath, return its plain form if it is a literal string or
+	 * number. Otherwise prepend the dynamic indicator (*).
+	 * 
+	 * @param {String}
+	 *            path
+	 * @return {String}
+	 */
 
   function formatSubPath(path) {
     var trimmed = path.trim();
@@ -2570,11 +2679,12 @@
   }
 
   /**
-   * Parse a string path into an array of segments
-   *
-   * @param {String} path
-   * @return {Array|undefined}
-   */
+	 * Parse a string path into an array of segments
+	 * 
+	 * @param {String}
+	 *            path
+	 * @return {Array|undefined}
+	 */
 
   function parse(path) {
     var keys = [];
@@ -2665,11 +2775,12 @@
   }
 
   /**
-   * External parse that check for a cache hit first
-   *
-   * @param {String} path
-   * @return {Array|undefined}
-   */
+	 * External parse that check for a cache hit first
+	 * 
+	 * @param {String}
+	 *            path
+	 * @return {Array|undefined}
+	 */
 
   function parsePath(path) {
     var hit = pathCache.get(path);
@@ -2683,19 +2794,21 @@
   }
 
   /**
-   * Get from an object from a path string
-   *
-   * @param {Object} obj
-   * @param {String} path
-   */
+	 * Get from an object from a path string
+	 * 
+	 * @param {Object}
+	 *            obj
+	 * @param {String}
+	 *            path
+	 */
 
   function getPath(obj, path) {
     return parseExpression(path).get(obj);
   }
 
   /**
-   * Warn against setting non-existent root path on a vm.
-   */
+	 * Warn against setting non-existent root path on a vm.
+	 */
 
   var warnNonExistent;
   if ('development' !== 'production') {
@@ -2705,12 +2818,15 @@
   }
 
   /**
-   * Set on an object from a path
-   *
-   * @param {Object} obj
-   * @param {String | Array} path
-   * @param {*} val
-   */
+	 * Set on an object from a path
+	 * 
+	 * @param {Object}
+	 *            obj
+	 * @param {String |
+	 *            Array} path
+	 * @param {*}
+	 *            val
+	 */
 
   function setPath(obj, path, val) {
     var original = obj;
@@ -2776,31 +2892,29 @@
   var booleanLiteralRE = /^(?:true|false)$/;
 
   /**
-   * Save / Rewrite / Restore
-   *
-   * When rewriting paths found in an expression, it is
-   * possible for the same letter sequences to be found in
-   * strings and Object literal property keys. Therefore we
-   * remove and store these parts in a temporary array, and
-   * restore them after the path rewrite.
-   */
+	 * Save / Rewrite / Restore
+	 * 
+	 * When rewriting paths found in an expression, it is possible for the same
+	 * letter sequences to be found in strings and Object literal property keys.
+	 * Therefore we remove and store these parts in a temporary array, and
+	 * restore them after the path rewrite.
+	 */
 
   var saved = [];
 
   /**
-   * Save replacer
-   *
-   * The save regex can match two possible cases:
-   * 1. An opening object literal
-   * 2. A string
-   * If matched as a plain string, we need to escape its
-   * newlines, since the string needs to be preserved when
-   * generating the function body.
-   *
-   * @param {String} str
-   * @param {String} isString - str if matched as a string
-   * @return {String} - placeholder with index
-   */
+	 * Save replacer
+	 * 
+	 * The save regex can match two possible cases: 1. An opening object literal
+	 * 2. A string If matched as a plain string, we need to escape its newlines,
+	 * since the string needs to be preserved when generating the function body.
+	 * 
+	 * @param {String}
+	 *            str
+	 * @param {String}
+	 *            isString - str if matched as a string
+	 * @return {String} - placeholder with index
+	 */
 
   function save(str, isString) {
     var i = saved.length;
@@ -2809,11 +2923,12 @@
   }
 
   /**
-   * Path rewrite replacer
-   *
-   * @param {String} raw
-   * @return {String}
-   */
+	 * Path rewrite replacer
+	 * 
+	 * @param {String}
+	 *            raw
+	 * @return {String}
+	 */
 
   function rewrite(raw) {
     var c = raw.charAt(0);
@@ -2827,24 +2942,27 @@
   }
 
   /**
-   * Restore replacer
-   *
-   * @param {String} str
-   * @param {String} i - matched save index
-   * @return {String}
-   */
+	 * Restore replacer
+	 * 
+	 * @param {String}
+	 *            str
+	 * @param {String}
+	 *            i - matched save index
+	 * @return {String}
+	 */
 
   function restore(str, i) {
     return saved[i];
   }
 
   /**
-   * Rewrite an expression, prefixing all path accessors with
-   * `scope.` and generate getter/setter functions.
-   *
-   * @param {String} exp
-   * @return {Function}
-   */
+	 * Rewrite an expression, prefixing all path accessors with `scope.` and
+	 * generate getter/setter functions.
+	 * 
+	 * @param {String}
+	 *            exp
+	 * @return {Function}
+	 */
 
   function compileGetter(exp) {
     if (improperKeywordsRE.test(exp)) {
@@ -2861,14 +2979,15 @@
   }
 
   /**
-   * Build a getter function. Requires eval.
-   *
-   * We isolate the try/catch so it doesn't affect the
-   * optimization of the parse function when it is not called.
-   *
-   * @param {String} body
-   * @return {Function|undefined}
-   */
+	 * Build a getter function. Requires eval.
+	 * 
+	 * We isolate the try/catch so it doesn't affect the optimization of the
+	 * parse function when it is not called.
+	 * 
+	 * @param {String}
+	 *            body
+	 * @return {Function|undefined}
+	 */
 
   function makeGetterFn(body) {
     try {
@@ -2879,11 +2998,12 @@
   }
 
   /**
-   * Compile a setter function for the expression.
-   *
-   * @param {String} exp
-   * @return {Function|undefined}
-   */
+	 * Compile a setter function for the expression.
+	 * 
+	 * @param {String}
+	 *            exp
+	 * @return {Function|undefined}
+	 */
 
   function compileSetter(exp) {
     var path = parsePath(exp);
@@ -2897,12 +3017,14 @@
   }
 
   /**
-   * Parse an expression into re-written getter/setters.
-   *
-   * @param {String} exp
-   * @param {Boolean} needSet
-   * @return {Function}
-   */
+	 * Parse an expression into re-written getter/setters.
+	 * 
+	 * @param {String}
+	 *            exp
+	 * @param {Boolean}
+	 *            needSet
+	 * @return {Function}
+	 */
 
   function parseExpression(exp, needSet) {
     exp = exp.trim();
@@ -2928,11 +3050,12 @@
   }
 
   /**
-   * Check if an expression is a simple path.
-   *
-   * @param {String} exp
-   * @return {Boolean}
-   */
+	 * Check if an expression is a simple path.
+	 * 
+	 * @param {String}
+	 *            exp
+	 * @return {Boolean}
+	 */
 
   function isSimplePath(exp) {
     return pathTestRE.test(exp) &&
@@ -2961,8 +3084,8 @@
   var internalQueueDepleted = false;
 
   /**
-   * Reset the batcher's state.
-   */
+	 * Reset the batcher's state.
+	 */
 
   function resetBatcherState() {
     queue = [];
@@ -2973,8 +3096,8 @@
   }
 
   /**
-   * Flush both queues and run the watchers.
-   */
+	 * Flush both queues and run the watchers.
+	 */
 
   function flushBatcherQueue() {
     runBatcherQueue(queue);
@@ -2991,10 +3114,11 @@
   }
 
   /**
-   * Run the watchers in a single queue.
-   *
-   * @param {Array} queue
-   */
+	 * Run the watchers in a single queue.
+	 * 
+	 * @param {Array}
+	 *            queue
+	 */
 
   function runBatcherQueue(queue) {
     // do not cache length because more watchers might be pushed
@@ -3016,15 +3140,12 @@
   }
 
   /**
-   * Push a watcher into the watcher queue.
-   * Jobs with duplicate IDs will be skipped unless it's
-   * pushed when the queue is being flushed.
-   *
-   * @param {Watcher} watcher
-   *   properties:
-   *   - {Number} id
-   *   - {Function} run
-   */
+	 * Push a watcher into the watcher queue. Jobs with duplicate IDs will be
+	 * skipped unless it's pushed when the queue is being flushed.
+	 * 
+	 * @param {Watcher}
+	 *            watcher properties: - {Number} id - {Function} run
+	 */
 
   function pushWatcher(watcher) {
     var id = watcher.id;
@@ -3050,24 +3171,22 @@
   var uid$2 = 0;
 
   /**
-   * A watcher parses an expression, collects dependencies,
-   * and fires callback when the expression value changes.
-   * This is used for both the $watch() api and directives.
-   *
-   * @param {Vue} vm
-   * @param {String} expression
-   * @param {Function} cb
-   * @param {Object} options
-   *                 - {Array} filters
-   *                 - {Boolean} twoWay
-   *                 - {Boolean} deep
-   *                 - {Boolean} user
-   *                 - {Boolean} sync
-   *                 - {Boolean} lazy
-   *                 - {Function} [preProcess]
-   *                 - {Function} [postProcess]
-   * @constructor
-   */
+	 * A watcher parses an expression, collects dependencies, and fires callback
+	 * when the expression value changes. This is used for both the $watch() api
+	 * and directives.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {String}
+	 *            expression
+	 * @param {Function}
+	 *            cb
+	 * @param {Object}
+	 *            options - {Array} filters - {Boolean} twoWay - {Boolean} deep -
+	 *            {Boolean} user - {Boolean} sync - {Boolean} lazy - {Function}
+	 *            [preProcess] - {Function} [postProcess]
+	 * @constructor
+	 */
   function Watcher(vm, expOrFn, cb, options) {
     // mix in options
     if (options) {
@@ -3100,10 +3219,11 @@
   }
 
   /**
-   * Add a dependency to this directive.
-   *
-   * @param {Dep} dep
-   */
+	 * Add a dependency to this directive.
+	 * 
+	 * @param {Dep}
+	 *            dep
+	 */
 
   Watcher.prototype.addDep = function (dep) {
     var id = dep.id;
@@ -3117,8 +3237,8 @@
   };
 
   /**
-   * Evaluate the getter, and re-collect dependencies.
-   */
+	 * Evaluate the getter, and re-collect dependencies.
+	 */
 
   Watcher.prototype.get = function () {
     this.beforeGet();
@@ -3150,10 +3270,11 @@
   };
 
   /**
-   * Set the corresponding value with the setter.
-   *
-   * @param {*} value
-   */
+	 * Set the corresponding value with the setter.
+	 * 
+	 * @param {*}
+	 *            value
+	 */
 
   Watcher.prototype.set = function (value) {
     var scope = this.scope || this.vm;
@@ -3186,8 +3307,8 @@
   };
 
   /**
-   * Prepare for dependency collection.
-   */
+	 * Prepare for dependency collection.
+	 */
 
   Watcher.prototype.beforeGet = function () {
     Dep.target = this;
@@ -3195,8 +3316,8 @@
   };
 
   /**
-   * Clean up for dependency collection.
-   */
+	 * Clean up for dependency collection.
+	 */
 
   Watcher.prototype.afterGet = function () {
     Dep.target = null;
@@ -3212,11 +3333,11 @@
   };
 
   /**
-   * Subscriber interface.
-   * Will be called when a dependency changes.
-   *
-   * @param {Boolean} shallow
-   */
+	 * Subscriber interface. Will be called when a dependency changes.
+	 * 
+	 * @param {Boolean}
+	 *            shallow
+	 */
 
   Watcher.prototype.update = function (shallow) {
     if (this.lazy) {
@@ -3238,9 +3359,8 @@
   };
 
   /**
-   * Batcher job interface.
-   * Will be called by the batcher.
-   */
+	 * Batcher job interface. Will be called by the batcher.
+	 */
 
   Watcher.prototype.run = function () {
     if (this.active) {
@@ -3278,9 +3398,9 @@
   };
 
   /**
-   * Evaluate the value of the watcher.
-   * This only gets called for lazy watchers.
-   */
+	 * Evaluate the value of the watcher. This only gets called for lazy
+	 * watchers.
+	 */
 
   Watcher.prototype.evaluate = function () {
     // avoid overwriting another watcher that is being
@@ -3292,8 +3412,8 @@
   };
 
   /**
-   * Depend on all deps collected by this watcher.
-   */
+	 * Depend on all deps collected by this watcher.
+	 */
 
   Watcher.prototype.depend = function () {
     var depIds = Object.keys(this.deps);
@@ -3304,8 +3424,8 @@
   };
 
   /**
-   * Remove self from all dependencies' subcriber list.
-   */
+	 * Remove self from all dependencies' subcriber list.
+	 */
 
   Watcher.prototype.teardown = function () {
     if (this.active) {
@@ -3326,12 +3446,13 @@
   };
 
   /**
-   * Recrusively traverse an object to evoke all converted
-   * getters, so that every nested property inside the object
-   * is collected as a "deep" dependency.
-   *
-   * @param {*} val
-   */
+	 * Recrusively traverse an object to evoke all converted getters, so that
+	 * every nested property inside the object is collected as a "deep"
+	 * dependency.
+	 * 
+	 * @param {*}
+	 *            val
+	 */
 
   function traverse(val) {
     var i, keys;
@@ -3446,14 +3567,13 @@
   };
 
   /**
-   * Normalize a CSS property name.
-   * - cache result
-   * - auto prefix
-   * - camelCase -> dash-case
-   *
-   * @param {String} prop
-   * @return {String}
-   */
+	 * Normalize a CSS property name. - cache result - auto prefix - camelCase ->
+	 * dash-case
+	 * 
+	 * @param {String}
+	 *            prop
+	 * @return {String}
+	 */
 
   function normalize(prop) {
     if (propCache[prop]) {
@@ -3465,12 +3585,13 @@
   }
 
   /**
-   * Auto detect the appropriate prefix for a CSS property.
-   * https://gist.github.com/paulirish/523692
-   *
-   * @param {String} prop
-   * @return {String}
-   */
+	 * Auto detect the appropriate prefix for a CSS property.
+	 * https://gist.github.com/paulirish/523692
+	 * 
+	 * @param {String}
+	 *            prop
+	 * @return {String}
+	 */
 
   function prefix(prop) {
     prop = hyphenate(prop);
@@ -3564,7 +3685,10 @@
 
     handleSingle: function handleSingle(attr, value) {
       if (!this.descriptor.interp && attrWithPropsRE.test(attr) && attr in this.el) {
-        this.el[attr] = attr === 'value' ? value == null // IE9 will set input.value to "null" for null...
+        this.el[attr] = attr === 'value' ? value == null // IE9 will set
+															// input.value to
+															// "null" for
+															// null...
         ? '' : value : value;
       }
       // set model props
@@ -3825,13 +3949,16 @@
   };
 
   /**
-   * Get select value
-   *
-   * @param {SelectElement} el
-   * @param {Boolean} multi
-   * @param {Boolean} init
-   * @return {Array|*}
-   */
+	 * Get select value
+	 * 
+	 * @param {SelectElement}
+	 *            el
+	 * @param {Boolean}
+	 *            multi
+	 * @param {Boolean}
+	 *            init
+	 * @return {Array|*}
+	 */
 
   function getValue(el, multi, init) {
     var res = multi ? [] : null;
@@ -3852,12 +3979,14 @@
   }
 
   /**
-   * Native Array.indexOf uses strict equal, but in this
-   * case we need to match string/numbers with custom equal.
-   *
-   * @param {Array} arr
-   * @param {*} val
-   */
+	 * Native Array.indexOf uses strict equal, but in this case we need to match
+	 * string/numbers with custom equal.
+	 * 
+	 * @param {Array}
+	 *            arr
+	 * @param {*}
+	 *            val
+	 */
 
   function indexOf$1(arr, val) {
     var i = arr.length;
@@ -3913,7 +4042,7 @@
       var debounce = this.params.debounce;
 
       // handle composition events.
-      //   http://blog.evanyou.me/2014/01/03/composition-event/
+      // http://blog.evanyou.me/2014/01/03/composition-event/
       // skip this for Android because it handles composition
       // events quite differently. Android doesn't trigger
       // composition events for language input methods e.g.
@@ -4043,15 +4172,9 @@
     params: ['lazy', 'number', 'debounce'],
 
     /**
-     * Possible elements:
-     *   <select>
-     *   <textarea>
-     *   <input type="*">
-     *     - text
-     *     - checkbox
-     *     - radio
-     *     - number
-     */
+	 * Possible elements: <select> <textarea> <input type="*"> - text - checkbox -
+	 * radio - number
+	 */
 
     bind: function bind() {
       // friendly warning...
@@ -4079,8 +4202,8 @@
     },
 
     /**
-     * Check read/write filter stats.
-     */
+	 * Check read/write filter stats.
+	 */
 
     checkFilters: function checkFilters() {
       var filters = this.filters;
@@ -4151,12 +4274,13 @@
   map.g = map.defs = map.symbol = map.use = map.image = map.text = map.circle = map.ellipse = map.line = map.path = map.polygon = map.polyline = map.rect = [1, '<svg ' + 'xmlns="http://www.w3.org/2000/svg" ' + 'xmlns:xlink="http://www.w3.org/1999/xlink" ' + 'xmlns:ev="http://www.w3.org/2001/xml-events"' + 'version="1.1">', '</svg>'];
 
   /**
-   * Check if a node is a supported template node with a
-   * DocumentFragment content.
-   *
-   * @param {Node} node
-   * @return {Boolean}
-   */
+	 * Check if a node is a supported template node with a DocumentFragment
+	 * content.
+	 * 
+	 * @param {Node}
+	 *            node
+	 * @return {Boolean}
+	 */
 
   function isRealTemplate(node) {
     return isTemplate(node) && node.content instanceof DocumentFragment;
@@ -4166,14 +4290,16 @@
   var entityRE = /&#?\w+?;/;
 
   /**
-   * Convert a string template to a DocumentFragment.
-   * Determines correct wrapping by tag types. Wrapping
-   * strategy found in jQuery & component/domify.
-   *
-   * @param {String} templateString
-   * @param {Boolean} raw
-   * @return {DocumentFragment}
-   */
+	 * Convert a string template to a DocumentFragment. Determines correct
+	 * wrapping by tag types. Wrapping strategy found in jQuery &
+	 * component/domify.
+	 * 
+	 * @param {String}
+	 *            templateString
+	 * @param {Boolean}
+	 *            raw
+	 * @return {DocumentFragment}
+	 */
 
   function stringToFragment(templateString, raw) {
     // try a cache hit first
@@ -4219,11 +4345,12 @@
   }
 
   /**
-   * Convert a template node to a DocumentFragment.
-   *
-   * @param {Node} node
-   * @return {DocumentFragment}
-   */
+	 * Convert a template node to a DocumentFragment.
+	 * 
+	 * @param {Node}
+	 *            node
+	 * @return {DocumentFragment}
+	 */
 
   function nodeToFragment(node) {
     // if its a template tag and the browser supports it,
@@ -4275,14 +4402,14 @@
   })();
 
   /**
-   * 1. Deal with Safari cloning nested <template> bug by
-   *    manually cloning all template instances.
-   * 2. Deal with IE10/11 textarea placeholder bug by setting
-   *    the correct value after cloning.
-   *
-   * @param {Element|DocumentFragment} node
-   * @return {Element|DocumentFragment}
-   */
+	 * 1. Deal with Safari cloning nested <template> bug by manually cloning all
+	 * template instances. 2. Deal with IE10/11 textarea placeholder bug by
+	 * setting the correct value after cloning.
+	 * 
+	 * @param {Element|DocumentFragment}
+	 *            node
+	 * @return {Element|DocumentFragment}
+	 */
 
   function cloneNode(node) {
     if (!node.querySelectorAll) {
@@ -4325,22 +4452,20 @@
   }
 
   /**
-   * Process the template option and normalizes it into a
-   * a DocumentFragment that can be used as a partial or a
-   * instance template.
-   *
-   * @param {*} template
-   *        Possible values include:
-   *        - DocumentFragment object
-   *        - Node object of type Template
-   *        - id selector: '#some-template-id'
-   *        - template string: '<div><span>{{msg}}</span></div>'
-   * @param {Boolean} shouldClone
-   * @param {Boolean} raw
-   *        inline HTML interpolation. Do not check for id
-   *        selector and keep whitespace in the string.
-   * @return {DocumentFragment|undefined}
-   */
+	 * Process the template option and normalizes it into a a DocumentFragment
+	 * that can be used as a partial or a instance template.
+	 * 
+	 * @param {*}
+	 *            template Possible values include: - DocumentFragment object -
+	 *            Node object of type Template - id selector:
+	 *            '#some-template-id' - template string: '<div><span>{{msg}}</span></div>'
+	 * @param {Boolean}
+	 *            shouldClone
+	 * @param {Boolean}
+	 *            raw inline HTML interpolation. Do not check for id selector
+	 *            and keep whitespace in the string.
+	 * @return {DocumentFragment|undefined}
+	 */
 
   function parseTemplate(template, shouldClone, raw) {
     var node, frag;
@@ -4383,15 +4508,20 @@
   });
 
   /**
-   * Abstraction for a partially-compiled fragment.
-   * Can optionally compile content with a child scope.
-   *
-   * @param {Function} linker
-   * @param {Vue} vm
-   * @param {DocumentFragment} frag
-   * @param {Vue} [host]
-   * @param {Object} [scope]
-   */
+	 * Abstraction for a partially-compiled fragment. Can optionally compile
+	 * content with a child scope.
+	 * 
+	 * @param {Function}
+	 *            linker
+	 * @param {Vue}
+	 *            vm
+	 * @param {DocumentFragment}
+	 *            frag
+	 * @param {Vue}
+	 *            [host]
+	 * @param {Object}
+	 *            [scope]
+	 */
   function Fragment(linker, vm, frag, host, scope, parentFrag) {
     this.children = [];
     this.childFrags = [];
@@ -4423,12 +4553,12 @@
   }
 
   /**
-   * Call attach/detach for all components contained within
-   * this fragment. Also do so recursively for all child
-   * fragments.
-   *
-   * @param {Function} hook
-   */
+	 * Call attach/detach for all components contained within this fragment.
+	 * Also do so recursively for all child fragments.
+	 * 
+	 * @param {Function}
+	 *            hook
+	 */
 
   Fragment.prototype.callHook = function (hook) {
     var i, l;
@@ -4441,8 +4571,8 @@
   };
 
   /**
-   * Destroy the fragment.
-   */
+	 * Destroy the fragment.
+	 */
 
   Fragment.prototype.destroy = function () {
     if (this.parentFrag) {
@@ -4452,11 +4582,13 @@
   };
 
   /**
-   * Insert fragment before target, single node version
-   *
-   * @param {Node} target
-   * @param {Boolean} withTransition
-   */
+	 * Insert fragment before target, single node version
+	 * 
+	 * @param {Node}
+	 *            target
+	 * @param {Boolean}
+	 *            withTransition
+	 */
 
   function singleBefore(target, withTransition) {
     this.inserted = true;
@@ -4468,8 +4600,8 @@
   }
 
   /**
-   * Remove fragment, single node version
-   */
+	 * Remove fragment, single node version
+	 */
 
   function singleRemove() {
     this.inserted = false;
@@ -4485,11 +4617,13 @@
   }
 
   /**
-   * Insert fragment before target, multi-nodes version
-   *
-   * @param {Node} target
-   * @param {Boolean} withTransition
-   */
+	 * Insert fragment before target, multi-nodes version
+	 * 
+	 * @param {Node}
+	 *            target
+	 * @param {Boolean}
+	 *            withTransition
+	 */
 
   function multiBefore(target, withTransition) {
     this.inserted = true;
@@ -4504,8 +4638,8 @@
   }
 
   /**
-   * Remove fragment, multi-nodes version
-   */
+	 * Remove fragment, multi-nodes version
+	 */
 
   function multiRemove() {
     this.inserted = false;
@@ -4521,10 +4655,11 @@
   }
 
   /**
-   * Call attach hook for a Vue instance.
-   *
-   * @param {Vue} child
-   */
+	 * Call attach hook for a Vue instance.
+	 * 
+	 * @param {Vue}
+	 *            child
+	 */
 
   function attach(child) {
     if (!child._isAttached) {
@@ -4533,24 +4668,24 @@
   }
 
   /**
-   * Call destroy for all contained instances,
-   * with remove:false and defer:true.
-   * Defer is necessary because we need to
-   * keep the children to call detach hooks
-   * on them.
-   *
-   * @param {Vue} child
-   */
+	 * Call destroy for all contained instances, with remove:false and
+	 * defer:true. Defer is necessary because we need to keep the children to
+	 * call detach hooks on them.
+	 * 
+	 * @param {Vue}
+	 *            child
+	 */
 
   function destroyChild(child) {
     child.$destroy(false, true);
   }
 
   /**
-   * Call detach hook for a Vue instance.
-   *
-   * @param {Vue} child
-   */
+	 * Call detach hook for a Vue instance.
+	 * 
+	 * @param {Vue}
+	 *            child
+	 */
 
   function detach(child) {
     if (child._isAttached) {
@@ -4561,12 +4696,14 @@
   var linkerCache = new Cache(5000);
 
   /**
-   * A factory that can be used to create instances of a
-   * fragment. Caches the compiled linker if possible.
-   *
-   * @param {Vue} vm
-   * @param {Element|String} el
-   */
+	 * A factory that can be used to create instances of a fragment. Caches the
+	 * compiled linker if possible.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Element|String}
+	 *            el
+	 */
   function FragmentFactory(vm, el) {
     this.vm = vm;
     var template;
@@ -4595,12 +4732,15 @@
   }
 
   /**
-   * Create a fragment instance with given host and scope.
-   *
-   * @param {Vue} host
-   * @param {Object} scope
-   * @param {Fragment} parentFrag
-   */
+	 * Create a fragment instance with given host and scope.
+	 * 
+	 * @param {Vue}
+	 *            host
+	 * @param {Object}
+	 *            scope
+	 * @param {Fragment}
+	 *            parentFrag
+	 */
 
   FragmentFactory.prototype.create = function (host, scope, parentFrag) {
     var frag = cloneNode(this.template);
@@ -4727,18 +4867,17 @@
     },
 
     /**
-     * Diff, based on new data and old data, determine the
-     * minimum amount of DOM manipulations needed to make the
-     * DOM reflect the new data Array.
-     *
-     * The algorithm diffs the new data Array by storing a
-     * hidden reference to an owner vm instance on previously
-     * seen data. This allows us to achieve O(n) which is
-     * better than a levenshtein distance based algorithm,
-     * which is O(m * n).
-     *
-     * @param {Array} data
-     */
+	 * Diff, based on new data and old data, determine the minimum amount of DOM
+	 * manipulations needed to make the DOM reflect the new data Array.
+	 * 
+	 * The algorithm diffs the new data Array by storing a hidden reference to
+	 * an owner vm instance on previously seen data. This allows us to achieve
+	 * O(n) which is better than a levenshtein distance based algorithm, which
+	 * is O(m * n).
+	 * 
+	 * @param {Array}
+	 *            data
+	 */
 
     diff: function diff(data) {
       // check if the Array was converted from an Object
@@ -4840,14 +4979,18 @@
     },
 
     /**
-     * Create a new fragment instance.
-     *
-     * @param {*} value
-     * @param {String} alias
-     * @param {Number} index
-     * @param {String} [key]
-     * @return {Fragment}
-     */
+	 * Create a new fragment instance.
+	 * 
+	 * @param {*}
+	 *            value
+	 * @param {String}
+	 *            alias
+	 * @param {Number}
+	 *            index
+	 * @param {String}
+	 *            [key]
+	 * @return {Fragment}
+	 */
 
     create: function create(value, alias, index, key) {
       var host = this._host;
@@ -4880,8 +5023,8 @@
     },
 
     /**
-     * Update the v-ref on owner vm.
-     */
+	 * Update the v-ref on owner vm.
+	 */
 
     updateRef: function updateRef() {
       var ref = this.descriptor.ref;
@@ -4900,9 +5043,8 @@
     },
 
     /**
-     * For option lists, update the containing v-model on
-     * parent <select>.
-     */
+	 * For option lists, update the containing v-model on parent <select>.
+	 */
 
     updateModel: function updateModel() {
       if (this.isOption) {
@@ -4915,13 +5057,17 @@
     },
 
     /**
-     * Insert a fragment. Handles staggering.
-     *
-     * @param {Fragment} frag
-     * @param {Number} index
-     * @param {Node} prevEl
-     * @param {Boolean} inDocument
-     */
+	 * Insert a fragment. Handles staggering.
+	 * 
+	 * @param {Fragment}
+	 *            frag
+	 * @param {Number}
+	 *            index
+	 * @param {Node}
+	 *            prevEl
+	 * @param {Boolean}
+	 *            inDocument
+	 */
 
     insert: function insert(frag, index, prevEl, inDocument) {
       if (frag.staggerCb) {
@@ -4951,13 +5097,17 @@
     },
 
     /**
-     * Remove a fragment. Handles staggering.
-     *
-     * @param {Fragment} frag
-     * @param {Number} index
-     * @param {Number} total
-     * @param {Boolean} inDocument
-     */
+	 * Remove a fragment. Handles staggering.
+	 * 
+	 * @param {Fragment}
+	 *            frag
+	 * @param {Number}
+	 *            index
+	 * @param {Number}
+	 *            total
+	 * @param {Boolean}
+	 *            inDocument
+	 */
 
     remove: function remove(frag, index, total, inDocument) {
       if (frag.staggerCb) {
@@ -4983,25 +5133,30 @@
     },
 
     /**
-     * Move a fragment to a new position.
-     * Force no transition.
-     *
-     * @param {Fragment} frag
-     * @param {Node} prevEl
-     */
+	 * Move a fragment to a new position. Force no transition.
+	 * 
+	 * @param {Fragment}
+	 *            frag
+	 * @param {Node}
+	 *            prevEl
+	 */
 
     move: function move(frag, prevEl) {
       frag.before(prevEl.nextSibling, false);
     },
 
     /**
-     * Cache a fragment using track-by or the object key.
-     *
-     * @param {*} value
-     * @param {Fragment} frag
-     * @param {Number} index
-     * @param {String} [key]
-     */
+	 * Cache a fragment using track-by or the object key.
+	 * 
+	 * @param {*}
+	 *            value
+	 * @param {Fragment}
+	 *            frag
+	 * @param {Number}
+	 *            index
+	 * @param {String}
+	 *            [key]
+	 */
 
     cacheFrag: function cacheFrag(value, frag, index, key) {
       var trackByKey = this.params.trackBy;
@@ -5031,13 +5186,16 @@
     },
 
     /**
-     * Get a cached fragment from the value/index/key
-     *
-     * @param {*} value
-     * @param {Number} index
-     * @param {String} key
-     * @return {Fragment}
-     */
+	 * Get a cached fragment from the value/index/key
+	 * 
+	 * @param {*}
+	 *            value
+	 * @param {Number}
+	 *            index
+	 * @param {String}
+	 *            key
+	 * @return {Fragment}
+	 */
 
     getCachedFrag: function getCachedFrag(value, index, key) {
       var trackByKey = this.params.trackBy;
@@ -5056,10 +5214,11 @@
     },
 
     /**
-     * Delete a fragment from cache.
-     *
-     * @param {Fragment} frag
-     */
+	 * Delete a fragment from cache.
+	 * 
+	 * @param {Fragment}
+	 *            frag
+	 */
 
     deleteCachedFrag: function deleteCachedFrag(frag) {
       var value = frag.raw;
@@ -5080,13 +5239,17 @@
     },
 
     /**
-     * Get the stagger amount for an insertion/removal.
-     *
-     * @param {Fragment} frag
-     * @param {Number} index
-     * @param {Number} total
-     * @param {String} type
-     */
+	 * Get the stagger amount for an insertion/removal.
+	 * 
+	 * @param {Fragment}
+	 *            frag
+	 * @param {Number}
+	 *            index
+	 * @param {Number}
+	 *            total
+	 * @param {String}
+	 *            type
+	 */
 
     getStagger: function getStagger(frag, index, total, type) {
       type = type + 'Stagger';
@@ -5097,9 +5260,9 @@
     },
 
     /**
-     * Pre-process the value before piping it through the
-     * filters. This is passed to and called by the watcher.
-     */
+	 * Pre-process the value before piping it through the filters. This is
+	 * passed to and called by the watcher.
+	 */
 
     _preProcess: function _preProcess(value) {
       // regardless of type, store the un-filtered raw value.
@@ -5108,13 +5271,13 @@
     },
 
     /**
-     * Post-process the value after it has been piped through
-     * the filters. This is passed to and called by the watcher.
-     *
-     * It is necessary for this to be called during the
-     * wathcer's dependency collection phase because we want
-     * the v-for to update when the source Object is mutated.
-     */
+	 * Post-process the value after it has been piped through the filters. This
+	 * is passed to and called by the watcher.
+	 * 
+	 * It is necessary for this to be called during the wathcer's dependency
+	 * collection phase because we want the v-for to update when the source
+	 * Object is mutated.
+	 */
 
     _postProcess: function _postProcess(value) {
       if (isArray(value)) {
@@ -5158,20 +5321,22 @@
   };
 
   /**
-   * Helper to find the previous element that is a fragment
-   * anchor. This is necessary because a destroyed frag's
-   * element could still be lingering in the DOM before its
-   * leaving transition finishes, but its inserted flag
-   * should have been set to false so we can skip them.
-   *
-   * If this is a block repeat, we want to make sure we only
-   * return frag that is bound to this v-for. (see #929)
-   *
-   * @param {Fragment} frag
-   * @param {Comment|Text} anchor
-   * @param {String} id
-   * @return {Fragment}
-   */
+	 * Helper to find the previous element that is a fragment anchor. This is
+	 * necessary because a destroyed frag's element could still be lingering in
+	 * the DOM before its leaving transition finishes, but its inserted flag
+	 * should have been set to false so we can skip them.
+	 * 
+	 * If this is a block repeat, we want to make sure we only return frag that
+	 * is bound to this v-for. (see #929)
+	 * 
+	 * @param {Fragment}
+	 *            frag
+	 * @param {Comment|Text}
+	 *            anchor
+	 * @param {String}
+	 *            id
+	 * @return {Fragment}
+	 */
 
   function findPrevFrag(frag, anchor, id) {
     var el = frag.node.previousSibling;
@@ -5188,11 +5353,12 @@
   }
 
   /**
-   * Find a vm from a fragment.
-   *
-   * @param {Fragment} frag
-   * @return {Vue|undefined}
-   */
+	 * Find a vm from a fragment.
+	 * 
+	 * @param {Fragment}
+	 *            frag
+	 * @return {Vue|undefined}
+	 */
 
   function findVmFromFrag(frag) {
     var node = frag.node;
@@ -5206,11 +5372,12 @@
   }
 
   /**
-   * Create a range array from given number.
-   *
-   * @param {Number} n
-   * @return {Array}
-   */
+	 * Create a range array from given number.
+	 * 
+	 * @param {Number}
+	 *            n
+	 * @return {Array}
+	 */
 
   function range(n) {
     var i = -1;
@@ -5295,10 +5462,11 @@
   var queued = false;
 
   /**
-   * Push a job into the queue.
-   *
-   * @param {Function} job
-   */
+	 * Push a job into the queue.
+	 * 
+	 * @param {Function}
+	 *            job
+	 */
 
   function pushJob(job) {
     queue$1.push(job);
@@ -5309,9 +5477,8 @@
   }
 
   /**
-   * Flush the queue, and do one forced reflow before
-   * triggering transitions.
-   */
+	 * Flush the queue, and do one forced reflow before triggering transitions.
+	 */
 
   function flush() {
     // Force layout
@@ -5332,14 +5499,18 @@
   var animDurationProp = animationProp + 'Duration';
 
   /**
-   * A Transition object that encapsulates the state and logic
-   * of the transition.
-   *
-   * @param {Element} el
-   * @param {String} id
-   * @param {Object} hooks
-   * @param {Vue} vm
-   */
+	 * A Transition object that encapsulates the state and logic of the
+	 * transition.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {String}
+	 *            id
+	 * @param {Object}
+	 *            hooks
+	 * @param {Vue}
+	 *            vm
+	 */
   function Transition(el, id, hooks, vm) {
     this.id = id;
     this.el = el;
@@ -5361,29 +5532,22 @@
   var p$1 = Transition.prototype;
 
   /**
-   * Start an entering transition.
-   *
-   * 1. enter transition triggered
-   * 2. call beforeEnter hook
-   * 3. add enter class
-   * 4. insert/show element
-   * 5. call enter hook (with possible explicit js callback)
-   * 6. reflow
-   * 7. based on transition type:
-   *    - transition:
-   *        remove class now, wait for transitionend,
-   *        then done if there's no explicit js callback.
-   *    - animation:
-   *        wait for animationend, remove class,
-   *        then done if there's no explicit js callback.
-   *    - no css transition:
-   *        done now if there's no explicit js callback.
-   * 8. wait for either done or js callback, then call
-   *    afterEnter hook.
-   *
-   * @param {Function} op - insert/show the element
-   * @param {Function} [cb]
-   */
+	 * Start an entering transition.
+	 * 
+	 * 1. enter transition triggered 2. call beforeEnter hook 3. add enter class
+	 * 4. insert/show element 5. call enter hook (with possible explicit js
+	 * callback) 6. reflow 7. based on transition type: - transition: remove
+	 * class now, wait for transitionend, then done if there's no explicit js
+	 * callback. - animation: wait for animationend, remove class, then done if
+	 * there's no explicit js callback. - no css transition: done now if there's
+	 * no explicit js callback. 8. wait for either done or js callback, then
+	 * call afterEnter hook.
+	 * 
+	 * @param {Function}
+	 *            op - insert/show the element
+	 * @param {Function}
+	 *            [cb]
+	 */
 
   p$1.enter = function (op, cb) {
     this.cancelPending();
@@ -5401,10 +5565,10 @@
   };
 
   /**
-   * The "nextTick" phase of an entering transition, which is
-   * to be pushed into a queue and executed after a reflow so
-   * that removing the class can trigger a CSS transition.
-   */
+	 * The "nextTick" phase of an entering transition, which is to be pushed
+	 * into a queue and executed after a reflow so that removing the class can
+	 * trigger a CSS transition.
+	 */
 
   p$1.enterNextTick = function () {
 
@@ -5439,8 +5603,8 @@
   };
 
   /**
-   * The "cleanup" phase of an entering transition.
-   */
+	 * The "cleanup" phase of an entering transition.
+	 */
 
   p$1.enterDone = function () {
     this.entered = true;
@@ -5451,25 +5615,21 @@
   };
 
   /**
-   * Start a leaving transition.
-   *
-   * 1. leave transition triggered.
-   * 2. call beforeLeave hook
-   * 3. add leave class (trigger css transition)
-   * 4. call leave hook (with possible explicit js callback)
-   * 5. reflow if no explicit js callback is provided
-   * 6. based on transition type:
-   *    - transition or animation:
-   *        wait for end event, remove class, then done if
-   *        there's no explicit js callback.
-   *    - no css transition:
-   *        done if there's no explicit js callback.
-   * 7. wait for either done or js callback, then call
-   *    afterLeave hook.
-   *
-   * @param {Function} op - remove/hide the element
-   * @param {Function} [cb]
-   */
+	 * Start a leaving transition.
+	 * 
+	 * 1. leave transition triggered. 2. call beforeLeave hook 3. add leave
+	 * class (trigger css transition) 4. call leave hook (with possible explicit
+	 * js callback) 5. reflow if no explicit js callback is provided 6. based on
+	 * transition type: - transition or animation: wait for end event, remove
+	 * class, then done if there's no explicit js callback. - no css transition:
+	 * done if there's no explicit js callback. 7. wait for either done or js
+	 * callback, then call afterLeave hook.
+	 * 
+	 * @param {Function}
+	 *            op - remove/hide the element
+	 * @param {Function}
+	 *            [cb]
+	 */
 
   p$1.leave = function (op, cb) {
     this.cancelPending();
@@ -5485,7 +5645,7 @@
     this.cancel = this.hooks && this.hooks.leaveCancelled;
     // only need to handle leaveDone if
     // 1. the transition is already done (synchronously called
-    //    by the user, which causes this.op set to null)
+    // by the user, which causes this.op set to null)
     // 2. there's no explicit js callback
     if (this.op && !this.pendingJsCb) {
       // if a CSS transition leaves immediately after enter,
@@ -5500,8 +5660,8 @@
   };
 
   /**
-   * The "nextTick" phase of a leaving transition.
-   */
+	 * The "nextTick" phase of a leaving transition.
+	 */
 
   p$1.leaveNextTick = function () {
     var type = this.getCssTransitionType(this.leaveClass);
@@ -5514,8 +5674,8 @@
   };
 
   /**
-   * The "cleanup" phase of a leaving transition.
-   */
+	 * The "cleanup" phase of a leaving transition.
+	 */
 
   p$1.leaveDone = function () {
     this.left = true;
@@ -5528,9 +5688,9 @@
   };
 
   /**
-   * Cancel any pending callbacks from a previously running
-   * but not finished transition.
-   */
+	 * Cancel any pending callbacks from a previously running but not finished
+	 * transition.
+	 */
 
   p$1.cancelPending = function () {
     this.op = this.cb = null;
@@ -5556,10 +5716,11 @@
   };
 
   /**
-   * Call a user-provided synchronous hook function.
-   *
-   * @param {String} type
-   */
+	 * Call a user-provided synchronous hook function.
+	 * 
+	 * @param {String}
+	 *            type
+	 */
 
   p$1.callHook = function (type) {
     if (this.hooks && this.hooks[type]) {
@@ -5568,15 +5729,15 @@
   };
 
   /**
-   * Call a user-provided, potentially-async hook function.
-   * We check for the length of arguments to see if the hook
-   * expects a `done` callback. If true, the transition's end
-   * will be determined by when the user calls that callback;
-   * otherwise, the end is determined by the CSS transition or
-   * animation.
-   *
-   * @param {String} type
-   */
+	 * Call a user-provided, potentially-async hook function. We check for the
+	 * length of arguments to see if the hook expects a `done` callback. If
+	 * true, the transition's end will be determined by when the user calls that
+	 * callback; otherwise, the end is determined by the CSS transition or
+	 * animation.
+	 * 
+	 * @param {String}
+	 *            type
+	 */
 
   p$1.callHookWithCb = function (type) {
     var hook = this.hooks && this.hooks[type];
@@ -5589,12 +5750,12 @@
   };
 
   /**
-   * Get an element's transition type based on the
-   * calculated styles.
-   *
-   * @param {String} className
-   * @return {Number}
-   */
+	 * Get an element's transition type based on the calculated styles.
+	 * 
+	 * @param {String}
+	 *            className
+	 * @return {Number}
+	 */
 
   p$1.getCssTransitionType = function (className) {
     /* istanbul ignore if */
@@ -5631,11 +5792,13 @@
   };
 
   /**
-   * Setup a CSS transitionend/animationend callback.
-   *
-   * @param {String} event
-   * @param {Function} cb
-   */
+	 * Setup a CSS transitionend/animationend callback.
+	 * 
+	 * @param {String}
+	 *            event
+	 * @param {Function}
+	 *            cb
+	 */
 
   p$1.setupCssCb = function (event, cb) {
     this.pendingCssEvent = event;
@@ -5654,12 +5817,13 @@
   };
 
   /**
-   * Check if an element is hidden - in that case we can just
-   * skip the transition alltogether.
-   *
-   * @param {Element} el
-   * @return {Boolean}
-   */
+	 * Check if an element is hidden - in that case we can just skip the
+	 * transition alltogether.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @return {Boolean}
+	 */
 
   function isHidden(el) {
     return !(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
@@ -5746,14 +5910,10 @@
     params: ['keep-alive', 'transition-mode', 'inline-template'],
 
     /**
-     * Setup. Two possible usages:
-     *
-     * - static:
-     *   <comp> or <div v-component="comp">
-     *
-     * - dynamic:
-     *   <component :is="view">
-     */
+	 * Setup. Two possible usages:
+	 *  - static: <comp> or <div v-component="comp">
+	 *  - dynamic: <component :is="view">
+	 */
 
     bind: function bind() {
       if (!this.el.__vue__) {
@@ -5794,9 +5954,9 @@
     },
 
     /**
-     * Public update, called by the watcher in the dynamic
-     * literal scenario, e.g. <component :is="view">
-     */
+	 * Public update, called by the watcher in the dynamic literal scenario,
+	 * e.g. <component :is="view">
+	 */
 
     update: function update(value) {
       if (!this.literal) {
@@ -5805,17 +5965,17 @@
     },
 
     /**
-     * Switch dynamic components. May resolve the component
-     * asynchronously, and perform transition based on
-     * specified transition mode. Accepts a few additional
-     * arguments specifically for vue-router.
-     *
-     * The callback is called when the full transition is
-     * finished.
-     *
-     * @param {String} value
-     * @param {Function} [cb]
-     */
+	 * Switch dynamic components. May resolve the component asynchronously, and
+	 * perform transition based on specified transition mode. Accepts a few
+	 * additional arguments specifically for vue-router.
+	 * 
+	 * The callback is called when the full transition is finished.
+	 * 
+	 * @param {String}
+	 *            value
+	 * @param {Function}
+	 *            [cb]
+	 */
 
     setComponent: function setComponent(value, cb) {
       this.invalidatePending();
@@ -5833,9 +5993,8 @@
     },
 
     /**
-     * Resolve the component constructor to use when creating
-     * the child vm.
-     */
+	 * Resolve the component constructor to use when creating the child vm.
+	 */
 
     resolveComponent: function resolveComponent(id, cb) {
       var self = this;
@@ -5848,13 +6007,13 @@
     },
 
     /**
-     * Create a new instance using the current constructor and
-     * replace the existing instance. This method doesn't care
-     * whether the new component and the old one are actually
-     * the same.
-     *
-     * @param {Function} [cb]
-     */
+	 * Create a new instance using the current constructor and replace the
+	 * existing instance. This method doesn't care whether the new component and
+	 * the old one are actually the same.
+	 * 
+	 * @param {Function}
+	 *            [cb]
+	 */
 
     mountComponent: function mountComponent(cb) {
       // actual mount
@@ -5882,10 +6041,9 @@
     },
 
     /**
-     * When the component changes or unbinds before an async
-     * constructor is resolved, we need to invalidate its
-     * pending callback.
-     */
+	 * When the component changes or unbinds before an async constructor is
+	 * resolved, we need to invalidate its pending callback.
+	 */
 
     invalidatePending: function invalidatePending() {
       if (this.pendingComponentCb) {
@@ -5895,13 +6053,13 @@
     },
 
     /**
-     * Instantiate/insert a new child vm.
-     * If keep alive and has cached instance, insert that
-     * instance; otherwise build a new one and cache it.
-     *
-     * @param {Object} [extraOptions]
-     * @return {Vue} - the created instance
-     */
+	 * Instantiate/insert a new child vm. If keep alive and has cached instance,
+	 * insert that instance; otherwise build a new one and cache it.
+	 * 
+	 * @param {Object}
+	 *            [extraOptions]
+	 * @return {Vue} - the created instance
+	 */
 
     build: function build(extraOptions) {
       var cached = this.getCached();
@@ -5958,21 +6116,22 @@
     },
 
     /**
-     * Try to get a cached instance of the current component.
-     *
-     * @return {Vue|undefined}
-     */
+	 * Try to get a cached instance of the current component.
+	 * 
+	 * @return {Vue|undefined}
+	 */
 
     getCached: function getCached() {
       return this.keepAlive && this.cache[this.Component.cid];
     },
 
     /**
-     * Teardown the current child, but defers cleanup so
-     * that we can separate the destroy and removal steps.
-     *
-     * @param {Boolean} defer
-     */
+	 * Teardown the current child, but defers cleanup so that we can separate
+	 * the destroy and removal steps.
+	 * 
+	 * @param {Boolean}
+	 *            defer
+	 */
 
     unbuild: function unbuild(defer) {
       if (this.waitingFor) {
@@ -5994,11 +6153,11 @@
     },
 
     /**
-     * Remove current destroyed child and manually do
-     * the cleanup after removal.
-     *
-     * @param {Function} cb
-     */
+	 * Remove current destroyed child and manually do the cleanup after removal.
+	 * 
+	 * @param {Function}
+	 *            cb
+	 */
 
     remove: function remove(child, cb) {
       var keepAlive = this.keepAlive;
@@ -6024,12 +6183,14 @@
     },
 
     /**
-     * Actually swap the components, depending on the
-     * transition mode. Defaults to simultaneous.
-     *
-     * @param {Vue} target
-     * @param {Function} [cb]
-     */
+	 * Actually swap the components, depending on the transition mode. Defaults
+	 * to simultaneous.
+	 * 
+	 * @param {Vue}
+	 *            target
+	 * @param {Function}
+	 *            [cb]
+	 */
 
     transition: function transition(target, cb) {
       var self = this;
@@ -6058,8 +6219,8 @@
     },
 
     /**
-     * Unbind.
-     */
+	 * Unbind.
+	 */
 
     unbind: function unbind() {
       this.invalidatePending();
@@ -6157,13 +6318,14 @@
   var settablePathRE = /^[A-Za-z_$][\w$]*(\.[A-Za-z_$][\w$]*|\[[^\[\]]+\])*$/;
 
   /**
-   * Compile props on a root element and return
-   * a props link function.
-   *
-   * @param {Element|DocumentFragment} el
-   * @param {Array} propOptions
-   * @return {Function} propsLinkFn
-   */
+	 * Compile props on a root element and return a props link function.
+	 * 
+	 * @param {Element|DocumentFragment}
+	 *            el
+	 * @param {Array}
+	 *            propOptions
+	 * @return {Function} propsLinkFn
+	 */
 
   function compileProps(el, propOptions) {
     var props = [];
@@ -6245,11 +6407,12 @@
   }
 
   /**
-   * Build a function that applies props to a vm.
-   *
-   * @param {Array} props
-   * @return {Function} propsLinkFn
-   */
+	 * Build a function that applies props to a vm.
+	 * 
+	 * @param {Array}
+	 *            props
+	 * @return {Function} propsLinkFn
+	 */
 
   function makePropsLinkFn(props) {
     return function propsLinkFn(vm, scope) {
@@ -6300,12 +6463,14 @@
   }
 
   /**
-   * Get the default value of a prop.
-   *
-   * @param {Vue} vm
-   * @param {Object} options
-   * @return {*}
-   */
+	 * Get the default value of a prop.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Object}
+	 *            options
+	 * @return {*}
+	 */
 
   function getDefault(vm, options) {
     // no default, return undefined
@@ -6336,21 +6501,22 @@
   var DEFAULT_PRIORITY = 1000;
 
   /**
-   * Compile a template and return a reusable composite link
-   * function, which recursively contains more link functions
-   * inside. This top level compile function would normally
-   * be called on instance root nodes, but can also be used
-   * for partial compilation if the partial argument is true.
-   *
-   * The returned composite link function, when called, will
-   * return an unlink function that tearsdown all directives
-   * created during the linking phase.
-   *
-   * @param {Element|DocumentFragment} el
-   * @param {Object} options
-   * @param {Boolean} partial
-   * @return {Function}
-   */
+	 * Compile a template and return a reusable composite link function, which
+	 * recursively contains more link functions inside. This top level compile
+	 * function would normally be called on instance root nodes, but can also be
+	 * used for partial compilation if the partial argument is true.
+	 * 
+	 * The returned composite link function, when called, will return an unlink
+	 * function that tearsdown all directives created during the linking phase.
+	 * 
+	 * @param {Element|DocumentFragment}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 * @param {Boolean}
+	 *            partial
+	 * @return {Function}
+	 */
 
   function compile(el, options, partial) {
     // link function for the node itself.
@@ -6359,17 +6525,21 @@
     var childLinkFn = !(nodeLinkFn && nodeLinkFn.terminal) && el.tagName !== 'SCRIPT' && el.hasChildNodes() ? compileNodeList(el.childNodes, options) : null;
 
     /**
-     * A composite linker function to be called on a already
-     * compiled piece of DOM, which instantiates all directive
-     * instances.
-     *
-     * @param {Vue} vm
-     * @param {Element|DocumentFragment} el
-     * @param {Vue} [host] - host vm of transcluded content
-     * @param {Object} [scope] - v-for scope
-     * @param {Fragment} [frag] - link context fragment
-     * @return {Function|undefined}
-     */
+	 * A composite linker function to be called on a already compiled piece of
+	 * DOM, which instantiates all directive instances.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Element|DocumentFragment}
+	 *            el
+	 * @param {Vue}
+	 *            [host] - host vm of transcluded content
+	 * @param {Object}
+	 *            [scope] - v-for scope
+	 * @param {Fragment}
+	 *            [frag] - link context fragment
+	 * @return {Function|undefined}
+	 */
 
     return function compositeLinkFn(vm, el, host, scope, frag) {
       // cache childNodes before linking parent, fix #657
@@ -6384,12 +6554,14 @@
   }
 
   /**
-   * Apply a linker to a vm/element pair and capture the
-   * directives created during the process.
-   *
-   * @param {Function} linker
-   * @param {Vue} vm
-   */
+	 * Apply a linker to a vm/element pair and capture the directives created
+	 * during the process.
+	 * 
+	 * @param {Function}
+	 *            linker
+	 * @param {Vue}
+	 *            vm
+	 */
 
   function linkAndCapture(linker, vm) {
     var originalDirCount = vm._directives.length;
@@ -6403,11 +6575,13 @@
   }
 
   /**
-   * Directive priority sort comparator
-   *
-   * @param {Object} a
-   * @param {Object} b
-   */
+	 * Directive priority sort comparator
+	 * 
+	 * @param {Object}
+	 *            a
+	 * @param {Object}
+	 *            b
+	 */
 
   function directiveComparator(a, b) {
     a = a.descriptor.def.priority || DEFAULT_PRIORITY;
@@ -6416,19 +6590,22 @@
   }
 
   /**
-   * Linker functions return an unlink function that
-   * tearsdown all directives instances generated during
-   * the process.
-   *
-   * We create unlink functions with only the necessary
-   * information to avoid retaining additional closures.
-   *
-   * @param {Vue} vm
-   * @param {Array} dirs
-   * @param {Vue} [context]
-   * @param {Array} [contextDirs]
-   * @return {Function}
-   */
+	 * Linker functions return an unlink function that tearsdown all directives
+	 * instances generated during the process.
+	 * 
+	 * We create unlink functions with only the necessary information to avoid
+	 * retaining additional closures.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Array}
+	 *            dirs
+	 * @param {Vue}
+	 *            [context]
+	 * @param {Array}
+	 *            [contextDirs]
+	 * @return {Function}
+	 */
 
   function makeUnlinkFn(vm, dirs, context, contextDirs) {
     return function unlink(destroying) {
@@ -6440,12 +6617,15 @@
   }
 
   /**
-   * Teardown partial linked directives.
-   *
-   * @param {Vue} vm
-   * @param {Array} dirs
-   * @param {Boolean} destroying
-   */
+	 * Teardown partial linked directives.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Array}
+	 *            dirs
+	 * @param {Boolean}
+	 *            destroying
+	 */
 
   function teardownDirs(vm, dirs, destroying) {
     var i = dirs.length;
@@ -6458,14 +6638,18 @@
   }
 
   /**
-   * Compile link props on an instance.
-   *
-   * @param {Vue} vm
-   * @param {Element} el
-   * @param {Object} props
-   * @param {Object} [scope]
-   * @return {Function}
-   */
+	 * Compile link props on an instance.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            props
+	 * @param {Object}
+	 *            [scope]
+	 * @return {Function}
+	 */
 
   function compileAndLinkProps(vm, el, props, scope) {
     var propsLinkFn = compileProps(el, props);
@@ -6476,20 +6660,23 @@
   }
 
   /**
-   * Compile the root element of an instance.
-   *
-   * 1. attrs on context container (context scope)
-   * 2. attrs on the component template root node, if
-   *    replace:true (child scope)
-   *
-   * If this is a fragment instance, we only need to compile 1.
-   *
-   * @param {Vue} vm
-   * @param {Element} el
-   * @param {Object} options
-   * @param {Object} contextOptions
-   * @return {Function}
-   */
+	 * Compile the root element of an instance.
+	 * 
+	 * 1. attrs on context container (context scope) 2. attrs on the component
+	 * template root node, if replace:true (child scope)
+	 * 
+	 * If this is a fragment instance, we only need to compile 1.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 * @param {Object}
+	 *            contextOptions
+	 * @return {Function}
+	 */
 
   function compileRoot(el, options, contextOptions) {
     var containerAttrs = options._containerAttrs;
@@ -6554,13 +6741,14 @@
   }
 
   /**
-   * Compile a node and return a nodeLinkFn based on the
-   * node type.
-   *
-   * @param {Node} node
-   * @param {Object} options
-   * @return {Function|null}
-   */
+	 * Compile a node and return a nodeLinkFn based on the node type.
+	 * 
+	 * @param {Node}
+	 *            node
+	 * @param {Object}
+	 *            options
+	 * @return {Function|null}
+	 */
 
   function compileNode(node, options) {
     var type = node.nodeType;
@@ -6574,12 +6762,14 @@
   }
 
   /**
-   * Compile an element and return a nodeLinkFn.
-   *
-   * @param {Element} el
-   * @param {Object} options
-   * @return {Function|null}
-   */
+	 * Compile an element and return a nodeLinkFn.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 * @return {Function|null}
+	 */
 
   function compileElement(el, options) {
     // preprocess textareas.
@@ -6614,12 +6804,14 @@
   }
 
   /**
-   * Compile a textNode and return a nodeLinkFn.
-   *
-   * @param {TextNode} node
-   * @param {Object} options
-   * @return {Function|null} textNodeLinkFn
-   */
+	 * Compile a textNode and return a nodeLinkFn.
+	 * 
+	 * @param {TextNode}
+	 *            node
+	 * @param {Object}
+	 *            options
+	 * @return {Function|null} textNodeLinkFn
+	 */
 
   function compileTextNode(node, options) {
     // skip marked text nodes
@@ -6654,23 +6846,27 @@
   }
 
   /**
-   * Linker for an skipped text node.
-   *
-   * @param {Vue} vm
-   * @param {Text} node
-   */
+	 * Linker for an skipped text node.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Text}
+	 *            node
+	 */
 
   function removeText(vm, node) {
     remove(node);
   }
 
   /**
-   * Process a single text token.
-   *
-   * @param {Object} token
-   * @param {Object} options
-   * @return {Node}
-   */
+	 * Process a single text token.
+	 * 
+	 * @param {Object}
+	 *            token
+	 * @param {Object}
+	 *            options
+	 * @return {Node}
+	 */
 
   function processTextToken(token, options) {
     var el;
@@ -6702,11 +6898,13 @@
   }
 
   /**
-   * Build a function that processes a textNode.
-   *
-   * @param {Array<Object>} tokens
-   * @param {DocumentFragment} frag
-   */
+	 * Build a function that processes a textNode.
+	 * 
+	 * @param {Array
+	 *            <Object>} tokens
+	 * @param {DocumentFragment}
+	 *            frag
+	 */
 
   function makeTextNodeLinkFn(tokens, frag) {
     return function textNodeLinkFn(vm, el, host, scope) {
@@ -6735,12 +6933,14 @@
   }
 
   /**
-   * Compile a node list and return a childLinkFn.
-   *
-   * @param {NodeList} nodeList
-   * @param {Object} options
-   * @return {Function|undefined}
-   */
+	 * Compile a node list and return a childLinkFn.
+	 * 
+	 * @param {NodeList}
+	 *            nodeList
+	 * @param {Object}
+	 *            options
+	 * @return {Function|undefined}
+	 */
 
   function compileNodeList(nodeList, options) {
     var linkFns = [];
@@ -6755,11 +6955,12 @@
   }
 
   /**
-   * Make a child link function for a node's childNodes.
-   *
-   * @param {Array<Function>} linkFns
-   * @return {Function} childLinkFn
-   */
+	 * Make a child link function for a node's childNodes.
+	 * 
+	 * @param {Array
+	 *            <Function>} linkFns
+	 * @return {Function} childLinkFn
+	 */
 
   function makeChildLinkFn(linkFns) {
     return function childLinkFn(vm, nodes, host, scope, frag) {
@@ -6781,12 +6982,14 @@
   }
 
   /**
-   * Check for element directives (custom elements that should
-   * be resovled as terminal directives).
-   *
-   * @param {Element} el
-   * @param {Object} options
-   */
+	 * Check for element directives (custom elements that should be resovled as
+	 * terminal directives).
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 */
 
   function checkElementDirectives(el, options) {
     var tag = el.tagName.toLowerCase();
@@ -6803,13 +7006,15 @@
   }
 
   /**
-   * Check if an element is a component. If yes, return
-   * a component link function.
-   *
-   * @param {Element} el
-   * @param {Object} options
-   * @return {Function|undefined}
-   */
+	 * Check if an element is a component. If yes, return a component link
+	 * function.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 * @return {Function|undefined}
+	 */
 
   function checkComponent(el, options) {
     var component = checkComponentAttr(el, options);
@@ -6836,13 +7041,15 @@
   }
 
   /**
-   * Check an element for terminal directives in fixed order.
-   * If it finds one, return a terminal link function.
-   *
-   * @param {Element} el
-   * @param {Object} options
-   * @return {Function} terminalLinkFn
-   */
+	 * Check an element for terminal directives in fixed order. If it finds one,
+	 * return a terminal link function.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 * @return {Function} terminalLinkFn
+	 */
 
   function checkTerminalDirectives(el, options) {
     // skip v-pre
@@ -6871,18 +7078,22 @@
   skip.terminal = true;
 
   /**
-   * Build a node link function for a terminal directive.
-   * A terminal link function terminates the current
-   * compilation recursion and handles compilation of the
-   * subtree in the directive.
-   *
-   * @param {Element} el
-   * @param {String} dirName
-   * @param {String} value
-   * @param {Object} options
-   * @param {Object} [def]
-   * @return {Function} terminalLinkFn
-   */
+	 * Build a node link function for a terminal directive. A terminal link
+	 * function terminates the current compilation recursion and handles
+	 * compilation of the subtree in the directive.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {String}
+	 *            dirName
+	 * @param {String}
+	 *            value
+	 * @param {Object}
+	 *            options
+	 * @param {Object}
+	 *            [def]
+	 * @return {Function} terminalLinkFn
+	 */
 
   function makeTerminalNodeLinkFn(el, dirName, value, options, def) {
     var parsed = parseDirective(value);
@@ -6909,12 +7120,14 @@
   }
 
   /**
-   * Compile the directives on an element and return a linker.
-   *
-   * @param {Array|NamedNodeMap} attrs
-   * @param {Object} options
-   * @return {Function}
-   */
+	 * Compile the directives on an element and return a linker.
+	 * 
+	 * @param {Array|NamedNodeMap}
+	 *            attrs
+	 * @param {Object}
+	 *            options
+	 * @return {Function}
+	 */
 
   function compileDirectives(attrs, options) {
     var i = attrs.length;
@@ -7001,12 +7214,15 @@
     }
 
     /**
-     * Push a directive.
-     *
-     * @param {String} dirName
-     * @param {Object|Function} def
-     * @param {Boolean} [interp]
-     */
+	 * Push a directive.
+	 * 
+	 * @param {String}
+	 *            dirName
+	 * @param {Object|Function}
+	 *            def
+	 * @param {Boolean}
+	 *            [interp]
+	 */
 
     function pushDir(dirName, def, interp) {
       var parsed = parseDirective(value);
@@ -7029,11 +7245,12 @@
   }
 
   /**
-   * Parse modifiers from directive attribute name.
-   *
-   * @param {String} name
-   * @return {Object}
-   */
+	 * Parse modifiers from directive attribute name.
+	 * 
+	 * @param {String}
+	 *            name
+	 * @return {Object}
+	 */
 
   function parseModifiers(name) {
     var res = Object.create(null);
@@ -7048,11 +7265,12 @@
   }
 
   /**
-   * Build a link function for all directives on a single node.
-   *
-   * @param {Array} directives
-   * @return {Function} directivesLinkFn
-   */
+	 * Build a link function for all directives on a single node.
+	 * 
+	 * @param {Array}
+	 *            directives
+	 * @return {Function} directivesLinkFn
+	 */
 
   function makeNodeLinkFn(directives) {
     return function nodeLinkFn(vm, el, host, scope, frag) {
@@ -7067,16 +7285,17 @@
   var specialCharRE = /[^\w\-:\.]/;
 
   /**
-   * Process an element or a DocumentFragment based on a
-   * instance option object. This allows us to transclude
-   * a template node/fragment before the instance is created,
-   * so the processed fragment can then be cloned and reused
-   * in v-for.
-   *
-   * @param {Element} el
-   * @param {Object} options
-   * @return {Element|DocumentFragment}
-   */
+	 * Process an element or a DocumentFragment based on a instance option
+	 * object. This allows us to transclude a template node/fragment before the
+	 * instance is created, so the processed fragment can then be cloned and
+	 * reused in v-for.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 * @return {Element|DocumentFragment}
+	 */
 
   function transclude(el, options) {
     // extract container attributes to pass them down
@@ -7112,13 +7331,15 @@
   }
 
   /**
-   * Process the template option.
-   * If the replace option is true this will swap the $el.
-   *
-   * @param {Element} el
-   * @param {Object} options
-   * @return {Element|DocumentFragment}
-   */
+	 * Process the template option. If the replace option is true this will swap
+	 * the $el.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @param {Object}
+	 *            options
+	 * @return {Element|DocumentFragment}
+	 */
 
   function transcludeTemplate(el, options) {
     var template = options.template;
@@ -7163,12 +7384,13 @@
   }
 
   /**
-   * Helper to extract a component container's attributes
-   * into a plain object array.
-   *
-   * @param {Element} el
-   * @return {Array}
-   */
+	 * Helper to extract a component container's attributes into a plain object
+	 * array.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @return {Array}
+	 */
 
   function extractAttrs(el) {
     if (el.nodeType === 1 && el.hasAttributes()) {
@@ -7177,12 +7399,14 @@
   }
 
   /**
-   * Merge the attributes of two elements, and make sure
-   * the class names are merged properly.
-   *
-   * @param {Element} from
-   * @param {Element} to
-   */
+	 * Merge the attributes of two elements, and make sure the class names are
+	 * merged properly.
+	 * 
+	 * @param {Element}
+	 *            from
+	 * @param {Element}
+	 *            to
+	 */
 
   function mergeAttrs(from, to) {
     var attrs = from.attributes;
@@ -7211,10 +7435,9 @@
   function stateMixin (Vue) {
 
     /**
-     * Accessor for `$data` property, since setting $data
-     * requires observing the new object and updating
-     * proxied properties.
-     */
+	 * Accessor for `$data` property, since setting $data requires observing the
+	 * new object and updating proxied properties.
+	 */
 
     Object.defineProperty(Vue.prototype, '$data', {
       get: function get() {
@@ -7228,12 +7451,9 @@
     });
 
     /**
-     * Setup the scope of an instance, which contains:
-     * - observed data
-     * - computed properties
-     * - user methods
-     * - meta properties
-     */
+	 * Setup the scope of an instance, which contains: - observed data -
+	 * computed properties - user methods - meta properties
+	 */
 
     Vue.prototype._initState = function () {
       this._initProps();
@@ -7244,8 +7464,8 @@
     };
 
     /**
-     * Initialize props.
-     */
+	 * Initialize props.
+	 */
 
     Vue.prototype._initProps = function () {
       var options = this.$options;
@@ -7262,8 +7482,8 @@
     };
 
     /**
-     * Initialize the data.
-     */
+	 * Initialize the data.
+	 */
 
     Vue.prototype._initData = function () {
       var propsData = this._data;
@@ -7294,10 +7514,11 @@
     };
 
     /**
-     * Swap the instance's $data. Called in $data's setter.
-     *
-     * @param {Object} newData
-     */
+	 * Swap the instance's $data. Called in $data's setter.
+	 * 
+	 * @param {Object}
+	 *            newData
+	 */
 
     Vue.prototype._setData = function (newData) {
       newData = newData || {};
@@ -7330,11 +7551,11 @@
     };
 
     /**
-     * Proxy a property, so that
-     * vm.prop === vm._data.prop
-     *
-     * @param {String} key
-     */
+	 * Proxy a property, so that vm.prop === vm._data.prop
+	 * 
+	 * @param {String}
+	 *            key
+	 */
 
     Vue.prototype._proxy = function (key) {
       if (!isReserved(key)) {
@@ -7357,10 +7578,11 @@
     };
 
     /**
-     * Unproxy a property.
-     *
-     * @param {String} key
-     */
+	 * Unproxy a property.
+	 * 
+	 * @param {String}
+	 *            key
+	 */
 
     Vue.prototype._unproxy = function (key) {
       if (!isReserved(key)) {
@@ -7369,8 +7591,8 @@
     };
 
     /**
-     * Force update on every watcher in scope.
-     */
+	 * Force update on every watcher in scope.
+	 */
 
     Vue.prototype._digest = function () {
       for (var i = 0, l = this._watchers.length; i < l; i++) {
@@ -7379,9 +7601,8 @@
     };
 
     /**
-     * Setup computed properties. They are essentially
-     * special getter/setters
-     */
+	 * Setup computed properties. They are essentially special getter/setters
+	 */
 
     function noop() {}
     Vue.prototype._initComputed = function () {
@@ -7421,10 +7642,9 @@
     }
 
     /**
-     * Setup instance methods. Methods must be bound to the
-     * instance since they might be passed down as a prop to
-     * child components.
-     */
+	 * Setup instance methods. Methods must be bound to the instance since they
+	 * might be passed down as a prop to child components.
+	 */
 
     Vue.prototype._initMethods = function () {
       var methods = this.$options.methods;
@@ -7436,8 +7656,8 @@
     };
 
     /**
-     * Initialize meta information like $index, $key & $value.
-     */
+	 * Initialize meta information like $index, $key & $value.
+	 */
 
     Vue.prototype._initMeta = function () {
       var metas = this.$options._meta;
@@ -7454,10 +7674,9 @@
   function eventsMixin (Vue) {
 
     /**
-     * Setup the instance's option events & watchers.
-     * If the value is a string, we pull it from the
-     * instance's methods by name.
-     */
+	 * Setup the instance's option events & watchers. If the value is a string,
+	 * we pull it from the instance's methods by name.
+	 */
 
     Vue.prototype._initEvents = function () {
       var options = this.$options;
@@ -7469,11 +7688,13 @@
     };
 
     /**
-     * Register v-on events on a child component
-     *
-     * @param {Vue} vm
-     * @param {Element} el
-     */
+	 * Register v-on events on a child component
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Element}
+	 *            el
+	 */
 
     function registerComponentEvents(vm, el) {
       var attrs = el.attributes;
@@ -7489,12 +7710,15 @@
     }
 
     /**
-     * Register callbacks for option events and watchers.
-     *
-     * @param {Vue} vm
-     * @param {String} action
-     * @param {Object} hash
-     */
+	 * Register callbacks for option events and watchers.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {String}
+	 *            action
+	 * @param {Object}
+	 *            hash
+	 */
 
     function registerCallbacks(vm, action, hash) {
       if (!hash) return;
@@ -7512,14 +7736,19 @@
     }
 
     /**
-     * Helper to register an event/watch callback.
-     *
-     * @param {Vue} vm
-     * @param {String} action
-     * @param {String} key
-     * @param {Function|String|Object} handler
-     * @param {Object} [options]
-     */
+	 * Helper to register an event/watch callback.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {String}
+	 *            action
+	 * @param {String}
+	 *            key
+	 * @param {Function|String|Object}
+	 *            handler
+	 * @param {Object}
+	 *            [options]
+	 */
 
     function register(vm, action, key, handler, options) {
       var type = typeof handler;
@@ -7539,8 +7768,8 @@
     }
 
     /**
-     * Setup recursive attached/detached calls
-     */
+	 * Setup recursive attached/detached calls
+	 */
 
     Vue.prototype._initDOMHooks = function () {
       this.$on('hook:attached', onAttached);
@@ -7548,8 +7777,8 @@
     };
 
     /**
-     * Callback to recursively call attached hook on children
-     */
+	 * Callback to recursively call attached hook on children
+	 */
 
     function onAttached() {
       if (!this._isAttached) {
@@ -7559,10 +7788,11 @@
     }
 
     /**
-     * Iterator to call attached hook
-     *
-     * @param {Vue} child
-     */
+	 * Iterator to call attached hook
+	 * 
+	 * @param {Vue}
+	 *            child
+	 */
 
     function callAttach(child) {
       if (!child._isAttached && inDoc(child.$el)) {
@@ -7571,8 +7801,8 @@
     }
 
     /**
-     * Callback to recursively call detached hook on children
-     */
+	 * Callback to recursively call detached hook on children
+	 */
 
     function onDetached() {
       if (this._isAttached) {
@@ -7582,10 +7812,11 @@
     }
 
     /**
-     * Iterator to call detached hook
-     *
-     * @param {Vue} child
-     */
+	 * Iterator to call detached hook
+	 * 
+	 * @param {Vue}
+	 *            child
+	 */
 
     function callDetach(child) {
       if (child._isAttached && !inDoc(child.$el)) {
@@ -7594,10 +7825,11 @@
     }
 
     /**
-     * Trigger all handlers for a hook
-     *
-     * @param {String} hook
-     */
+	 * Trigger all handlers for a hook
+	 * 
+	 * @param {String}
+	 *            hook
+	 */
 
     Vue.prototype._callHook = function (hook) {
       var handlers = this.$options[hook];
@@ -7613,28 +7845,30 @@
   function noop() {}
 
   /**
-   * A directive links a DOM element with a piece of data,
-   * which is the result of evaluating an expression.
-   * It registers a watcher with the expression and calls
-   * the DOM update function when a change is triggered.
-   *
-   * @param {String} name
-   * @param {Node} el
-   * @param {Vue} vm
-   * @param {Object} descriptor
-   *                 - {String} name
-   *                 - {Object} def
-   *                 - {String} expression
-   *                 - {Array<Object>} [filters]
-   *                 - {Boolean} literal
-   *                 - {String} attr
-   *                 - {String} raw
-   * @param {Object} def - directive definition object
-   * @param {Vue} [host] - transclusion host component
-   * @param {Object} [scope] - v-for scope
-   * @param {Fragment} [frag] - owner fragment
-   * @constructor
-   */
+	 * A directive links a DOM element with a piece of data, which is the result
+	 * of evaluating an expression. It registers a watcher with the expression
+	 * and calls the DOM update function when a change is triggered.
+	 * 
+	 * @param {String}
+	 *            name
+	 * @param {Node}
+	 *            el
+	 * @param {Vue}
+	 *            vm
+	 * @param {Object}
+	 *            descriptor - {String} name - {Object} def - {String}
+	 *            expression - {Array<Object>} [filters] - {Boolean} literal -
+	 *            {String} attr - {String} raw
+	 * @param {Object}
+	 *            def - directive definition object
+	 * @param {Vue}
+	 *            [host] - transclusion host component
+	 * @param {Object}
+	 *            [scope] - v-for scope
+	 * @param {Fragment}
+	 *            [frag] - owner fragment
+	 * @constructor
+	 */
   function Directive(descriptor, vm, el, host, scope, frag) {
     this.vm = vm;
     this.el = el;
@@ -7662,12 +7896,12 @@
   }
 
   /**
-   * Initialize the directive, mixin definition properties,
-   * setup the watcher, call definition bind() and update()
-   * if present.
-   *
-   * @param {Object} def
-   */
+	 * Initialize the directive, mixin definition properties, setup the watcher,
+	 * call definition bind() and update() if present.
+	 * 
+	 * @param {Object}
+	 *            def
+	 */
 
   Directive.prototype._bind = function () {
     var name = this.name;
@@ -7739,9 +7973,8 @@
   };
 
   /**
-   * Setup all param attributes, e.g. track-by,
-   * transition-mode, etc...
-   */
+	 * Setup all param attributes, e.g. track-by, transition-mode, etc...
+	 */
 
   Directive.prototype._setupParams = function () {
     if (!this.params) {
@@ -7770,11 +8003,13 @@
   };
 
   /**
-   * Setup a watcher for a dynamic param.
-   *
-   * @param {String} key
-   * @param {String} expression
-   */
+	 * Setup a watcher for a dynamic param.
+	 * 
+	 * @param {String}
+	 *            key
+	 * @param {String}
+	 *            expression
+	 */
 
   Directive.prototype._setupParamWatcher = function (key, expression) {
     var self = this;
@@ -7797,15 +8032,14 @@
   };
 
   /**
-   * Check if the directive is a function caller
-   * and if the expression is a callable one. If both true,
-   * we wrap up the expression and use it as the event
-   * handler.
-   *
-   * e.g. on-click="a++"
-   *
-   * @return {Boolean}
-   */
+	 * Check if the directive is a function caller and if the expression is a
+	 * callable one. If both true, we wrap up the expression and use it as the
+	 * event handler.
+	 * 
+	 * e.g. on-click="a++"
+	 * 
+	 * @return {Boolean}
+	 */
 
   Directive.prototype._checkStatement = function () {
     var expression = this.expression;
@@ -7826,13 +8060,13 @@
   };
 
   /**
-   * Set the corresponding value with the setter.
-   * This should only be used in two-way directives
-   * e.g. v-model.
-   *
-   * @param {*} value
-   * @public
-   */
+	 * Set the corresponding value with the setter. This should only be used in
+	 * two-way directives e.g. v-model.
+	 * 
+	 * @param {*}
+	 *            value
+	 * @public
+	 */
 
   Directive.prototype.set = function (value) {
     /* istanbul ignore else */
@@ -7846,11 +8080,12 @@
   };
 
   /**
-   * Execute a function while preventing that function from
-   * triggering updates on this directive instance.
-   *
-   * @param {Function} fn
-   */
+	 * Execute a function while preventing that function from triggering updates
+	 * on this directive instance.
+	 * 
+	 * @param {Function}
+	 *            fn
+	 */
 
   Directive.prototype._withLock = function (fn) {
     var self = this;
@@ -7862,21 +8097,22 @@
   };
 
   /**
-   * Convenience method that attaches a DOM event listener
-   * to the directive element and autometically tears it down
-   * during unbind.
-   *
-   * @param {String} event
-   * @param {Function} handler
-   */
+	 * Convenience method that attaches a DOM event listener to the directive
+	 * element and autometically tears it down during unbind.
+	 * 
+	 * @param {String}
+	 *            event
+	 * @param {Function}
+	 *            handler
+	 */
 
   Directive.prototype.on = function (event, handler) {
     on$1(this.el, event, handler);(this._listeners || (this._listeners = [])).push([event, handler]);
   };
 
   /**
-   * Teardown the watcher and call unbind.
-   */
+	 * Teardown the watcher and call unbind.
+	 */
 
   Directive.prototype._teardown = function () {
     if (this._bound) {
@@ -7912,10 +8148,11 @@
   function lifecycleMixin (Vue) {
 
     /**
-     * Update v-ref for component.
-     *
-     * @param {Boolean} remove
-     */
+	 * Update v-ref for component.
+	 * 
+	 * @param {Boolean}
+	 *            remove
+	 */
 
     Vue.prototype._updateRef = function (remove) {
       var ref = this.$options._ref;
@@ -7932,17 +8169,18 @@
     };
 
     /**
-     * Transclude, compile and link element.
-     *
-     * If a pre-compiled linker is available, that means the
-     * passed in element will be pre-transcluded and compiled
-     * as well - all we need to do is to call the linker.
-     *
-     * Otherwise we need to call transclude/compile/link here.
-     *
-     * @param {Element} el
-     * @return {Element}
-     */
+	 * Transclude, compile and link element.
+	 * 
+	 * If a pre-compiled linker is available, that means the passed in element
+	 * will be pre-transcluded and compiled as well - all we need to do is to
+	 * call the linker.
+	 * 
+	 * Otherwise we need to call transclude/compile/link here.
+	 * 
+	 * @param {Element}
+	 *            el
+	 * @return {Element}
+	 */
 
     Vue.prototype._compile = function (el) {
       var options = this.$options;
@@ -8003,11 +8241,11 @@
     };
 
     /**
-     * Initialize instance element. Called in the public
-     * $mount() method.
-     *
-     * @param {Element} el
-     */
+	 * Initialize instance element. Called in the public $mount() method.
+	 * 
+	 * @param {Element}
+	 *            el
+	 */
 
     Vue.prototype._initElement = function (el) {
       if (el instanceof DocumentFragment) {
@@ -8027,29 +8265,37 @@
     };
 
     /**
-     * Create and bind a directive to an element.
-     *
-     * @param {String} name - directive name
-     * @param {Node} node   - target node
-     * @param {Object} desc - parsed directive descriptor
-     * @param {Object} def  - directive definition object
-     * @param {Vue} [host] - transclusion host component
-     * @param {Object} [scope] - v-for scope
-     * @param {Fragment} [frag] - owner fragment
-     */
+	 * Create and bind a directive to an element.
+	 * 
+	 * @param {String}
+	 *            name - directive name
+	 * @param {Node}
+	 *            node - target node
+	 * @param {Object}
+	 *            desc - parsed directive descriptor
+	 * @param {Object}
+	 *            def - directive definition object
+	 * @param {Vue}
+	 *            [host] - transclusion host component
+	 * @param {Object}
+	 *            [scope] - v-for scope
+	 * @param {Fragment}
+	 *            [frag] - owner fragment
+	 */
 
     Vue.prototype._bindDir = function (descriptor, node, host, scope, frag) {
       this._directives.push(new Directive(descriptor, this, node, host, scope, frag));
     };
 
     /**
-     * Teardown an instance, unobserves the data, unbind all the
-     * directives, turn off all the event listeners, etc.
-     *
-     * @param {Boolean} remove - whether to remove the DOM node.
-     * @param {Boolean} deferCleanup - if true, defer cleanup to
-     *                                 be called later
-     */
+	 * Teardown an instance, unobserves the data, unbind all the directives,
+	 * turn off all the event listeners, etc.
+	 * 
+	 * @param {Boolean}
+	 *            remove - whether to remove the DOM node.
+	 * @param {Boolean}
+	 *            deferCleanup - if true, defer cleanup to be called later
+	 */
 
     Vue.prototype._destroy = function (remove, deferCleanup) {
       if (this._isBeingDestroyed) {
@@ -8065,7 +8311,8 @@
       var self = this;
       // Cleanup should be called either synchronously or asynchronoysly as
       // callback of this.$remove(), or if remove and deferCleanup are false.
-      // In any case it should be called after all other removing, unbinding and
+      // In any case it should be called after all other removing, unbinding
+		// and
       // turning of is done
       var cleanupIfPossible = function cleanupIfPossible() {
         if (destroyReady && !pendingRemoval && !deferCleanup) {
@@ -8121,10 +8368,9 @@
     };
 
     /**
-     * Clean up to ensure garbage collection.
-     * This is called after the leave transition if there
-     * is any.
-     */
+	 * Clean up to ensure garbage collection. This is called after the leave
+	 * transition if there is any.
+	 */
 
     Vue.prototype._cleanup = function () {
       if (this._isDestroyed) {
@@ -8161,17 +8407,20 @@
   function miscMixin (Vue) {
 
     /**
-     * Apply a list of filter (descriptors) to a value.
-     * Using plain for loops here because this will be called in
-     * the getter of any watcher with filters so it is very
-     * performance sensitive.
-     *
-     * @param {*} value
-     * @param {*} [oldValue]
-     * @param {Array} filters
-     * @param {Boolean} write
-     * @return {*}
-     */
+	 * Apply a list of filter (descriptors) to a value. Using plain for loops
+	 * here because this will be called in the getter of any watcher with
+	 * filters so it is very performance sensitive.
+	 * 
+	 * @param {*}
+	 *            value
+	 * @param {*}
+	 *            [oldValue]
+	 * @param {Array}
+	 *            filters
+	 * @param {Boolean}
+	 *            write
+	 * @return {*}
+	 */
 
     Vue.prototype._applyFilters = function (value, oldValue, filters, write) {
       var filter, fn, args, arg, offset, i, l, j, k;
@@ -8198,15 +8447,16 @@
     };
 
     /**
-     * Resolve a component, depending on whether the component
-     * is defined normally or using an async factory function.
-     * Resolves synchronously if already resolved, otherwise
-     * resolves asynchronously and caches the resolved
-     * constructor on the factory.
-     *
-     * @param {String} id
-     * @param {Function} cb
-     */
+	 * Resolve a component, depending on whether the component is defined
+	 * normally or using an async factory function. Resolves synchronously if
+	 * already resolved, otherwise resolves asynchronously and caches the
+	 * resolved constructor on the factory.
+	 * 
+	 * @param {String}
+	 *            id
+	 * @param {Function}
+	 *            cb
+	 */
 
     Vue.prototype._resolveComponent = function (id, cb) {
       var factory = resolveAsset(this.$options, 'components', id);
@@ -8251,8 +8501,8 @@
   function globalAPI (Vue) {
 
     /**
-     * Expose useful internals
-     */
+	 * Expose useful internals
+	 */
 
     Vue.util = util;
     Vue.config = config;
@@ -8261,8 +8511,8 @@
     Vue.nextTick = nextTick;
 
     /**
-     * The following are exposed for advanced usage / plugins
-     */
+	 * The following are exposed for advanced usage / plugins
+	 */
 
     Vue.compiler = compiler;
     Vue.FragmentFactory = FragmentFactory;
@@ -8276,19 +8526,20 @@
     };
 
     /**
-     * Each instance constructor, including Vue, has a unique
-     * cid. This enables us to create wrapped "child
-     * constructors" for prototypal inheritance and cache them.
-     */
+	 * Each instance constructor, including Vue, has a unique cid. This enables
+	 * us to create wrapped "child constructors" for prototypal inheritance and
+	 * cache them.
+	 */
 
     Vue.cid = 0;
     var cid = 1;
 
     /**
-     * Class inheritance
-     *
-     * @param {Object} extendOptions
-     */
+	 * Class inheritance
+	 * 
+	 * @param {Object}
+	 *            extendOptions
+	 */
 
     Vue.extend = function (extendOptions) {
       extendOptions = extendOptions || {};
@@ -8329,23 +8580,24 @@
     };
 
     /**
-     * A function that returns a sub-class constructor with the
-     * given name. This gives us much nicer output when
-     * logging instances in the console.
-     *
-     * @param {String} name
-     * @return {Function}
-     */
+	 * A function that returns a sub-class constructor with the given name. This
+	 * gives us much nicer output when logging instances in the console.
+	 * 
+	 * @param {String}
+	 *            name
+	 * @return {Function}
+	 */
 
     function createClass(name) {
       return new Function('return function ' + classify(name) + ' (options) { this._init(options) }')();
     }
 
     /**
-     * Plugin system
-     *
-     * @param {Object} plugin
-     */
+	 * Plugin system
+	 * 
+	 * @param {Object}
+	 *            plugin
+	 */
 
     Vue.use = function (plugin) {
       /* istanbul ignore if */
@@ -8365,21 +8617,21 @@
     };
 
     /**
-     * Apply a global mixin by merging it into the default
-     * options.
-     */
+	 * Apply a global mixin by merging it into the default options.
+	 */
 
     Vue.mixin = function (mixin) {
       Vue.options = mergeOptions(Vue.options, mixin);
     };
 
     /**
-     * Create asset registration methods with the following
-     * signature:
-     *
-     * @param {String} id
-     * @param {*} definition
-     */
+	 * Create asset registration methods with the following signature:
+	 * 
+	 * @param {String}
+	 *            id
+	 * @param {*}
+	 *            definition
+	 */
 
     config._assetTypes.forEach(function (type) {
       Vue[type] = function (id, definition) {
@@ -8408,12 +8660,14 @@
   function dataAPI (Vue) {
 
     /**
-     * Get the value from an expression on this vm.
-     *
-     * @param {String} exp
-     * @param {Boolean} [asStatement]
-     * @return {*}
-     */
+	 * Get the value from an expression on this vm.
+	 * 
+	 * @param {String}
+	 *            exp
+	 * @param {Boolean}
+	 *            [asStatement]
+	 * @return {*}
+	 */
 
     Vue.prototype.$get = function (exp, asStatement) {
       var res = parseExpression(exp);
@@ -8434,13 +8688,14 @@
     };
 
     /**
-     * Set the value from an expression on this vm.
-     * The expression must be a valid left-hand
-     * expression in an assignment.
-     *
-     * @param {String} exp
-     * @param {*} val
-     */
+	 * Set the value from an expression on this vm. The expression must be a
+	 * valid left-hand expression in an assignment.
+	 * 
+	 * @param {String}
+	 *            exp
+	 * @param {*}
+	 *            val
+	 */
 
     Vue.prototype.$set = function (exp, val) {
       var res = parseExpression(exp, true);
@@ -8450,26 +8705,27 @@
     };
 
     /**
-     * Delete a property on the VM
-     *
-     * @param {String} key
-     */
+	 * Delete a property on the VM
+	 * 
+	 * @param {String}
+	 *            key
+	 */
 
     Vue.prototype.$delete = function (key) {
       del(this._data, key);
     };
 
     /**
-     * Watch an expression, trigger callback when its
-     * value changes.
-     *
-     * @param {String|Function} expOrFn
-     * @param {Function} cb
-     * @param {Object} [options]
-     *                 - {Boolean} deep
-     *                 - {Boolean} immediate
-     * @return {Function} - unwatchFn
-     */
+	 * Watch an expression, trigger callback when its value changes.
+	 * 
+	 * @param {String|Function}
+	 *            expOrFn
+	 * @param {Function}
+	 *            cb
+	 * @param {Object}
+	 *            [options] - {Boolean} deep - {Boolean} immediate
+	 * @return {Function} - unwatchFn
+	 */
 
     Vue.prototype.$watch = function (expOrFn, cb, options) {
       var vm = this;
@@ -8492,12 +8748,14 @@
     };
 
     /**
-     * Evaluate a text directive, including filters.
-     *
-     * @param {String} text
-     * @param {Boolean} [asStatement]
-     * @return {String}
-     */
+	 * Evaluate a text directive, including filters.
+	 * 
+	 * @param {String}
+	 *            text
+	 * @param {Boolean}
+	 *            [asStatement]
+	 * @return {String}
+	 */
 
     Vue.prototype.$eval = function (text, asStatement) {
       // check for filters.
@@ -8515,11 +8773,12 @@
     };
 
     /**
-     * Interpolate a piece of template text.
-     *
-     * @param {String} text
-     * @return {String}
-     */
+	 * Interpolate a piece of template text.
+	 * 
+	 * @param {String}
+	 *            text
+	 * @return {String}
+	 */
 
     Vue.prototype.$interpolate = function (text) {
       var tokens = parseText(text);
@@ -8538,12 +8797,12 @@
     };
 
     /**
-     * Log instance data as a plain JS object
-     * so that it is easier to inspect in console.
-     * This method assumes console is available.
-     *
-     * @param {String} [path]
-     */
+	 * Log instance data as a plain JS object so that it is easier to inspect in
+	 * console. This method assumes console is available.
+	 * 
+	 * @param {String}
+	 *            [path]
+	 */
 
     Vue.prototype.$log = function (path) {
       var data = path ? getPath(this._data, path) : this._data;
@@ -8560,12 +8819,12 @@
     };
 
     /**
-     * "clean" a getter/setter converted object into a plain
-     * object copy.
-     *
-     * @param {Object} - obj
-     * @return {Object}
-     */
+	 * "clean" a getter/setter converted object into a plain object copy.
+	 * 
+	 * @param {Object} -
+	 *            obj
+	 * @return {Object}
+	 */
 
     function clean(obj) {
       return JSON.parse(JSON.stringify(obj));
@@ -8575,36 +8834,43 @@
   function domAPI (Vue) {
 
     /**
-     * Convenience on-instance nextTick. The callback is
-     * auto-bound to the instance, and this avoids component
-     * modules having to rely on the global Vue.
-     *
-     * @param {Function} fn
-     */
+	 * Convenience on-instance nextTick. The callback is auto-bound to the
+	 * instance, and this avoids component modules having to rely on the global
+	 * Vue.
+	 * 
+	 * @param {Function}
+	 *            fn
+	 */
 
     Vue.prototype.$nextTick = function (fn) {
       nextTick(fn, this);
     };
 
     /**
-     * Append instance to target
-     *
-     * @param {Node} target
-     * @param {Function} [cb]
-     * @param {Boolean} [withTransition] - defaults to true
-     */
+	 * Append instance to target
+	 * 
+	 * @param {Node}
+	 *            target
+	 * @param {Function}
+	 *            [cb]
+	 * @param {Boolean}
+	 *            [withTransition] - defaults to true
+	 */
 
     Vue.prototype.$appendTo = function (target, cb, withTransition) {
       return insert(this, target, cb, withTransition, append, appendWithTransition);
     };
 
     /**
-     * Prepend instance to target
-     *
-     * @param {Node} target
-     * @param {Function} [cb]
-     * @param {Boolean} [withTransition] - defaults to true
-     */
+	 * Prepend instance to target
+	 * 
+	 * @param {Node}
+	 *            target
+	 * @param {Function}
+	 *            [cb]
+	 * @param {Boolean}
+	 *            [withTransition] - defaults to true
+	 */
 
     Vue.prototype.$prependTo = function (target, cb, withTransition) {
       target = query(target);
@@ -8617,24 +8883,30 @@
     };
 
     /**
-     * Insert instance before target
-     *
-     * @param {Node} target
-     * @param {Function} [cb]
-     * @param {Boolean} [withTransition] - defaults to true
-     */
+	 * Insert instance before target
+	 * 
+	 * @param {Node}
+	 *            target
+	 * @param {Function}
+	 *            [cb]
+	 * @param {Boolean}
+	 *            [withTransition] - defaults to true
+	 */
 
     Vue.prototype.$before = function (target, cb, withTransition) {
       return insert(this, target, cb, withTransition, beforeWithCb, beforeWithTransition);
     };
 
     /**
-     * Insert instance after target
-     *
-     * @param {Node} target
-     * @param {Function} [cb]
-     * @param {Boolean} [withTransition] - defaults to true
-     */
+	 * Insert instance after target
+	 * 
+	 * @param {Node}
+	 *            target
+	 * @param {Function}
+	 *            [cb]
+	 * @param {Boolean}
+	 *            [withTransition] - defaults to true
+	 */
 
     Vue.prototype.$after = function (target, cb, withTransition) {
       target = query(target);
@@ -8647,11 +8919,13 @@
     };
 
     /**
-     * Remove instance from DOM
-     *
-     * @param {Function} [cb]
-     * @param {Boolean} [withTransition] - defaults to true
-     */
+	 * Remove instance from DOM
+	 * 
+	 * @param {Function}
+	 *            [cb]
+	 * @param {Boolean}
+	 *            [withTransition] - defaults to true
+	 */
 
     Vue.prototype.$remove = function (cb, withTransition) {
       if (!this.$el.parentNode) {
@@ -8676,16 +8950,22 @@
     };
 
     /**
-     * Shared DOM insertion function.
-     *
-     * @param {Vue} vm
-     * @param {Element} target
-     * @param {Function} [cb]
-     * @param {Boolean} [withTransition]
-     * @param {Function} op1 - op for non-transition insert
-     * @param {Function} op2 - op for transition insert
-     * @return vm
-     */
+	 * Shared DOM insertion function.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {Element}
+	 *            target
+	 * @param {Function}
+	 *            [cb]
+	 * @param {Boolean}
+	 *            [withTransition]
+	 * @param {Function}
+	 *            op1 - op for non-transition insert
+	 * @param {Function}
+	 *            op2 - op for transition insert
+	 * @return vm
+	 */
 
     function insert(vm, target, cb, withTransition, op1, op2) {
       target = query(target);
@@ -8707,23 +8987,28 @@
     }
 
     /**
-     * Check for selectors
-     *
-     * @param {String|Element} el
-     */
+	 * Check for selectors
+	 * 
+	 * @param {String|Element}
+	 *            el
+	 */
 
     function query(el) {
       return typeof el === 'string' ? document.querySelector(el) : el;
     }
 
     /**
-     * Append operation that takes a callback.
-     *
-     * @param {Node} el
-     * @param {Node} target
-     * @param {Vue} vm - unused
-     * @param {Function} [cb]
-     */
+	 * Append operation that takes a callback.
+	 * 
+	 * @param {Node}
+	 *            el
+	 * @param {Node}
+	 *            target
+	 * @param {Vue}
+	 *            vm - unused
+	 * @param {Function}
+	 *            [cb]
+	 */
 
     function append(el, target, vm, cb) {
       target.appendChild(el);
@@ -8731,13 +9016,17 @@
     }
 
     /**
-     * InsertBefore operation that takes a callback.
-     *
-     * @param {Node} el
-     * @param {Node} target
-     * @param {Vue} vm - unused
-     * @param {Function} [cb]
-     */
+	 * InsertBefore operation that takes a callback.
+	 * 
+	 * @param {Node}
+	 *            el
+	 * @param {Node}
+	 *            target
+	 * @param {Vue}
+	 *            vm - unused
+	 * @param {Function}
+	 *            [cb]
+	 */
 
     function beforeWithCb(el, target, vm, cb) {
       before(el, target);
@@ -8745,12 +9034,15 @@
     }
 
     /**
-     * Remove operation that takes a callback.
-     *
-     * @param {Node} el
-     * @param {Vue} vm - unused
-     * @param {Function} [cb]
-     */
+	 * Remove operation that takes a callback.
+	 * 
+	 * @param {Node}
+	 *            el
+	 * @param {Vue}
+	 *            vm - unused
+	 * @param {Function}
+	 *            [cb]
+	 */
 
     function removeWithCb(el, vm, cb) {
       remove(el);
@@ -8761,11 +9053,13 @@
   function eventsAPI (Vue) {
 
     /**
-     * Listen on the given `event` with `fn`.
-     *
-     * @param {String} event
-     * @param {Function} fn
-     */
+	 * Listen on the given `event` with `fn`.
+	 * 
+	 * @param {String}
+	 *            event
+	 * @param {Function}
+	 *            fn
+	 */
 
     Vue.prototype.$on = function (event, fn) {
       (this._events[event] || (this._events[event] = [])).push(fn);
@@ -8774,12 +9068,14 @@
     };
 
     /**
-     * Adds an `event` listener that will be invoked a single
-     * time then automatically removed.
-     *
-     * @param {String} event
-     * @param {Function} fn
-     */
+	 * Adds an `event` listener that will be invoked a single time then
+	 * automatically removed.
+	 * 
+	 * @param {String}
+	 *            event
+	 * @param {Function}
+	 *            fn
+	 */
 
     Vue.prototype.$once = function (event, fn) {
       var self = this;
@@ -8793,12 +9089,13 @@
     };
 
     /**
-     * Remove the given callback for `event` or all
-     * registered callbacks.
-     *
-     * @param {String} event
-     * @param {Function} fn
-     */
+	 * Remove the given callback for `event` or all registered callbacks.
+	 * 
+	 * @param {String}
+	 *            event
+	 * @param {Function}
+	 *            fn
+	 */
 
     Vue.prototype.$off = function (event, fn) {
       var cbs;
@@ -8840,11 +9137,12 @@
     };
 
     /**
-     * Trigger an event on self.
-     *
-     * @param {String} event
-     * @return {Boolean} shouldPropagate
-     */
+	 * Trigger an event on self.
+	 * 
+	 * @param {String}
+	 *            event
+	 * @return {Boolean} shouldPropagate
+	 */
 
     Vue.prototype.$emit = function (event) {
       var cbs = this._events[event];
@@ -8863,11 +9161,13 @@
     };
 
     /**
-     * Recursively broadcast an event to all children instances.
-     *
-     * @param {String} event
-     * @param {...*} additional arguments
-     */
+	 * Recursively broadcast an event to all children instances.
+	 * 
+	 * @param {String}
+	 *            event
+	 * @param {...*}
+	 *            additional arguments
+	 */
 
     Vue.prototype.$broadcast = function (event) {
       // if no child has registered for this event,
@@ -8885,11 +9185,13 @@
     };
 
     /**
-     * Recursively propagate an event up the parent chain.
-     *
-     * @param {String} event
-     * @param {...*} additional arguments
-     */
+	 * Recursively propagate an event up the parent chain.
+	 * 
+	 * @param {String}
+	 *            event
+	 * @param {...*}
+	 *            additional arguments
+	 */
 
     Vue.prototype.$dispatch = function () {
       this.$emit.apply(this, arguments);
@@ -8902,14 +9204,16 @@
     };
 
     /**
-     * Modify the listener counts on all parents.
-     * This bookkeeping allows $broadcast to return early when
-     * no child has listened to a certain event.
-     *
-     * @param {Vue} vm
-     * @param {String} event
-     * @param {Number} count
-     */
+	 * Modify the listener counts on all parents. This bookkeeping allows
+	 * $broadcast to return early when no child has listened to a certain event.
+	 * 
+	 * @param {Vue}
+	 *            vm
+	 * @param {String}
+	 *            event
+	 * @param {Number}
+	 *            count
+	 */
 
     var hookRE = /^hook:/;
     function modifyListenerCount(vm, event, count) {
@@ -8927,14 +9231,14 @@
   function lifecycleAPI (Vue) {
 
     /**
-     * Set instance target element and kick off the compilation
-     * process. The passed in `el` can be a selector string, an
-     * existing Element, or a DocumentFragment (for block
-     * instances).
-     *
-     * @param {Element|DocumentFragment|string} el
-     * @public
-     */
+	 * Set instance target element and kick off the compilation process. The
+	 * passed in `el` can be a selector string, an existing Element, or a
+	 * DocumentFragment (for block instances).
+	 * 
+	 * @param {Element|DocumentFragment|string}
+	 *            el
+	 * @public
+	 */
 
     Vue.prototype.$mount = function (el) {
       if (this._isCompiled) {
@@ -8957,8 +9261,8 @@
     };
 
     /**
-     * Mark an instance as ready.
-     */
+	 * Mark an instance as ready.
+	 */
 
     function ready() {
       this._isAttached = true;
@@ -8967,22 +9271,22 @@
     }
 
     /**
-     * Teardown the instance, simply delegate to the internal
-     * _destroy.
-     */
+	 * Teardown the instance, simply delegate to the internal _destroy.
+	 */
 
     Vue.prototype.$destroy = function (remove, deferCleanup) {
       this._destroy(remove, deferCleanup);
     };
 
     /**
-     * Partially compile a piece of DOM and return a
-     * decompile function.
-     *
-     * @param {Element|DocumentFragment} el
-     * @param {Vue} [host]
-     * @return {Function}
-     */
+	 * Partially compile a piece of DOM and return a decompile function.
+	 * 
+	 * @param {Element|DocumentFragment}
+	 *            el
+	 * @param {Vue}
+	 *            [host]
+	 * @return {Function}
+	 */
 
     Vue.prototype.$compile = function (el, host, scope, frag) {
       return compile(el, this.$options, true)(this, el, host, scope, frag);
@@ -8990,18 +9294,17 @@
   }
 
   /**
-   * The exposed Vue constructor.
-   *
-   * API conventions:
-   * - public API methods/properties are prefixed with `$`
-   * - internal methods/properties are prefixed with `_`
-   * - non-prefixed properties are assumed to be proxied user
-   *   data.
-   *
-   * @constructor
-   * @param {Object} [options]
-   * @public
-   */
+	 * The exposed Vue constructor.
+	 * 
+	 * API conventions: - public API methods/properties are prefixed with `$` -
+	 * internal methods/properties are prefixed with `_` - non-prefixed
+	 * properties are assumed to be proxied user data.
+	 * 
+	 * @constructor
+	 * @param {Object}
+	 *            [options]
+	 * @public
+	 */
 
   function Vue(options) {
     this._init(options);
@@ -9024,11 +9327,13 @@
   var convertArray = vFor._postProcess;
 
   /**
-   * Limit filter for arrays
-   *
-   * @param {Number} n
-   * @param {Number} offset (Decimal expected)
-   */
+	 * Limit filter for arrays
+	 * 
+	 * @param {Number}
+	 *            n
+	 * @param {Number}
+	 *            offset (Decimal expected)
+	 */
 
   function limitBy(arr, n, offset) {
     offset = offset ? parseInt(offset, 10) : 0;
@@ -9036,12 +9341,15 @@
   }
 
   /**
-   * Filter filter for arrays
-   *
-   * @param {String} search
-   * @param {String} [delimiter]
-   * @param {String} ...dataKeys
-   */
+	 * Filter filter for arrays
+	 * 
+	 * @param {String}
+	 *            search
+	 * @param {String}
+	 *            [delimiter]
+	 * @param {String}
+	 *            ...dataKeys
+	 */
 
   function filterBy(arr, search, delimiter) {
     arr = convertArray(arr);
@@ -9082,11 +9390,13 @@
   }
 
   /**
-   * Filter filter for arrays
-   *
-   * @param {String} sortKey
-   * @param {String} reverse
-   */
+	 * Filter filter for arrays
+	 * 
+	 * @param {String}
+	 *            sortKey
+	 * @param {String}
+	 *            reverse
+	 */
 
   function orderBy(arr, sortKey, reverse) {
     arr = convertArray(arr);
@@ -9107,11 +9417,13 @@
   }
 
   /**
-   * String contain helper
-   *
-   * @param {*} val
-   * @param {String} search
-   */
+	 * String contain helper
+	 * 
+	 * @param {*}
+	 *            val
+	 * @param {String}
+	 *            search
+	 */
 
   function contains(val, search) {
     var i;
@@ -9145,10 +9457,11 @@
     limitBy: limitBy,
 
     /**
-     * Stringify value.
-     *
-     * @param {Number} indent
-     */
+	 * Stringify value.
+	 * 
+	 * @param {Number}
+	 *            indent
+	 */
 
     json: {
       read: function read(value, indent) {
@@ -9164,8 +9477,8 @@
     },
 
     /**
-     * 'abc' => 'Abc'
-     */
+	 * 'abc' => 'Abc'
+	 */
 
     capitalize: function capitalize(value) {
       if (!value && value !== 0) return '';
@@ -9174,26 +9487,27 @@
     },
 
     /**
-     * 'abc' => 'ABC'
-     */
+	 * 'abc' => 'ABC'
+	 */
 
     uppercase: function uppercase(value) {
       return value || value === 0 ? value.toString().toUpperCase() : '';
     },
 
     /**
-     * 'AbC' => 'abc'
-     */
+	 * 'AbC' => 'abc'
+	 */
 
     lowercase: function lowercase(value) {
       return value || value === 0 ? value.toString().toLowerCase() : '';
     },
 
     /**
-     * 12345 => $12,345.00
-     *
-     * @param {String} sign
-     */
+	 * 12345 => $12,345.00
+	 * 
+	 * @param {String}
+	 *            sign
+	 */
 
     currency: function currency(value, _currency) {
       value = parseFloat(value);
@@ -9209,17 +9523,15 @@
     },
 
     /**
-     * 'item' => 'items'
-     *
-     * @params
-     *  an array of strings corresponding to
-     *  the single, double, triple ... forms of the word to
-     *  be pluralized. When the number to be pluralized
-     *  exceeds the length of the args, it will use the last
-     *  entry in the array.
-     *
-     *  e.g. ['single', 'double', 'triple', 'multiple']
-     */
+	 * 'item' => 'items'
+	 * 
+	 * @params an array of strings corresponding to the single, double, triple
+	 *         ... forms of the word to be pluralized. When the number to be
+	 *         pluralized exceeds the length of the args, it will use the last
+	 *         entry in the array.
+	 * 
+	 * e.g. ['single', 'double', 'triple', 'multiple']
+	 */
 
     pluralize: function pluralize(value) {
       var args = toArray(arguments, 1);
@@ -9227,12 +9539,14 @@
     },
 
     /**
-     * Debounce a handler function.
-     *
-     * @param {Function} handler
-     * @param {Number} delay = 300
-     * @return {Function}
-     */
+	 * Debounce a handler function.
+	 * 
+	 * @param {Function}
+	 *            handler
+	 * @param {Number}
+	 *            delay = 300
+	 * @return {Function}
+	 */
 
     debounce: function debounce(handler, delay) {
       if (!handler) return;
@@ -9359,13 +9673,16 @@
   });
 
   /**
-   * Extract qualified content nodes from a node list.
-   *
-   * @param {NodeList} nodes
-   * @param {Element} parent
-   * @param {Boolean} main
-   * @return {DocumentFragment}
-   */
+	 * Extract qualified content nodes from a node list.
+	 * 
+	 * @param {NodeList}
+	 *            nodes
+	 * @param {Element}
+	 *            parent
+	 * @param {Boolean}
+	 *            main
+	 * @return {DocumentFragment}
+	 */
 
   function extractFragment(nodes, parent, main) {
     var frag = document.createDocumentFragment();
@@ -9404,13 +9721,12 @@
   Vue.version = '1.0.12';
 
   /**
-   * Vue and every constructor that extends Vue has an
-   * associated options object, which can be accessed during
-   * compilation steps as `this.constructor.options`.
-   *
-   * These can be seen as the default options of every
-   * Vue instance.
-   */
+	 * Vue and every constructor that extends Vue has an associated options
+	 * object, which can be accessed during compilation steps as
+	 * `this.constructor.options`.
+	 * 
+	 * These can be seen as the default options of every Vue instance.
+	 */
 
   Vue.options = {
     directives: publicDirectives,
