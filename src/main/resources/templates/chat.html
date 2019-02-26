@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,8 +35,12 @@
 <body>
 
 <div id="chat"></div>
-<script th:src="@{dist/vue.js}"></script>
-<script th:src="@{dist/main.js}"></script>
+<script type="text/javascript" th:src="@{js/sockjs.min.js}"></script>
+<script type="text/javascript" th:src="@{js/stomp.min.js}"></script>
+<script type="text/javascript" th:src="@{js/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/chat.js}"></script>
+<script type="text/javascript" th:src="@{dist/vue.js}"></script>
+<script type="text/javascript" th:src="@{dist/main.js}"></script>
 <div style="text-align:center;">
 </div>
 

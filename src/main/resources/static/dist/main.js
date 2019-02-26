@@ -26,7 +26,7 @@ function(e) {
     var i = s(32),
     o = r(i);
     Vue.config.debug = !0,
-    new Vue(o["default"])
+    myVue= new Vue(o["default"])
 },
 function(e, t) {
     e.exports = function() {
@@ -351,7 +351,7 @@ function(e, t) {
                     text: this.text,
                     date: new Date,
                     self: !0
-                }), this.text = "")
+                }), sendSplittle(this.text), this.text = "")
             }
         }
     }
@@ -369,6 +369,7 @@ function(e, t, s) {
     var i = s(14),
     o = r(i),
     n = "VUE-CHAT-v3";
+    localStorage.removeItem(n);
     if (!localStorage.getItem(n)) {
         var a = new Date,
         l = {
@@ -401,15 +402,23 @@ function(e, t, s) {
                 {
                     text: "项目地址: https://github.com/coffcer/vue-chat",
                     date: a
+                },
+                {
+                    text: "项目地址: https://github.com/coffcer/vue-chat",
+                    date: a,
+                    self: true
                 }]
             },
             {
                 userId: 3,
                 messages: []
+            },
+            {
+                userId: 4,
+                messages: []
             }]
         };
-        localStorage.setItem(n, (0, o["default"])(l))
-        
+        localStorage.setItem(n, (0, o["default"])(l))       
     }
     t["default"] = {
         fetch: function() {
