@@ -370,62 +370,64 @@ function(e, t, s) {
     o = r(i),
     n = "VUE-CHAT-v3";
     localStorage.removeItem(n);
-    if (!localStorage.getItem(n)) {
-        var a = new Date,
-        l = {
-            user: {
-                id: 1,
-                name: "Coffce",
-                img: "dist/images/1.jpg"
-            },
-            userList: [{
-                id: 2,
-                name: "test",
-                img: "dist/images/2.png"
-            },
-            {
-                id: 3,
-                name: "webpack",
-                img: "dist/images/3.jpg"
-            },
-            {
-                id: 4,
-                name: "laowang",
-                img: "dist/images/3.jpg"
-            }],
-            sessionList: [{
-                userId: 2,
-                messages: [{
-                    text: "Hello，这是一个基于Vue + Webpack构建的简单chat示例，聊天记录保存在localStorge。简单演示了Vue的基础特性和webpack配置。",
-                    date: a
-                },
-                {
-                    text: "项目地址: https://github.com/coffcer/vue-chat",
-                    date: a
-                },
-                {
-                    text: "项目地址: https://github.com/coffcer/vue-chat",
-                    date: a,
-                    self: true
-                }]
-            },
-            {
-                userId: 3,
-                messages: []
-            },
-            {
-                userId: 4,
-                messages: []
-            }]
-        };
-        localStorage.setItem(n, (0, o["default"])(l))       
-    }
+//    if (!localStorage.getItem(n)) {
+//        var a = new Date,
+//        l = {
+//            user: {
+//                id: 1,
+//                name: "Coffce",
+//                img: "dist/images/1.jpg"
+//            },
+//            userList: [{
+//                id: 2,
+//                name: "test",
+//                img: "dist/images/2.png"
+//            },
+//            {
+//                id: 3,
+//                name: "webpack",
+//                img: "dist/images/3.jpg"
+//            },
+//            {
+//                id: 4,
+//                name: "laowang",
+//                img: "dist/images/3.jpg"
+//            }],
+//            sessionList: [{
+//                userId: 2,
+//                messages: [{
+//                    text: "Hello，这是一个基于Vue + Webpack构建的简单chat示例，聊天记录保存在localStorge。简单演示了Vue的基础特性和webpack配置。",
+//                    date: a
+//                },
+//                {
+//                    text: "项目地址: https://github.com/coffcer/vue-chat",
+//                    date: a
+//                },
+//                {
+//                    text: "项目地址: https://github.com/coffcer/vue-chat",
+//                    date: a,
+//                    self: true
+//                }]
+//            },
+//            {
+//                userId: 3,
+//                messages: []
+//            },
+//            {
+//                userId: 4,
+//                messages: []
+//            }]
+//        };
+//        localStorage.setItem(n, (0, o["default"])(l))       
+//    }
+    //localStorage.setItem(n, (0, o["default"])(l))  
     t["default"] = {
         fetch: function() {
-            return JSON.parse(localStorage.getItem(n))
+        	return userInfo
+           // return JSON.parse(localStorage.getItem(n))
         },
         save: function(e) {
-            localStorage.setItem(n, (0, o["default"])(e))
+           // localStorage.setItem(n, (0, o["default"])(e))
         }
     }
 },

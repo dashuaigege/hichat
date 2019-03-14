@@ -12,6 +12,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.wongws.hichat.domain.WiselyMessage;
 import org.wongws.hichat.domain.WiselyResponse;
+import org.wongws.hichat.util.Util;
 
 @Controller
 public class WsController {
@@ -20,8 +21,8 @@ public class WsController {
 
 	@MessageMapping("/chat")
 	public void handleChat(Principal principal, String msg, @Header("receiver") String receiver) {
-		Map<String,Object> result=new HashMap<String,Object>();
-		result.put("send", principal.getName());
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("sendId", Util.UserDic.get(principal.getName()));
 		result.put("message", msg);
 		messagingTemplate.convertAndSendToUser(receiver, "/queue/notifications", result);
 	}
