@@ -30,13 +30,13 @@ function hint() {
 function submit(callback) {
 	// if (passwd.value == con_pass.value) {
 	let request = new XMLHttpRequest()
-	let url = ""
+	let url = "doSignin"
 	request.open("post", url, true)
 	let data = new FormData()
-	data.append("user", user.value)
-	data.append("passwd", passwd.value)
+	data.append("username", user.value)
+	data.append("password", passwd.value)
 	request.onreadystatechange = function() {
-		if (this.readyState == 4) {
+		if (this.readyState == 4 && this.status == 200) {
 			callback.call(this, this.response)
 			// console.log(this.responseText)
 		}
@@ -70,7 +70,9 @@ function signin() {
 					hit.innerHTML = "该账号已存在"
 				else if (res == true) {
 					hit.innerHTML = "账号注册成功，两秒后自动刷新页面"
-					setTimeout("window.location.reload()", 2000)
+					setTimeout(function() {
+						"window.location.reload()"
+					}, 2000)
 				} else if (res == false)
 					hit.innerHTML = "账号注册失败"
 			})
