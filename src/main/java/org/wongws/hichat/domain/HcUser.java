@@ -10,7 +10,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -22,7 +25,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "t_user")
 public class HcUser implements UserDetails {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "autoid")
 	private Long autoid;
 	@Column(name = "userid")
@@ -40,6 +43,8 @@ public class HcUser implements UserDetails {
 	@Column(name = "unregistered_time")
 	private LocalDateTime unregistered_time;
 	@ManyToMany(cascade = { CascadeType.REFRESH }, fetch = FetchType.EAGER)
+	@JoinTable(name = "r_user_roles", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "role_id") })
 	private List<HcRole> roles;
 
 	public Long getAutoid() {

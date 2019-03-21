@@ -68,12 +68,12 @@ function signin() {
 			submit(function(res) {
 				if (res == "exist")
 					hit.innerHTML = "该账号已存在"
-				else if (res == true) {
+				else if (res == "true") {
 					hit.innerHTML = "账号注册成功，两秒后自动刷新页面"
 					setTimeout(function() {
 						"window.location.reload()"
 					}, 2000)
-				} else if (res == false)
+				} else if (res == "false")
 					hit.innerHTML = "账号注册失败"
 			})
 		}
