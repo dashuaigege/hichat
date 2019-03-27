@@ -56,28 +56,32 @@ function signin() {
 		status[1].style.top = 0
 		onoff = !onoff
 	} else {
-		if (!/^[A-Za-z0-9]+$/.test(user.value))
+		if (!/^[A-Za-z0-9]+$/.test(user.value)) {
 			hit.innerHTML = "账号只能为英文和数字"
-		else if (user.value.length < 6)
+			hint()
+		} else if (user.value.length < 6) {
 			hit.innerHTML = "账号长度必须大于6位"
-		else if (passwd.value.length < 6)
+			hint()
+		} else if (passwd.value.length < 6) {
 			hit.innerHTML = "密码长度必须大于6位"
-		else if (passwd.value != con_pass.value)
+			hint()
+		} else if (passwd.value != con_pass.value) {
 			hit.innerHTML = "两次密码不相等"
-		else if (passwd.value = con_pass.value) {
+			hint()
+		} else if (passwd.value = con_pass.value) {
 			submit(function(res) {
 				if (res == "exist")
 					hit.innerHTML = "该账号已存在"
 				else if (res == "true") {
 					hit.innerHTML = "账号注册成功，两秒后自动刷新页面"
 					setTimeout(function() {
-						"window.location.reload()"
+						window.location.reload()
 					}, 2000)
 				} else if (res == "false")
 					hit.innerHTML = "账号注册失败"
+				hint()
 			})
 		}
-		hint()
 	}
 }
 
