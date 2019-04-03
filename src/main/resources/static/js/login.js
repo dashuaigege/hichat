@@ -39,6 +39,9 @@ function submit(callback) {
 		if (this.readyState == 4 && this.status == 200) {
 			callback.call(this, this.response)
 			// console.log(this.responseText)
+		} else if (request.readyState == 4 && request.status != 200) {
+			hit.innerHTML = "服务失败！！！"
+			hint()
 		}
 	}
 	request.send(data)
@@ -88,6 +91,7 @@ function signin() {
 // 登录按钮
 function login() {
 	if (onoff) {
+		let hit = document.getElementById("hint").getElementsByTagName("p")[0]
 		let request = new XMLHttpRequest()
 		let url = "doLogin"
 		request.open("post", url, true)
@@ -96,15 +100,16 @@ function login() {
 		data.append("password", passwd.value)
 		request.onreadystatechange = function() {
 			if (request.readyState == 4 && request.status == 200) {
-				// <div th:if="${param.error}">无效的账号和密码</div>
-				// <div th:if="${param.logout}">你已注销</div>
 				let result = JSON.parse(request.responseText);
-				if (result.status == true)
-					window.location.href = result.targetUrl;
-				else
+				if (result.status == true) {
+					window.location.href = result.targetUrl
+				} else {
+					hit.innerHTML = result.statusText
 					hint()
-					// else
-					// window.location.href = request.responseText;
+				}
+			} else if (request.readyState == 4 && request.status != 200) {
+				hit.innerHTML = "服务失败！！！"
+				hint()
 			}
 		}
 		request.send(data)

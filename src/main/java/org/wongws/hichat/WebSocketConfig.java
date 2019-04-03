@@ -16,13 +16,14 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		//注册一个STOMP endpoint,并指定使用SockJS协议。
-		registry.addEndpoint("/endpointWisely").withSockJS();
-		registry.addEndpoint("/endpointChat").withSockJS();
+		registry.addEndpoint("/endpointBroadcast").withSockJS();
+		registry.addEndpoint("/endpointPersonal").withSockJS();
 	}
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry registry) {
-		//广播室应配置一个/topic消息代理
+		//广播室配置一个/topic消息代理
+		//点对点式配置一个/queue消息代理
 		registry.enableSimpleBroker("/queue","/topic");
 	}
 

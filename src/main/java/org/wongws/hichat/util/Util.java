@@ -5,17 +5,16 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.util.ClassUtils;
+import org.springframework.util.ResourceUtils;
+import org.wongws.hichat.domain.SimpleUser;
+import org.wongws.hichat.entity.HcUser;
+import org.wongws.hichat.helper.StringHelper;
+
 public class Util {
-	public static Map<String, Integer> UserDic = new ConcurrentHashMap<String, Integer>();
-	static {
-		UserDic.put("wws", 1);
-		UserDic.put("lmm", 2);
-		UserDic.put("zf", 3);
-		UserDic.put("wvv", 4);
-		UserDic.put("tzc", 5);
-		UserDic.put("yz", 6);
-	}
-	public static String IMGURL = "dist/images/";
+	public static Map<String, SimpleUser> User_OnOff_Dic = new ConcurrentHashMap<String, SimpleUser>();
+
+	public static String USERIMGURL = "static/dist/images";
 
 	/**
 	 * 获取访问者IP   在一般情况下使用Request.getRemoteAddr()即可，但是经过nginx等反向代理软件后，这个方法会失效。  
@@ -40,6 +39,13 @@ public class Util {
 			ip = request.getRemoteAddr();
 		}
 		return ip;
+	}
+
+	public static String getCurrentProjectPath() {
+		String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
+		if (System.getProperty("os.name").toLowerCase().startsWith("win"))
+			path = path.substring(path.indexOf("/") + 1);
+		return path;
 	}
 
 }
