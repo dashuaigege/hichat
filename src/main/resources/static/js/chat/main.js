@@ -14,7 +14,7 @@ function(e) {
     var s = {};
     return t.m = e,
     t.c = s,
-    t.p = "/dist/",
+    t.p = "/js/chat/",
     t(0)
 } ([function(e, t, s) {
     "use strict";
@@ -423,7 +423,7 @@ function(e, t, s) {
     //localStorage.setItem(n, (0, o["default"])(l))  
     t["default"] = {
         fetch: function() {
-        	return userInfo
+        	return userContext
            // return JSON.parse(localStorage.getItem(n))
         },
         save: function(e) {

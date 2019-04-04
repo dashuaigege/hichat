@@ -1,18 +1,12 @@
 package org.wongws.hichat.controller;
 
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.wongws.hichat.context.UserContext;
-import org.wongws.hichat.domain.ChatInfo;
-import org.wongws.hichat.domain.Message;
-import org.wongws.hichat.domain.RecordInfo;
-import org.wongws.hichat.entity.HcUser;
 import org.wongws.hichat.domain.SimpleUser;
-import org.wongws.hichat.util.Util;
+import org.wongws.hichat.entity.HcUser;
 
 @RestController
 public class MainController {
