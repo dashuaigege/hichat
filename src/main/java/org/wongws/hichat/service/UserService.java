@@ -1,0 +1,20 @@
+package org.wongws.hichat.service;
+
+import java.util.List;
+
+import org.wongws.hichat.entity.HcUser;
+
+public interface UserService {
+	boolean hasMatchUsername(String username);
+
+	boolean hasMatchUser(String username, String password);
+
+	void saveUser(String username, String password, String ip);
+
+	void loadUsersByRole(int roleId);
+
+	HcUser getUserById(long id);
+	
+	HcUser getUserByUsername(String username);
+
+}
