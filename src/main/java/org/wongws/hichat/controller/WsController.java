@@ -40,8 +40,14 @@ public class WsController {
 		// return JSON.toJSONString(result);
 		return result;
 	}
+	
+	@MessageMapping("/notifyNewUser")
+	@SendTo("/topic/getNewUser")
+	public SimpleUser notifyNewUser(SimpleUser simpleUser) throws InterruptedException {
+		return simpleUser;
+	}
 
-	@MessageMapping("/notificationOnline")
+	@MessageMapping("/notifyOnline")
 	@SendTo("/topic/getOnline")
 	public SimpleUser notificationOnline(HcUser user) throws InterruptedException {
 		if (!StringHelper.isNullOrEmpty(user.getUser_hid())) {

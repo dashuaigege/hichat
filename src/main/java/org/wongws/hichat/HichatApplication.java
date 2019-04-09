@@ -9,7 +9,9 @@ import org.springframework.cache.annotation.EnableCaching;
 public class HichatApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HichatApplication.class, args);
+		SpringApplication springApplication = new SpringApplication(HichatApplication.class);
+		springApplication.addListeners(new ApplicationStartup());
+		springApplication.run(args);
 	}
 
 }

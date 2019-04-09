@@ -3,6 +3,7 @@ var confirm = document.getElementsByClassName("confirm")[0]
 // var user = document.getElementById("user")
 // var passwd = document.getElementById("passwd")
 // var con_pass = document.getElementById("confirm-passwd")
+var stompClient = null;
 
 // 自动居中title
 var name_c = document.getElementById("title")
@@ -58,6 +59,9 @@ function signin() {
 		status[0].style.top = 35 + "px"
 		status[1].style.top = 0
 		onoff = !onoff
+		
+		connect()
+		//notifyNewUser()
 	} else {
 		if (!/^[A-Za-z0-9]+$/.test(user.value)) {
 			hit.innerHTML = "账号只能为英文和数字"
@@ -121,4 +125,25 @@ function login() {
 		status[1].style.top = 35 + "px"
 		onoff = !onoff
 	}
+}
+
+function connect() {
+	var socket = new SockJS('/hichat/endpointBroadcast');
+	stompClient = Stomp.over(socket);
+	stompClient.connect({}, function(frame) {
+		console.log('Connected:' + frame);
+	});
+}
+
+function disconnect() {
+	if (stompClient != null) {
+		stompClient.disconnect();
+	}
+	console.log("DisConnected");
+}
+
+function notifyNewUser() {
+	stompClient.send("/notifyNewUser", {}, JSON.stringify({
+		'id' : 123
+	}));
 }

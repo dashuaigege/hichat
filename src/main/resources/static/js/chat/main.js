@@ -234,8 +234,8 @@ function(e, t, s) {
             var e = o["default"].fetch();
             return {
                 user: e.user,
-                userList: e.userList,
-                sessionList: e.sessionList,
+                userList: e.users,
+                sessionList: e.chats,
                 search: "",
                 sessionIndex: 0
             }

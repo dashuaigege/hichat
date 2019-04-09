@@ -7,9 +7,9 @@ public class SimpleUser {
 		this.id = id;
 		this.name = name;
 		if (online) {
-			this.img = img + ChatEnum.EnuPicType.online.getValue() + ".png";
+			this.img = "/hichat/toFindUserimg?id=" + img + "_" + ChatEnum.EnuPicType.online.getValue();
 		} else {
-			this.img = img + ChatEnum.EnuPicType.offline.getValue() + ".png";
+			this.img = "/hichat/toFindUserimg?id=" + img + "_" + ChatEnum.EnuPicType.offline.getValue();
 		}
 		this.online = online;
 	}
