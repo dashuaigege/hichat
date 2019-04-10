@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8">
 <title>SpringBoot+WebSocket+广播式</title>
-<script type="text/javascript" th:src="@{sockjs.min.js}"></script>
-<script type="text/javascript" th:src="@{stomp.min.js}"></script>
-<script type="text/javascript" th:src="@{jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/sockjs.min.js}"></script>
+<script type="text/javascript" th:src="@{js/stomp.min.js}"></script>
+<script type="text/javascript" th:src="@{js/jquery-3.3.1.min.js}"></script>
 </head>
 <body onload="disconnect()">
 	<noscript>
@@ -36,7 +38,7 @@
 		}
 
 		function connect() {
-			var socket = new SockJS('/endpointWisely');
+			var socket = new SockJS('/hichat/endpointBroadcast');
 			stompClient = Stomp.over(socket);
 			stompClient.connect({}, function(frame) {
 				setConnected(true);

@@ -21,6 +21,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.wongws.hichat.context.SimpleUserContext;
 import org.wongws.hichat.dao.HcUserDao;
 import org.wongws.hichat.domain.SimpleUser;
 import org.wongws.hichat.entity.HcRole;
@@ -63,7 +64,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 
 	@Override
-	public void saveUser(String username, String password, String ip) {
+	public SimpleUserContext saveUser(String username, String password, String ip) {
 		HcUser user = new HcUser();
 		user.setUser_hid(UUID.randomUUID().toString());
 		user.setUsername(username);
@@ -82,11 +83,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 				if (!Util.User_OnOff_Dic.containsKey(simpleUser.getId()))
 					Util.User_OnOff_Dic.put(simpleUser.getId(), simpleUser);
 				countDownLatch.await();
+				SimpleUserContext simpleUserContext = new SimpleUserContext();
+				simpleUserContext.setUser(simpleUser);
 				logger.info("saveUser username: " + username + " success");
+				return simpleUserContext;
 			} catch (InterruptedException e) {
 				logger.warn("asyncServiceExecutor execute failed:" + e.getMessage());
 			}
 		}
+		return null;
 	}
 
 	@Override

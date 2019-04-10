@@ -2,6 +2,7 @@ package org.wongws.hichat.service;
 
 import java.util.List;
 
+import org.wongws.hichat.context.SimpleUserContext;
 import org.wongws.hichat.entity.HcUser;
 
 public interface UserService {
@@ -9,7 +10,7 @@ public interface UserService {
 
 	boolean hasMatchUser(String username, String password);
 
-	void saveUser(String username, String password, String ip);
+	SimpleUserContext saveUser(String username, String password, String ip);
 
 	void loadUsersByRole(int roleId);
 

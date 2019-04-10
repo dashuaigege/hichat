@@ -42,33 +42,10 @@ public class MainController {
 		for (Map.Entry<String, SimpleUser> otherUser : Util.User_OnOff_Dic.entrySet()) {
 			if (!otherUser.getKey().equals(hid))
 				users.add(otherUser.getValue());
+			else
+				otherUser.getValue().setOnline(true);
 		}
 		userContext.setUsers(users);
-		//
-		// OnlineUser userinfo = new UserInfo();
-		// userinfo.setName(name);
-		// userinfo.setId(userid);
-		// userinfo.setImg(Util.IMGURL + userid + ".jpg");
-		//
-		// chat.setUser(userinfo);
-		// chat.setSessionList(new ArrayList<RecordInfo>());
-		// chat.setUserList(new ArrayList<UserInfo>());
-		//
-		// for (Map.Entry<String, Integer> item : Util.UserDic.entrySet()) {
-		// if (item.getKey().equals(name))
-		// continue;
-		// UserInfo tempUser = new UserInfo();
-		// tempUser.setName(item.getKey());
-		// tempUser.setId(item.getValue());
-		// tempUser.setImg(Util.IMGURL + item.getValue() + ".jpg");
-		// chat.getUserList().add(tempUser);
-		//
-		// RecordInfo record=new RecordInfo();
-		// record.setUserName(item.getKey());
-		// record.setUserId(item.getValue());
-		// record.setMessages(new ArrayList<Message>());
-		// chat.getSessionList().add(record);
-		// }
 		return userContext;
 	}
 

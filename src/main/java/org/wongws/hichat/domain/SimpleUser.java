@@ -3,6 +3,9 @@ package org.wongws.hichat.domain;
 import org.wongws.hichat.util.ChatEnum;
 
 public class SimpleUser {
+	public SimpleUser() {
+	}
+
 	public SimpleUser(String id, String name, Long img, boolean online) {
 		this.id = id;
 		this.name = name;
@@ -49,6 +52,13 @@ public class SimpleUser {
 
 	public void setOnline(boolean online) {
 		this.online = online;
+		if (this.img.contains("?id=")) {
+			if (online) {
+				this.img = this.img.substring(0, this.img.length() - 1) + ChatEnum.EnuPicType.online.getValue();
+			} else {
+				this.img = this.img.substring(0, this.img.length() - 1) + ChatEnum.EnuPicType.offline.getValue();
+			}
+		}
 	}
 
 }

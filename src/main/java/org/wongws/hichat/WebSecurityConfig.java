@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/login", "/doSignin").permitAll().anyRequest().authenticated().and()
+		http.authorizeRequests().antMatchers("/", "/login", "/doSignin","/ws").permitAll().anyRequest().authenticated().and()
 				.formLogin().loginPage("/login").successHandler(loginSuccessHandler)
 				.failureHandler(userAuthenticationFailureHandler).loginProcessingUrl("/doLogin")
 				.usernameParameter("username").passwordParameter("password").permitAll().and().logout().permitAll()

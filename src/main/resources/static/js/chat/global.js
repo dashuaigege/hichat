@@ -1,3 +1,3 @@
 var contextPath = "/hichat"
-var myVue
+var myVue=null
 var userContext

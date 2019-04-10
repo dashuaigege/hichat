@@ -10,6 +10,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
+import org.wongws.hichat.context.SimpleUserContext;
 import org.wongws.hichat.domain.SimpleUser;
 import org.wongws.hichat.domain.WiselyMessage;
 import org.wongws.hichat.domain.WiselyResponse;
@@ -40,26 +41,26 @@ public class WsController {
 		// return JSON.toJSONString(result);
 		return result;
 	}
-	
+
 	@MessageMapping("/notifyNewUser")
 	@SendTo("/topic/getNewUser")
-	public SimpleUser notifyNewUser(SimpleUser simpleUser) throws InterruptedException {
-		return simpleUser;
+	public SimpleUserContext notifyNewUser(SimpleUser simpleUser) throws InterruptedException {
+		SimpleUserContext simpleUserContext = new SimpleUserContext();
+		simpleUserContext.setUser(simpleUser);
+		return simpleUserContext;
 	}
 
 	@MessageMapping("/notifyOnline")
 	@SendTo("/topic/getOnline")
-	public SimpleUser notificationOnline(HcUser user) throws InterruptedException {
-		if (!StringHelper.isNullOrEmpty(user.getUser_hid())) {
-			if (Util.User_OnOff_Dic.containsKey(user.getUser_hid())) {
-				Util.User_OnOff_Dic.get(user.getUser_hid()).setOnline(true);
-			} else {
-				SimpleUser simpleUser = new SimpleUser(user.getUser_hid(), user.getUsername(), user.getId(), true);
-				Util.User_OnOff_Dic.put(simpleUser.getId(), simpleUser);
+	public SimpleUserContext notificationOnline(SimpleUser user) throws InterruptedException {
+		SimpleUserContext simpleUserContext = new SimpleUserContext();
+		if (!StringHelper.isNullOrEmpty(user.getId())) {
+			if (Util.User_OnOff_Dic.containsKey(user.getId())) {
+				Util.User_OnOff_Dic.get(user.getId()).setOnline(true);
 			}
-			return Util.User_OnOff_Dic.get(user.getUser_hid());
+			simpleUserContext.setUser(Util.User_OnOff_Dic.get(user.getId()));
 		}
-		return null;
+		return simpleUserContext;
 	}
 
 }

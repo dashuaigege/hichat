@@ -15,6 +15,8 @@ public class Util {
 	public static Map<String, SimpleUser> User_OnOff_Dic = new ConcurrentHashMap<String, SimpleUser>();
 
 	public static String USERIMGURL = "static/dist/images";
+	
+	public static String HICHATLEAVEMESSAGES="HICHATLEAVEMESSAGES";
 
 	/**
 	 * 获取访问者IP   在一般情况下使用Request.getRemoteAddr()即可，但是经过nginx等反向代理软件后，这个方法会失效。  
