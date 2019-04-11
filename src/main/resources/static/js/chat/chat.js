@@ -2,15 +2,16 @@ var sock = new SockJS("endpointPersonal");
 var stomp = Stomp.over(sock);
 var stompBroadcast;
 stomp.connect('guest', 'guest', function(frame) {
-	stomp.subscribe("/user/queue/hichatPersonal", handleHichatPersonal);
+	stomp.subscribe("/user/queue/hichatPersonal", function(response) {
+		getChatMessage(JSON.parse(response.body));
+	});
 });
 
-function handleHichatPersonal(message) {
-	let result = JSON.parse(message.body);
+function getChatMessage(result) {
 	let currentSession;
-	for (x in myVue.sessionList) {
-		if (myVue.sessionList[x].userId == result.sendId) {
-			currentSession = myVue.sessionList[x];
+	for (var x in myVue.chats) {
+		if (myVue.chats[x].userId == result.sendId) {
+			currentSession = myVue.chats[x];
 			break;
 		}
 	}
@@ -30,6 +31,13 @@ $.ajax({
 	async : false,
 	success : function(data) {
 		userContext = data
+//		for(var x in userContext.chats){
+//			if(userContext.chats[x].messages.length>0){
+//				for(var y in userContext.chats[x].messages){
+//					userContext.chats[x].messages[y].date=new Date(userContext.chats[x].messages[y].date.time);
+//				}
+//			}
+//		}
 		connectBroadcast()
 	},
 	error : function(result) {
@@ -45,10 +53,10 @@ function connectBroadcast() {
 		stompBroadcast.subscribe('/topic/getNewUser', function(response) {
 			getNewUser(JSON.parse(response.body));
 		});
-		stompBroadcast.subscribe('/topic/getOnline', function(response) {
-			getOnline(JSON.parse(response.body));
+		stompBroadcast.subscribe('/topic/getOn_Offline', function(response) {
+			getOn_Offline(JSON.parse(response.body));
 		});
-		notifyOnline()
+		notifyOn_Offline()
 	});
 }
 
@@ -61,40 +69,41 @@ function disconnect() {
 }
 
 function getNewUser(simpleUserContext) {
-	myVue.userList.push(simpleUserContext.user);
-	myVue.sessionList.push(simpleUserContext.chat);
+	myVue.users.push(simpleUserContext.user);
+	myVue.chats.push(simpleUserContext.chat);
 }
 
-function getOnline(simpleUserContext) {
+function getOn_Offline(simpleUserContext) {
 	let otherId = simpleUserContext.user.id;
 	let currentId = userContext.user.id;
 	if (myVue != null && otherId != currentId) {
 		let result = updateImg(simpleUserContext);
 		if (!result) {
-			myVue.userList.push(simpleUserContext.user);
-			myVue.sessionList.push(simpleUserContext.chat);
+			myVue.users.push(simpleUserContext.user);
+			myVue.chats.push(simpleUserContext.chat);
 		}
 	}
 }
 
 function updateImg(simpleUserContext) {
 	let otherId = simpleUserContext.user.id;
-	for (x in myVue.userList) {
-		if (myVue.userList[x].id == otherId) {
-			myVue.userList[x].img = simpleUserContext.user.img
+	for (var x in myVue.users) {
+		if (myVue.users[x].id == otherId) {
+			myVue.users[x].img = simpleUserContext.user.img
 			return true
 		}
 	}
 	return false
 }
 
-function notifyOnline() {
-	stompBroadcast.send("/notifyOnline", {}, JSON.stringify(userContext.user));
+function notifyOn_Offline() {
+	stompBroadcast.send("/notifyOn_Offline", {}, JSON
+			.stringify(userContext.user));
 }
 
 function sendSplittle(text) {
 	stomp.send("/chat", {
-		receiver : myVue.session.userName
+		receiver : myVue.session.userId
 	}, text);
 }
 

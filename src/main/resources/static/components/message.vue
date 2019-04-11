@@ -1,9 +1,9 @@
 <script>
     export default {
-        props: ['session', 'user', 'userList'],
+        props: ['session', 'user', 'users'],
         computed: {
             sessionUser () {
-                let users = this.userList.filter(item => item.id === this.session.userId);
+                let users = this.users.filter(item => item.id === this.session.userId);
                 return users[0];
             }
         },

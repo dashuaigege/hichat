@@ -1,7 +1,5 @@
 package org.wongws.hichat.service;
 
-import java.util.List;
-
 import org.wongws.hichat.context.SimpleUserContext;
 import org.wongws.hichat.entity.HcUser;
 

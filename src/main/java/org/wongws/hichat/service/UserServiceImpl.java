@@ -6,16 +6,9 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,12 +17,10 @@ import org.springframework.stereotype.Service;
 import org.wongws.hichat.context.SimpleUserContext;
 import org.wongws.hichat.dao.HcUserDao;
 import org.wongws.hichat.domain.SimpleUser;
-import org.wongws.hichat.entity.HcRole;
 import org.wongws.hichat.entity.HcUser;
 import org.wongws.hichat.function.CreateUserImg;
 import org.wongws.hichat.repository.HcRoleRepository;
 import org.wongws.hichat.repository.HcUserRepository;
-import org.wongws.hichat.util.ImageProducerUtil;
 import org.wongws.hichat.util.Util;
 
 @Service("userService")

@@ -234,25 +234,25 @@ function(e, t, s) {
             var e = o["default"].fetch();
             return {
                 user: e.user,
-                userList: e.users,
-                sessionList: e.chats,
+                users: e.users,
+                chats: e.chats,
                 search: "",
                 sessionIndex: 0
             }
         },
         computed: {
             session: function() {
-                return this.sessionList[this.sessionIndex]
+                return this.chats[this.sessionIndex]
             }
         },
         watch: {
-            sessionList: {
+            chats: {
                 deep: !0,
                 handler: function() {
                     o["default"].save({
                         user: this.user,
-                        userList: this.userList,
-                        sessionList: this.sessionList
+                        users: this.users,
+                        chats: this.chats
                     })
                 }
             }
@@ -280,10 +280,10 @@ function(e, t) {
         value: !0
     }),
     t["default"] = {
-        props: ["userList", "sessionIndex", "session", "search"],
+        props: ["users", "sessionIndex", "session", "search"],
         methods: {
             select: function(e) {
-                this.sessionIndex = this.userList.indexOf(e)
+                this.sessionIndex = this.users.indexOf(e)
             }
         },
         filters: {
@@ -302,11 +302,11 @@ function(e, t) {
         value: !0
     }),
     t["default"] = {
-        props: ["session", "user", "userList"],
+        props: ["session", "user", "users"],
         computed: {
             sessionUser: function() {
                 var e = this,
-                t = this.userList.filter(function(t) {
+                t = this.users.filter(function(t) {
                     return t.id === e.session.userId
                 });
                 return t[0]
@@ -368,66 +368,44 @@ function(e, t, s) {
     });
     var i = s(14),
     o = r(i),
-    n = "VUE-CHAT-v3";
-    localStorage.removeItem(n);
-//    if (!localStorage.getItem(n)) {
-//        var a = new Date,
-//        l = {
-//            user: {
-//                id: 1,
-//                name: "Coffce",
-//                img: "dist/images/1.jpg"
-//            },
-//            userList: [{
-//                id: 2,
-//                name: "test",
-//                img: "dist/images/2.png"
-//            },
-//            {
-//                id: 3,
-//                name: "webpack",
-//                img: "dist/images/3.jpg"
-//            },
-//            {
-//                id: 4,
-//                name: "laowang",
-//                img: "dist/images/3.jpg"
-//            }],
-//            sessionList: [{
-//                userId: 2,
-//                messages: [{
-//                    text: "Hello，这是一个基于Vue + Webpack构建的简单chat示例，聊天记录保存在localStorge。简单演示了Vue的基础特性和webpack配置。",
-//                    date: a
-//                },
-//                {
-//                    text: "项目地址: https://github.com/coffcer/vue-chat",
-//                    date: a
-//                },
-//                {
-//                    text: "项目地址: https://github.com/coffcer/vue-chat",
-//                    date: a,
-//                    self: true
-//                }]
-//            },
-//            {
-//                userId: 3,
-//                messages: []
-//            },
-//            {
-//                userId: 4,
-//                messages: []
-//            }]
-//        };
-//        localStorage.setItem(n, (0, o["default"])(l))       
-//    }
-    //localStorage.setItem(n, (0, o["default"])(l))  
+    n = userContext.user.id;
+   // console.log("userContext.user.id:"+n);
+    if (!localStorage.getItem(n)||localStorage.getItem(n)=="null") {
+        // l = userContext
+    	//console.log(n+localStorage.getItem(n));
+        localStorage.setItem(n, (0, o["default"])(userContext))       
+    }
+    else{
+    	console.log(n+localStorage.getItem(n));
+    	var localUserContext=JSON.parse(localStorage.getItem(n));
+    	if(localUserContext.user.id==userContext.user.id){
+    		for(var x in userContext.chats){
+    			for(var y in localUserContext.chats){
+    				if(userContext.chats[x].userId==localUserContext.chats[y].userId){
+    					 if(userContext.chats[x].messages.length>0){
+    						 for(var z in userContext.chats[x].messages){
+    							 localUserContext.chats[y].messages.push(userContext.chats[x].messages[z]);
+    						 }
+    					 }
+    					 if(localUserContext.chats[y].messages.length>0){
+    						 userContext.chats[x].messages.length=0;
+    						 for(var z in localUserContext.chats[y].messages){
+    							 userContext.chats[x].messages.push(localUserContext.chats[y].messages[z]);
+    						 }
+    					 }			
+    				}
+    			}
+    		}
+    	}
+    	// l = userContext
+        localStorage.setItem(n, (0, o["default"])(userContext))  
+    }
     t["default"] = {
         fetch: function() {
-        	return userContext
-           // return JSON.parse(localStorage.getItem(n))
+            return JSON.parse(localStorage.getItem(n))
         },
         save: function(e) {
-           // localStorage.setItem(n, (0, o["default"])(e))
+            localStorage.setItem(n, (0, o["default"])(e))
         }
     }
 },
@@ -500,13 +478,13 @@ function(e, t, s) {
     r.locals && (e.exports = r.locals)
 },
 function(e, t) {
-    e.exports = "<div><div class=sidebar><card :user=user :search.sync=search></card><list :user-list=userList :session=session :session-index.sync=sessionIndex :search=search></list></div><div class=main><message :session=session :user=user :user-list=userList></message><text :session=session></text></div></div>"
+    e.exports = "<div><div class=sidebar><card :user=user :search.sync=search></card><list :user-list=users :session=session :session-index.sync=sessionIndex :search=search></list></div><div class=main><message :session=session :user=user :user-list=users></message><text :session=session></text></div></div>"
 },
 function(e, t) {
     e.exports = '<div class=m-card><header><img class=avatar width=40 height=40 :alt=user.name :src=user.img><p class=name>{{user.name}}</p></header><footer><input class=search placeholder="search user..." v-model=search></footer></div>'
 },
 function(e, t) {
-    e.exports = '<div class=m-list><ul><li v-for="item in userList | search" :class="{ active: session.userId === item.id }" @click=select(item)><img class=avatar width=30 height=30 :alt=item.name :src=item.img><p class=name>{{item.name}}</p></li></ul></div>'
+    e.exports = '<div class=m-list><ul><li v-for="item in users | search" :class="{ active: session.userId === item.id }" @click=select(item)><img class=avatar width=30 height=30 :alt=item.name :src=item.img><p class=name>{{item.name}}</p></li></ul></div>'
 },
 function(e, t) {
     e.exports = '<div class=m-message v-scroll-bottom=session.messages><ul><li v-for="item in session.messages"><p class=time><span>{{item.date | time}}</span></p><div class=main :class="{ self: item.self }"><img class=avatar width=30 height=30 :src="item | avatar"><div class=text>{{item.text}}</div></div></li></ul></div>'

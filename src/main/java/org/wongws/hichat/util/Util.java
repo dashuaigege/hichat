@@ -6,10 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.util.ClassUtils;
-import org.springframework.util.ResourceUtils;
 import org.wongws.hichat.domain.SimpleUser;
-import org.wongws.hichat.entity.HcUser;
-import org.wongws.hichat.helper.StringHelper;
 
 public class Util {
 	public static Map<String, SimpleUser> User_OnOff_Dic = new ConcurrentHashMap<String, SimpleUser>();
