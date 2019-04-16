@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin().loginPage("/login").successHandler(loginSuccessHandler)
 				.failureHandler(userAuthenticationFailureHandler).loginProcessingUrl("/doLogin")
 				.usernameParameter("username").passwordParameter("password").permitAll().and().logout().permitAll()
-				.and().rememberMe().tokenValiditySeconds(3600).key("mykey").and().csrf().disable();
+				.and().rememberMe().tokenValiditySeconds(3600).key("mykey").and().csrf().disable().headers().frameOptions().disable();
 	}
 
 	@Override

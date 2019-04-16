@@ -29,8 +29,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		// 注册一个STOMP endpoint,并指定使用SockJS协议。
-		registry.addEndpoint("/endpointBroadcast").withSockJS();
-		registry.addEndpoint("/endpointPersonal").withSockJS();
+		registry.addEndpoint("/endpointBroadcast").withSockJS()
+				.setClientLibraryUrl("https://cdn.bootcss.com/sockjs-client/1.3.0/sockjs.min.js");
+		;
+		registry.addEndpoint("/endpointPersonal").withSockJS()
+				.setClientLibraryUrl("https://cdn.bootcss.com/sockjs-client/1.3.0/sockjs.min.js");
+		;
 	}
 
 	@Override

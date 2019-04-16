@@ -27,17 +27,17 @@ public class UserContext {
 		this.user = user;
 	}
 
-	private List<SimpleUser> users;
+	private List<SimpleUser> userList;
 
-	public List<SimpleUser> getUsers() {
-		return users;
+	public List<SimpleUser> getUserList() {
+		return userList;
 	}
 
-	public void setUsers(List<SimpleUser> users) {
-		this.users = users;
-		if (users != null && users.size() > 0) {
-			chats = new ArrayList<>();
-			for (SimpleUser user : users) {
+	public void setUserList(List<SimpleUser> userList) {
+		this.userList = userList;
+		if (userList != null && userList.size() > 0) {
+			sessionList = new ArrayList<>();
+			for (SimpleUser user : userList) {
 				// 此处需要读取未读消息，从Redis中获取
 				// item：sendNameToReciverName value：ChatInfo
 				String key = Util.HICHATLEAVEMESSAGES;
@@ -51,19 +51,19 @@ public class UserContext {
 					chatInfo.setUserId(user.getId());
 					chatInfo.setMessages(new ArrayList<>());
 				}
-				chats.add(chatInfo);
+				sessionList.add(chatInfo);
 			}
-			setChats(chats);
+			setSessionList(sessionList);
 		}
 	}
 
-	private List<ChatInfo> chats;
+	private List<ChatInfo> sessionList;
 
-	public List<ChatInfo> getChats() {
-		return chats;
+	public List<ChatInfo> getSessionList() {
+		return sessionList;
 	}
 
-	public void setChats(List<ChatInfo> chats) {
-		this.chats = chats;
+	public void setSessionList(List<ChatInfo> sessionList) {
+		this.sessionList = sessionList;
 	}
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Executor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
@@ -19,7 +20,9 @@ import org.wongws.hichat.domain.SimpleUser;
 import org.wongws.hichat.domain.WiselyMessage;
 import org.wongws.hichat.domain.WiselyResponse;
 import org.wongws.hichat.entity.HcUser;
+import org.wongws.hichat.function.SaveMessages;
 import org.wongws.hichat.helper.StringHelper;
+import org.wongws.hichat.repository.HcMessageRepository;
 import org.wongws.hichat.service.UserService;
 import org.wongws.hichat.util.RedisUtil;
 import org.wongws.hichat.util.Util;
@@ -37,6 +40,12 @@ public class WsController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private HcMessageRepository hcMessageRepository;
+
+	@Autowired
+	private Executor asyncServiceExecutor;
+
 	@MessageMapping("/chat")
 	public void handleChat(Principal principal, String msg, @Header("receiver") String userId) {
 		HcUser user = userService.getUserByUsername(principal.getName());
@@ -44,6 +53,9 @@ public class WsController {
 		if (Util.User_OnOff_Dic.containsKey(userId)) {
 			boolean isOnline = Util.User_OnOff_Dic.get(userId).isOnline();
 			String reciverName = Util.User_OnOff_Dic.get(userId).getName();
+			// 开个线程 做数据保存
+			SaveMessages saveMessages = new SaveMessages(user.getUser_hid(), userId, msg, hcMessageRepository);
+			asyncServiceExecutor.execute(saveMessages);
 			if (isOnline) {
 				result.put("message", msg);
 				result.put("sendId", user.getUser_hid());

@@ -14,9 +14,9 @@
                 // 登录用户
                 user: serverData.user,
                 // 用户列表
-                users: serverData.users,
+                userList: serverData.userList,
                 // 会话列表
-                chats: serverData.chats,
+                sessionList: serverData.sessionList,
                 // 搜索key
                 search: '',
                 // 选中的会话Index
@@ -25,18 +25,18 @@
         },
         computed: {
             session () {
-                return this.chats[this.sessionIndex];
+                return this.sessionList[this.sessionIndex];
             }
         },
         watch: {
-            // 每当chats改变时，保存到localStorage中
-            chats: {
+            // 每当sessionList改变时，保存到localStorage中
+            sessionList: {
                 deep: true,
                 handler () {
                     store.save({
                         user: this.user,
-                        users: this.users,
-                        chats: this.chats
+                        userList: this.userList,
+                        sessionList: this.sessionList
                     });
                 }
             }
@@ -52,10 +52,10 @@
     <div>
         <div class="sidebar">
             <card :user="user" :search.sync="search"></card>
-            <list :user-list="users" :session="session" :session-index.sync="sessionIndex" :search="search"></list>
+            <list :user-list="userList" :session="session" :session-index.sync="sessionIndex" :search="search"></list>
         </div>
         <div class="main">
-            <message :session="session" :user="user" :user-list="users"></message> 
+            <message :session="session" :user="user" :user-list="userList"></message> 
             <text :session="session"></text>
         </div>
     </div>

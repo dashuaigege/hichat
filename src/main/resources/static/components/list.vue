@@ -1,9 +1,9 @@
 <script>
     export default {
-        props: ['users', 'sessionIndex', 'session', 'search'],
+        props: ['userList', 'sessionIndex', 'session', 'search'],
         methods: {
             select (value) {
-                this.sessionIndex = this.users.indexOf(value);
+                this.sessionIndex = this.userList.indexOf(value);
             }
         },
         filters: {
@@ -17,7 +17,7 @@
 <template>
     <div class="m-list">
         <ul>
-            <li v-for="item in users | search" :class="{ active: session.userId === item.id }" @click="select(item)">
+            <li v-for="item in userList | search" :class="{ active: session.userId === item.id }" @click="select(item)">
                 <img class="avatar"  width="30" height="30" :alt="item.name" :src="item.img">
                 <p class="name">{{item.name}}</p>
             </li>

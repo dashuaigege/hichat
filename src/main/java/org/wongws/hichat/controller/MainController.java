@@ -37,7 +37,7 @@ public class MainController {
 			else
 				otherUser.getValue().setOnline(true);
 		}
-		userContext.setUsers(users);
+		userContext.setUserList(users);
 		return userContext;
 	}
 

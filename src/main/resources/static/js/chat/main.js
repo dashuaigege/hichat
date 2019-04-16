@@ -234,25 +234,25 @@ function(e, t, s) {
             var e = o["default"].fetch();
             return {
                 user: e.user,
-                users: e.users,
-                chats: e.chats,
+                userList: e.userList,
+                sessionList: e.sessionList,
                 search: "",
                 sessionIndex: 0
             }
         },
         computed: {
             session: function() {
-                return this.chats[this.sessionIndex]
+                return this.sessionList[this.sessionIndex]
             }
         },
         watch: {
-            chats: {
+            sessionList: {
                 deep: !0,
                 handler: function() {
                     o["default"].save({
                         user: this.user,
-                        users: this.users,
-                        chats: this.chats
+                        userList: this.userList,
+                        sessionList: this.sessionList
                     })
                 }
             }
@@ -280,10 +280,10 @@ function(e, t) {
         value: !0
     }),
     t["default"] = {
-        props: ["users", "sessionIndex", "session", "search"],
+        props: ["userList", "sessionIndex", "session", "search"],
         methods: {
             select: function(e) {
-                this.sessionIndex = this.users.indexOf(e)
+                this.sessionIndex = this.userList.indexOf(e)
             }
         },
         filters: {
@@ -302,11 +302,11 @@ function(e, t) {
         value: !0
     }),
     t["default"] = {
-        props: ["session", "user", "users"],
+        props: ["session", "user", "userList"],
         computed: {
             sessionUser: function() {
                 var e = this,
-                t = this.users.filter(function(t) {
+                t = this.userList.filter(function(t) {
                     return t.id === e.session.userId
                 });
                 return t[0]
@@ -376,21 +376,20 @@ function(e, t, s) {
         localStorage.setItem(n, (0, o["default"])(userContext))       
     }
     else{
-    	console.log(n+localStorage.getItem(n));
     	var localUserContext=JSON.parse(localStorage.getItem(n));
     	if(localUserContext.user.id==userContext.user.id){
-    		for(var x in userContext.chats){
-    			for(var y in localUserContext.chats){
-    				if(userContext.chats[x].userId==localUserContext.chats[y].userId){
-    					 if(userContext.chats[x].messages.length>0){
-    						 for(var z in userContext.chats[x].messages){
-    							 localUserContext.chats[y].messages.push(userContext.chats[x].messages[z]);
+    		for(var x in userContext.sessionList){
+    			for(var y in localUserContext.sessionList){
+    				if(userContext.sessionList[x].userId==localUserContext.sessionList[y].userId){
+    					 if(userContext.sessionList[x].messages.length>0){
+    						 for(var z in userContext.sessionList[x].messages){
+    							 localUserContext.sessionList[y].messages.push(userContext.sessionList[x].messages[z]);
     						 }
     					 }
-    					 if(localUserContext.chats[y].messages.length>0){
-    						 userContext.chats[x].messages.length=0;
-    						 for(var z in localUserContext.chats[y].messages){
-    							 userContext.chats[x].messages.push(localUserContext.chats[y].messages[z]);
+    					 if(localUserContext.sessionList[y].messages.length>0){
+    						 userContext.sessionList[x].messages.length=0;
+    						 for(var z in localUserContext.sessionList[y].messages){
+    							 userContext.sessionList[x].messages.push(localUserContext.sessionList[y].messages[z]);
     						 }
     					 }			
     				}
@@ -478,13 +477,13 @@ function(e, t, s) {
     r.locals && (e.exports = r.locals)
 },
 function(e, t) {
-    e.exports = "<div><div class=sidebar><card :user=user :search.sync=search></card><list :user-list=users :session=session :session-index.sync=sessionIndex :search=search></list></div><div class=main><message :session=session :user=user :user-list=users></message><text :session=session></text></div></div>"
+    e.exports = "<div><div class=sidebar><card :user=user :search.sync=search></card><list :user-list=userList :session=session :session-index.sync=sessionIndex :search=search></list></div><div class=main><message :session=session :user=user :user-list=userList></message><text :session=session></text></div></div>"
 },
 function(e, t) {
     e.exports = '<div class=m-card><header><img class=avatar width=40 height=40 :alt=user.name :src=user.img><p class=name>{{user.name}}</p></header><footer><input class=search placeholder="search user..." v-model=search></footer></div>'
 },
 function(e, t) {
-    e.exports = '<div class=m-list><ul><li v-for="item in users | search" :class="{ active: session.userId === item.id }" @click=select(item)><img class=avatar width=30 height=30 :alt=item.name :src=item.img><p class=name>{{item.name}}</p></li></ul></div>'
+    e.exports = '<div class=m-list><ul><li v-for="item in userList | search" :class="{ active: session.userId === item.id }" @click=select(item)><img class=avatar width=30 height=30 :alt=item.name :src=item.img><p class=name>{{item.name}}</p></li></ul></div>'
 },
 function(e, t) {
     e.exports = '<div class=m-message v-scroll-bottom=session.messages><ul><li v-for="item in session.messages"><p class=time><span>{{item.date | time}}</span></p><div class=main :class="{ self: item.self }"><img class=avatar width=30 height=30 :src="item | avatar"><div class=text>{{item.text}}</div></div></li></ul></div>'

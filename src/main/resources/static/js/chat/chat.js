@@ -9,9 +9,9 @@ stomp.connect('guest', 'guest', function(frame) {
 
 function getChatMessage(result) {
 	let currentSession;
-	for (var x in myVue.chats) {
-		if (myVue.chats[x].userId == result.sendId) {
-			currentSession = myVue.chats[x];
+	for (var x in myVue.sessionList) {
+		if (myVue.sessionList[x].userId == result.sendId) {
+			currentSession = myVue.sessionList[x];
 			break;
 		}
 	}
@@ -31,13 +31,6 @@ $.ajax({
 	async : false,
 	success : function(data) {
 		userContext = data
-//		for(var x in userContext.chats){
-//			if(userContext.chats[x].messages.length>0){
-//				for(var y in userContext.chats[x].messages){
-//					userContext.chats[x].messages[y].date=new Date(userContext.chats[x].messages[y].date.time);
-//				}
-//			}
-//		}
 		connectBroadcast()
 	},
 	error : function(result) {
@@ -69,8 +62,8 @@ function disconnect() {
 }
 
 function getNewUser(simpleUserContext) {
-	myVue.users.push(simpleUserContext.user);
-	myVue.chats.push(simpleUserContext.chat);
+	myVue.userList.push(simpleUserContext.user);
+	myVue.sessionList.push(simpleUserContext.chat);
 }
 
 function getOn_Offline(simpleUserContext) {
@@ -79,17 +72,17 @@ function getOn_Offline(simpleUserContext) {
 	if (myVue != null && otherId != currentId) {
 		let result = updateImg(simpleUserContext);
 		if (!result) {
-			myVue.users.push(simpleUserContext.user);
-			myVue.chats.push(simpleUserContext.chat);
+			myVue.userList.push(simpleUserContext.user);
+			myVue.sessionList.push(simpleUserContext.chat);
 		}
 	}
 }
 
 function updateImg(simpleUserContext) {
 	let otherId = simpleUserContext.user.id;
-	for (var x in myVue.users) {
-		if (myVue.users[x].id == otherId) {
-			myVue.users[x].img = simpleUserContext.user.img
+	for (var x in myVue.userList) {
+		if (myVue.userList[x].id == otherId) {
+			myVue.userList[x].img = simpleUserContext.user.img
 			return true
 		}
 	}
